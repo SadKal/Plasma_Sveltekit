@@ -1,6 +1,7 @@
 <script>
     import MostSoldGame from "./MostSoldGame.svelte";
     import gamesData from '$lib/data/games.json';
+    
     let games = [];
     let randomIndex;
     let randomObject; 

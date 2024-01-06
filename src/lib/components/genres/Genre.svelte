@@ -1,5 +1,5 @@
 <script>
-    import genresStore from "$lib/stores/genres";
+    import { goto } from "$app/navigation";
 
     export let name; 
     export let bg_color;
@@ -9,7 +9,8 @@
 
 <div class="genre" 
     style= "background-color: {bg_color};
-            color: {text_color}">
+            color: {text_color}"
+            on:click={() => goto(`/genres/${name}`)}>
     <object class="genre__svg" data={svg_src} type="image/svg+xml" width="70%" height="auto"/>
     <div class="genre__name">
         {name} 

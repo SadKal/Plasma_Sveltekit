@@ -1,8 +1,7 @@
 import { writable } from 'svelte/store';
 import games from '$lib/data/games.json';
+import { goto } from "$app/navigation";
 //import shopGameStore from '$stores/shopGame';
-
-
 
 let gamesData = [];
 
@@ -26,7 +25,7 @@ function showSlides(n) {
 
         if (n==0){
             let shopGame = gamesData.find((game) => game.image==slides.center.source);
-            shopGameStore.openShop(shopGame);
+            goto(`/game/${shopGame.id}`);
         };
 
         const border = n === +1 ? 0 : gamesData.length-1

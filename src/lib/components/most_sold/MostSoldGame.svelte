@@ -1,5 +1,5 @@
 <script>
-    //import shopGameStore from '$stores/shopGame'
+    import { goto } from "$app/navigation"
 
     export let game;
     let cover=game.cover;
@@ -33,7 +33,7 @@
     role="region" aria-label="Interactive Region"
     on:mousemove={updateRotation}
     on:mouseleave={resetRotation} 
-    on:click={() => shopGameStore.openShop(game)}
+    on:click={() => goto(`/game/${game.id}`)}
     class="most-sold__game">
         <img class="most-sold__image" src={cover} alt="cover"/>
         <div class="most-sold__data">
