@@ -1,0 +1,45 @@
+
+:root{ 
+
+    --text-color: rgb(209,51,100);
+    --subtitle-text-color: rgb(44, 170, 160);
+    --game-data-bg-color: rgba(243, 61, 119, 0.7);
+    --selected-text-color: rgb(250, 108, 139);
+    --topbar-background-color: rgb(0,74,64);
+    --searchbar-background-color: rgba(0,74,64,.1);
+    --searchbar-hover-background-color: rgba(0,74,64,.6);
+    --search-result-color: var(--searchbar-hover-background-color);
+    --search-result-hover-color: rgb(0, 61, 53); 
+    --search-mobile-color: var(--search-result-hover-color);
+    --search-mobile-focus-color: rgb(0, 43, 37);
+    --game-title-background-color: rgb(0,74,64);
+    --game-title-color-center: rgb(0, 41, 35);
+    --game-title-background-color-center: rgba(187, 46, 91, 0.7);
+    --add-to-cart-button-background: rgba(46, 187, 58, 70%);
+    --cart-bg-color: rgba(0,74,64,.95);
+    --cart-element-bg-color: rgba(0, 44, 38, 0.95);
+    --cart-total-bg-color: rgba(8, 92, 75, 0.95);
+    --cart-buy-bg-color: rgba(0,74,64,.95);
+    
+   
+    --title-font: 60px;
+
+   
+    --seconds-fadein: 1s;
+ 
+
+    --gutter-horizontal: 5%;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(130deg, rgba(0,61,53,.95) 40%, rgba(0,0,0,.95) 100%), url("/bg.png");
+    background-attachment: fixed; /*Esto hace que el gradiente de fondo no se repita, se "ancla" a la vista del usuario*/
+    font-family: 'Chakra Petch', sans-serif
+}
+
+
+

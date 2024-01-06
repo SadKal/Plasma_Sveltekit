@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "name": "Horror",
+            "bg_color": "rgba(255,255,255,.8)",
+            "svg_src": "src/assets/svgs/horror.svg",
+            "text_color": "black"
+        },
+        {
+            "name": "Acción Aventura",
+            "bg_color": "rgb(46,139,87)",
+            "svg_src": "src/assets/svgs/adventure.svg",
+            "text_color": "rgb(255,255,0)"
+        },
+        {
+            "name": "Simulación",
+            "bg_color": "rgb(100,149,237)",
+            "svg_src": "src/assets/svgs/simulation.svg",
+            "text_color": "rgb(245,245,245)"
+        },
+        {
+            "name": "Lucha",
+            "bg_color": "rgb(255,215,0)",
+            "svg_src": "src/assets/svgs/fighting.svg",
+            "text_color": "rgb(255,0,0)"
+        },
+        {
+            "name": "Novela Visual",
+            "bg_color": "rgb(128,0,0)",
+            "svg_src": "src/assets/svgs/vns.svg",
+            "text_color": "rgb(255,215,0)"
+        },
+        {
+            "name": "Carreras",
+            "bg_color": "rgb(105,105,105)",
+            "svg_src": "src/assets/svgs/racing.svg",
+            "text_color": "rgb(220,220,220)"
+        },
+        {
+            "name": "Deportes",
+            "bg_color": "rgb(210,180,140)",
+            "svg_src": "src/assets/svgs/sports.svg",
+            "text_color": "black"
+        },
+        {
+            "name": "Metroidvania",
+            "bg_color": "rgb(95,158,160)",
+            "svg_src": "src/assets/svgs/metroidvania.svg",
+            "text_color": "rgb(139,0,0)"
+        }
+    ]
+}
