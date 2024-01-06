@@ -1,6 +1,6 @@
 <script>
 	import HeaderElement from "./HeaderElement.svelte";
-	import Cart from "./Cart.svelte";
+	import Cart from "$lib/components/cart/Cart.svelte";
 
 	let iconSrc = "/plasma_icon_notext.png";
 </script>
@@ -10,13 +10,13 @@
 		<li class="topbar__element--container">
 			<img src={iconSrc} alt="logo" class="topbar__logo" />
 		</li>
-		<HeaderElement name="Inicio"/>
-		<HeaderElement name="Biblioteca"/>
+		<HeaderElement name="Inicio" />
+		<HeaderElement name="Biblioteca" subdirectory="/library"/>
 		<HeaderElement name="Perfil"/>
 		<Cart />
 	</ul>
 </div>
-
+ 
 <style lang="scss">
 	.clearfix::after {
 		content: "";

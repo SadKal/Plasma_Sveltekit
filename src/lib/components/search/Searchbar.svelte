@@ -1,9 +1,7 @@
 <script>
-    import { onDestroy, onMount } from "svelte";
     import games from '$lib/data/games.json';
     import SearchResult from "./SearchResult.svelte";
     import { clickOutside } from "$lib/utils/outsideCart";
-    import { browser } from '$app/environment';
 
     let searchValue = '';
     let searchbar; 
@@ -61,6 +59,7 @@
 </script>
 
 <svelte:window on:scroll={focusSearch}/>
+
 
 <div class="search__link" on:click={scrollToSearch} on:click={focusSearch}>
     <object data="/svgs/magnifier.svg" type="image/svg+xml" width="70%" height="auto"/>

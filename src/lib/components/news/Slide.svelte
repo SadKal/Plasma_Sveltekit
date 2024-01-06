@@ -1,5 +1,5 @@
 <script>
-    import { onDestroy, onMount } from "svelte";
+    import { onMount } from "svelte";
     import cacheStore from "$lib/stores/cache";
     
 
@@ -15,7 +15,7 @@
     let img;
 
     //Creo una imagen "falsa" en la que cargaré el link de fondo
-    const tempImg = new Image();
+    let tempImg;
 
     function onImgLoaded() {
         //Asigno a la imagen definitiva el link ya cargado
@@ -34,6 +34,7 @@
     }
 
     onMount(() => {
+        tempImg = new Image();
         //Compruebo si la imagen ya esta cargada
         if($cacheStore.cache.includes(src)){
             img.src=src;
@@ -41,12 +42,13 @@
         else{
             loadImg(src);
         }
-    }); 
-    onDestroy(() => {
-        tempImg.removeEventListener('load', onImgLoaded);  
-    });
 
+        return () => {
+            tempImg.removeEventListener('load', onImgLoaded);  
+        }
+    }); 
 </script>
+
 <div class="slide">
     <a class="slide__link" href="/" on:click|preventDefault={() => $cacheStore.showSlides(index-1)}>
         <img bind:this={img} src={placeholderImage} alt={alt} class="slide__img {positionClass}"/>

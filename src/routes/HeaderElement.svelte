@@ -1,11 +1,12 @@
 <script>
     export let name;
+    export let subdirectory = "/";
 </script>
 
 <li class="topbar__element--container">
     <a
         class="topbar__element" 
-        href="/" 
+        href={subdirectory} 
         >
         {name}    
     </a>  
@@ -14,7 +15,7 @@
 <style lang="scss">
     li{
         & a{
-            padding: 1rem 2rem .5rem;
+            padding: 1rem 2rem .5rem; 
             font-size: 2.5rem;
             color: var(--text-color);
             text-decoration: none;

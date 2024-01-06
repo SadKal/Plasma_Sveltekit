@@ -1,7 +1,9 @@
 <script>
-    import Searchbar from "./Searchbar.svelte";
-    import Novedades from "./Novedades.svelte";
-    import Slideshow from './Slideshow.svelte';
+    import Searchbar from "$lib/components/search/Searchbar.svelte";
+    import Novedades from "$lib/components/news/Novedades.svelte";
+    import Slideshow from '$lib/components/news/Slideshow.svelte';
+	import MostSold from "$lib/components/most_sold/MostSold.svelte";
+	import Genres from "$lib/components/genres/Genres.svelte";
 	import { onMount } from "svelte";
     
     function scrollOnLoad() {
@@ -26,8 +28,8 @@
 
 <Novedades/>
 
+<Slideshow/>
 
+<MostSold/>
 
-<div style="height: 40000px"> 
-    p
-</div>
+<Genres/>
