@@ -15,7 +15,7 @@
     let img;
 
     //Creo una imagen "falsa" en la que cargaré el link de fondo
-    let tempImg;
+    let tempImg; 
 
     function onImgLoaded() {
         //Asigno a la imagen definitiva el link ya cargado

@@ -1,13 +1,16 @@
 <script>
-    //Debo añadir ts-nocheck porque si no vscode da error
-    //@ts-nocheck
-    //import games from '$data/games.json';
     import Slide from "./Slide.svelte";
     import cacheStore from '$lib/stores/cache';
+
+    export let data;
 
     let isSwiping=false;
     let startSwipe; 
     let endSwipe;
+
+    $cacheStore.gamesData = data.gamesData;
+    console.log(data.gamesData);
+    console.log($cacheStore.gamesData);
 
     //Registra el inicio del deslizamiento
     function swipeStart(event){

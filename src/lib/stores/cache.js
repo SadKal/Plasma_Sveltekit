@@ -1,24 +1,7 @@
 import { writable } from 'svelte/store';
-import games from '$lib/data/games.json';
 import { goto } from "$app/navigation";
-//import shopGameStore from '$stores/shopGame';
 
 let gamesData = [];
-
-let randomIndex;
-let randomObject; 
-let i=0;
-
-while(i<10){
-    //Saco un indice aleatorio y un objeto aleatorio del json
-    randomIndex = Math.floor(Math.random() * games.data.length);
-    randomObject = games.data[randomIndex];
-    //Sigo sacando hasta que encuentro uno que no esté en el array
-    if(!gamesData.includes(randomObject)){
-        gamesData.push(randomObject);
-        i++;
-    };
-};
 
 function showSlides(n) {
     cacheStore.update ((data => {
@@ -43,17 +26,17 @@ const cache=[];
 
 const slides={
     left:{
-        source: gamesData[0].image,
+        source: undefined,
         index: 0,
         position:'--side',
     },
     center:{
-        source: gamesData[1].image,
+        source: undefined,
         index: 1,
         position:'--center',
     },
     right:{
-        source: gamesData[2].image,
+        source: undefined,
         index: 2,
         position:'--side',
     }
