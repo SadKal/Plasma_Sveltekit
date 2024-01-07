@@ -5,9 +5,10 @@
 	import MostSold from "$lib/components/most_sold/MostSold.svelte";
 	import Genres from "$lib/components/genres/Genres.svelte";
 	import { onMount } from "svelte";
-
-	export let data;
     
+	export let data;
+	let { mostSold, genres } = data;
+
     function scrollOnLoad() {
 		requestAnimationFrame(() => {
 			if (window.matchMedia("(max-width: 420px)").matches) {
@@ -30,8 +31,8 @@
 
 <Novedades/>
 
-<Slideshow {data}/>
+<Slideshow/>
 
-<MostSold/>
+<MostSold {mostSold}/>
 
-<Genres/>
+<Genres {genres}/>

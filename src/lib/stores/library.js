@@ -21,7 +21,7 @@ function fetchRecents(min, max) {
 	}
 	return recentlyPlayed;
 }
-
+ 
 function fetchOwned(min, max) {
 	let aux;
 	aux = gamesInLibrary.concat(recentlyPlayed);

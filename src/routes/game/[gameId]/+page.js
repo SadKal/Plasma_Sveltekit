@@ -1,9 +1,10 @@
-import games from "$lib/data/games.json";
-
 export async function load({ params }) {
-    const id = +params.gameId;
+    const response = await fetch("http://localhost:4000/games");
+    const games = await response.json();
 
-	const game = games.data.find( (game) => game.id == id);
+    let id = params.gameId;
+	const game = games.find( (game) => game.id == id);
 
+    
     return { game };
 }

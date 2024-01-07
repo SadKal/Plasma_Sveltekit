@@ -33,6 +33,8 @@
 	}
 
 	onMount(() => {
+		console.log(gameOwned);
+		console.log($libraryStore.gamesInLibrary);
 		window.scrollTo(0, 0);
 	});
 </script>

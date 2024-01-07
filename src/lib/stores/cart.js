@@ -10,7 +10,7 @@ const cartStore = writable({gamesInCart, cartActive, cartTotal: 0});
 
 function addGameToCart(game){
     cartStore.update( (cart) => {
-        if (!cart.gamesInCart.includes(game)){
+        if (!cart.gamesInCart.includes(game)){ 
             //Añado el juego al principio de la lista
             cart.gamesInCart.unshift(game);
             //Actualizo el precio total
@@ -35,10 +35,10 @@ function buyGames(){
         libraryStore.update( (library) => {
             cart.gamesInCart.forEach(game => {
                 if(!library.gamesInLibrary.includes(game)){
+                    console.log("eyo")
                     game.adqDate = Date.now();
-                    game.hrsPlayed = 0
+                    game.hrsPlayed = 0;
                     library.gamesInLibrary.push(game);
-
                 }
             });
             return library; 

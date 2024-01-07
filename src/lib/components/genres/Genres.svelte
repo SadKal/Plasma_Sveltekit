@@ -1,20 +1,19 @@
 <script>
 	import Genre from "./Genre.svelte";
-	import genres from "$lib/data/genres.json";
 
-	let genres_arr = genres.data;
+	export let genres;
 </script>
 
 <div class="genres">
 	<div class="genres__exhibitor">
 		<div class="genres__title">Géneros Populares</div>
 		<div class="genres__row clearfix">
-			{#each genres_arr.slice(0, 4) as { name, bg_color, svg_src, text_color }}
+			{#each genres.slice(0, 4) as { name, bg_color, svg_src, text_color }}
 				<Genre {name} {bg_color} {svg_src} {text_color} />
 			{/each}
 		</div>
 		<div class="genres__row clearfix">
-			{#each genres_arr.slice(4, 8) as { name, bg_color, svg_src, text_color }}
+			{#each genres.slice(4, 8) as { name, bg_color, svg_src, text_color }}
 				<Genre {name} {bg_color} {svg_src} {text_color} />
 			{/each}
 		</div>
