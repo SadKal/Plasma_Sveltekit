@@ -1,6 +1,7 @@
 <script>
-    import cartStore from '$lib/stores/cart';
     export let game;
+    import { useCart } from '$lib/stores/cart';
+	const cartStore = useCart();
 </script>
 
 <div class="cart-game clearfix">

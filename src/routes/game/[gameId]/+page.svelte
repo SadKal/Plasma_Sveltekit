@@ -1,23 +1,26 @@
 <script>
-	import cartStore from "$lib/stores/cart";
 	import libraryStore from "$lib/stores/library";
 	import GamePageContent from "$lib/components/gameShop/ShopPageContent.svelte";
-	import { onMount, getContext } from "svelte";
-
+	import { onMount } from "svelte";
+	import { useCart } from '$lib/stores/cart';
+	
     export let data;
 
-
-	const cartData = getContext('cart')
+	const cartStore = useCart();
 
 	let game = data.game;
 
-	$: gameOwned = ($libraryStore.gamesInLibrary.includes(game) ? true : false);
-	$: gameInCart = ($cartStore.gamesInCart.includes(game) ? true : false);
+	$: gameOwned = ($libraryStore.gamesInLibrary.some( libraryGame => libraryGame.id === game.id )? true : false);
+	$: gameInCart = ($cartStore.gamesInCart.some( cartGame => cartGame.id === game.id ) ? true : false);
 
 	function setGameInCart() {
+		if($cartStore.gamesInCart.some( cartGame => cartGame.id === game.id )){
+			console.log("guh");
+			console.log($cartStore.gamesInCart);
+		}
 		if (!gameOwned) {
 			cartStore.addGameToCart(game);
-			gameInCart = true;
+			gameInCart = true; 
 			setTimeout(() => {
 				$cartStore.cartActive = true;
 			}, 350);

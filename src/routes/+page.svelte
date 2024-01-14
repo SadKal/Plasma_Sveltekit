@@ -5,10 +5,9 @@
 	import MostSold from "$lib/components/most_sold/MostSold.svelte";
 	import Genres from "$lib/components/genres/Genres.svelte";
 	import { onMount } from "svelte";
-    
+
 	export let data;
 	let { mostSold, slides, genres } = data;
-
 
     function scrollOnLoad() {
 		requestAnimationFrame(() => {

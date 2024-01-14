@@ -3,11 +3,9 @@
     import Footer from './Footer.svelte';
 	import './styles.css';
     import libraryStore from "$lib/stores/library";
-    import cartStore from "$lib/stores/cart";
+    //import cartStore from "$lib/stores/cart";
     import games from "$lib/data/games.json"
 	import { onMount, setContext } from "svelte";
-    
-    setContext('cart', cartStore)
 
     onMount ( () => {
         $libraryStore.recentlyPlayed = $libraryStore.fetchRecents(0, (games.data.length - 1))

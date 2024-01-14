@@ -4,14 +4,27 @@ import { useWritable, useSharedStore } from "./use-shared-store";
 const clicks = []
 const value = false;
 
-export const darkModeStore = (clicks, value) => {
-    const { set, update, subscribe } = writable(clicks, value);
+const _darkModeStore = writable({clicks, value});
+
+const addClicks = () => {
+    _darkModeStore.update((self) => {
+        self.clicks.push("click");
+        return self;
+    })
+}
+const setDarkMode = (value) => {
+    _darkModeStore.update((self) => {
+        self.value = value;
+        return self;
+    })
+}
+export const darkModeStore = () => {
     return {
-        set,
-        update,
-        subscribe,
-        setDarkMode: (newValue) => set([...clicks], newValue),
-        updateClicks: () => set(clicks.push("click")),
+        subscribe: _darkModeStore.subscribe,
+        set: _darkModeStore.set,
+        update: _darkModeStore.update,
+        setDarkMode,
+        addClicks
     }
 }
 

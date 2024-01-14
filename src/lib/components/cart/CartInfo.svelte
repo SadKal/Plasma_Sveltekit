@@ -1,7 +1,9 @@
 <script>
-    import cartStore from "$lib/stores/cart";
     import { clickOutside } from "$lib/utils/outsideCart";
     import CartGame from './CartGame.svelte';
+    import { useCart } from '$lib/stores/cart';
+
+    const cartStore = useCart();
 </script>
 
 <div class="cart-info" class:active={$cartStore.cartActive} 
