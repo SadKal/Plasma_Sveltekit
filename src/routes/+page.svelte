@@ -7,22 +7,26 @@
 	import { onMount } from "svelte";
     
 	export let data;
-	let { mostSold, genres } = data;
+	let { mostSold, slides, genres } = data;
+
 
     function scrollOnLoad() {
 		requestAnimationFrame(() => {
 			if (window.matchMedia("(max-width: 420px)").matches) {
-				window.scrollTo(0, 60);
+				window.scroll({
+					top: 60,  
+					behavior: 'smooth'
+				});
 			} else {
-				window.scrollTo(0, 90);
+				window.scroll({
+					top: 90,  
+					behavior: 'smooth'
+				});
 			}
 		});
 	}
 
     onMount(() => {
-        if ("scrollRestoration" in history) {
-			history.scrollRestoration = "manual";
-		}
         scrollOnLoad();
     });
 </script>
@@ -31,7 +35,7 @@
 
 <Novedades/>
 
-<Slideshow/>
+<Slideshow {slides}/>
 
 <MostSold {mostSold}/>
 

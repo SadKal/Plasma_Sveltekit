@@ -4,7 +4,7 @@ export async function load(){
     
     const games = await response.json();
     const genres = await responseGenres.json();
-
+    
     //Most sold games
     let mostSold = [];
     let randomIndex;
@@ -20,5 +20,20 @@ export async function load(){
         }
     }
 
-    return { mostSold, genres }
+    //Slideshow games
+    let slides = [];
+    i=0;
+
+    while(i<10){
+        //Saco un indice aleatorio y un objeto aleatorio del json
+        randomIndex = Math.floor(Math.random() * games.length);
+        randomObject = games[randomIndex];
+        //Sigo sacando hasta que encuentro uno que no esté en el array
+        if(!slides.includes(randomObject)){
+            slides.push(randomObject);
+            i++; 
+        };
+    };
+
+    return { mostSold, slides, genres }
 }

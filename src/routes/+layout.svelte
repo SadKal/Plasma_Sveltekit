@@ -3,6 +3,7 @@
     import Footer from './Footer.svelte';
 	import './styles.css';
     import libraryStore from "$lib/stores/library";
+    import cartStore from "$lib/stores/cart";
     import games from "$lib/data/games.json"
 	import { onMount } from "svelte";
     

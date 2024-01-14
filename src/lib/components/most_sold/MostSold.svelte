@@ -2,14 +2,13 @@
     import MostSoldGame from "./MostSoldGame.svelte";
     
     export let mostSold;
-    
 </script>
 
 <div class="most-sold">
     <div class="most-sold__title">
         Más Vendidos
     </div> 
-    <div class="most-sold__exhibitor">
+    <div class="most-sold__exhibitor"> 
         <div class="most-sold__row clearfix">
             {#each mostSold.slice(0,3) as game}
                 <MostSoldGame {game}/>

@@ -1,11 +1,31 @@
 <script>
     import Slide from "./Slide.svelte";
-    import cacheStore from '$lib/stores/cache';
-
+    import { goto } from "$app/navigation"
+ 
+    export let slides;
 
     let isSwiping=false;
     let startSwipe; 
     let endSwipe;
+    let cache = []
+
+    let slidesData={
+        left:{
+            source: slides[0].image,
+            index: 0,
+            position:'--side',
+        },
+        center:{
+            source: slides[1].image,
+            index: 1,
+            position:'--center',
+        },
+        right:{
+            source: slides[2].image,
+            index: 2,
+            position:'--side',
+        }
+    };
 
     //Registra el inicio del deslizamiento
     function swipeStart(event){
@@ -16,7 +36,7 @@
     //Registra el final del deslizamiento
     function swipeEnd(event) {
         if (isSwiping){
-            endSwipe = event.touches[0].clientX;
+            endSwipe = event.touches[0].clientX; 
         };            
     };
 
@@ -27,29 +47,47 @@
             //Calculo cuanto ha deslizado y comparo con un minimo, para que no registre un toque como deslizamiento
             let pxMoved = endSwipe - startSwipe;
             const minDistance = 50; 
-            if (Math.abs(pxMoved) > minDistance) {
+            if (Math.abs(pxMoved) > minDistance) { 
                 if (pxMoved < 0) {
                     //Deslizar IZDA
-                    $cacheStore.showSlides(1);
+                    showSlides(1);
                 } else {
                     //Deslizar DCHA
-                    $cacheStore.showSlides(-1);
+                    showSlides(-1);
                 };
             };
         };
     };
 
+    function showSlides(n) {
+        if (n==0){
+            let shopGame = slides.find((game) => game.image==slidesData.center.source);
+            goto(`/game/${shopGame.id}`)
+        };
+
+        const border = n === +1 ? 0 : slides.length-1
+        //Por cada slide, actualizamos el indice de slides y la imagen a mostrar
+        Object.values(slidesData).forEach(slide => {
+            slide.index = (slides[slide.index+n]==null ? border : slide.index+n);
+            slide.source = slides[slide.index].image;
+            
+            //Svelte que es esto por dios???
+            slidesData=slidesData
+        });
+    };
 </script>
 
 <div class="slideshow clearfix" on:touchstart={swipeStart} on:touchmove={swipeEnd} on:touchend={swipeAction}>
-    {#each Object.values($cacheStore.slides) as slide, index (slide.source)}
+    {#each Object.values(slidesData) as slide, index (slide.source)}
         <div class="slideshow__slide">
             {#key slide.position}
-                <Slide src={slide.source} position={slide.position} {index} alt={$cacheStore.gamesData[slide.index].name}/>
+                <Slide src={slide.source} position={slide.position} {index} alt={slides[slide.index].name} bind:cache={cache} handleClick={showSlides}/>
             {/key}
         </div>
     {/each}   
 </div>
+
+
 
 <style lang="scss">
     .clearfix::after {

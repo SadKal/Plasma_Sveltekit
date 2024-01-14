@@ -5,6 +5,5 @@ export async function load({ params }) {
     let id = params.gameId;
 	const game = games.find( (game) => game.id == id);
 
-    
     return { game };
 }

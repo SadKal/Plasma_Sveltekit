@@ -7,18 +7,10 @@
     export let data;
 
 	let game = data.game;
-	let gameInCart = false;
-	let gameOwned = false;
 
-	$: if ($libraryStore.gamesInLibrary.includes(game)) {
-		gameOwned = true;
-	}
+	$: gameOwned = ($libraryStore.gamesInLibrary.includes(game) ? true : false);
+	$: gameInCart = ($cartStore.gamesInCart.includes(game) ? true : false);
 
-	$: if ($cartStore.gamesInCart.includes(game)) {
-		gameInCart = true;
-	} else {
-		gameInCart = false;
-	}
 	function setGameInCart() {
 		if (!gameOwned) {
 			cartStore.addGameToCart(game);
@@ -33,8 +25,6 @@
 	}
 
 	onMount(() => {
-		console.log(gameOwned);
-		console.log($libraryStore.gamesInLibrary);
 		window.scrollTo(0, 0);
 	});
 </script>

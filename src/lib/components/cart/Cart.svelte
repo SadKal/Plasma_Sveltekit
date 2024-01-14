@@ -19,7 +19,7 @@
 <style lang="scss">
     .cart{
         box-sizing: border-box;
-        user-select: none;
+        user-select: none; 
         pointer-events: none;
 
         &--container{

@@ -10,6 +10,7 @@
     let rotationAngle = 0;
     let card;
 
+
     //event, en este tipo de funciones, representa el elemento al que esta asociada la funcion. En este caso el div del juego
     function updateRotation(event) {
         //Saco el centro del elemento, recibiendo el punto mas a la izquierda y sumandole la mitad de su longitud
@@ -20,6 +21,7 @@
             card.style.transform = 'perspective(1000px) rotateY(' + rotationAngle + 'deg)';
         } 
     }    
+    
     function resetRotation(event){
         if(window.matchMedia("(min-width: 420px)").matches){
             card.style.transform = 'perspective(1000px) rotateY(0)';
