@@ -2,9 +2,12 @@
 	import cartStore from "$lib/stores/cart";
 	import libraryStore from "$lib/stores/library";
 	import GamePageContent from "$lib/components/gameShop/ShopPageContent.svelte";
-	import { onMount } from "svelte";
+	import { onMount, getContext } from "svelte";
 
     export let data;
+
+
+	const cartData = getContext('cart')
 
 	let game = data.game;
 

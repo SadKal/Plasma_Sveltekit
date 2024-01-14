@@ -1,6 +1,17 @@
 <script>
     import cartStore from "$lib/stores/cart";
     import CartInfo from "./CartInfo.svelte";
+    import { useDark } from '$lib/stores/darkMode';
+	import { getContext } from "svelte";
+
+    const darkMode = useDark();
+    // darkMode.subscribe((value) => {
+	//     console.log("dark >",value);
+    // });
+    // cartStore.subscribe((value) => {
+    //     console.log("cart >",value);
+    // })
+    const cartData = getContext('cart')
 </script>
 
 <li class="cart--container">
@@ -9,7 +20,15 @@
             {$cartStore.gamesInCart.length}
         </div> 
     </div>
-    <div on:click={() => $cartStore.cartActive = !$cartStore.cartActive}>
+    <div on:click={() => {
+        // console.log($darkMode);
+        // darkMode.setDarkMode(!$darkMode);
+        //darkMode.updateClicks();
+        //console.log($darkMode);
+        console.log($cartData);
+        
+        $cartStore.cartActive = !$cartStore.cartActive
+        }}>
         <object class="cart" data="/svgs/cart.svg" type="image/svg+xml" width="70%" height="auto"/>
     </div>
     <CartInfo/>

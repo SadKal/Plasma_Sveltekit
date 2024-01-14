@@ -1,6 +1,5 @@
 import { writable } from "svelte/store";
 import libraryStore from "./library";
-import { useWritable } from "./use-shared-store";
 
 const gamesInCart = [];
 
@@ -49,4 +48,4 @@ function buyGames(){
     })
 }
 
-export const cart = () =>  useWritable('cart', {...cartStore, addGameToCart, removeGameFromCart, buyGames});
+export default {...cartStore, addGameToCart, removeGameFromCart, buyGames};

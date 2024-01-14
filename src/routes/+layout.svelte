@@ -5,8 +5,10 @@
     import libraryStore from "$lib/stores/library";
     import cartStore from "$lib/stores/cart";
     import games from "$lib/data/games.json"
-	import { onMount } from "svelte";
+	import { onMount, setContext } from "svelte";
     
+    setContext('cart', cartStore)
+
     onMount ( () => {
         $libraryStore.recentlyPlayed = $libraryStore.fetchRecents(0, (games.data.length - 1))
 		$libraryStore.gamesInLibrary = $libraryStore.fetchOwned(0, (games.data.length - 1))
