@@ -19,7 +19,7 @@
 
 <!--Este key es solo para forzar el rerender para la animacion, funciona perfectamente sin el-->
 {#key selectedOption}
-<div class="genres">    
+<div class="genres">
     <div class="genres__title">
         <div class="genres__title--name">
             <select 

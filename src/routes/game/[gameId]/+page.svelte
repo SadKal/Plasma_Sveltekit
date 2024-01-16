@@ -14,10 +14,6 @@
 	$: gameInCart = ($cartStore.gamesInCart.some( cartGame => cartGame.id === game.id ) ? true : false);
 
 	function setGameInCart() {
-		if($cartStore.gamesInCart.some( cartGame => cartGame.id === game.id )){
-			console.log("guh");
-			console.log($cartStore.gamesInCart);
-		}
 		if (!gameOwned) {
 			cartStore.addGameToCart(game);
 			gameInCart = true; 

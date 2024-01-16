@@ -3,7 +3,7 @@
     import { useCart } from '$lib/stores/cart';
 
     const cartStore = useCart();
-
+ 
 </script>
 
 <li class="cart--container">
@@ -12,13 +12,8 @@
             {$cartStore.gamesInCart.length}
         </div> 
     </div>
-    <div on:click={() => {
-        // console.log($darkMode);
-        // darkMode.setDarkMode(!$darkMode.value);
-        // darkMode.addClicks();
-        $cartStore.cartActive = !$cartStore.cartActive
-        }}>
-        <object class="cart" data="/svgs/cart.svg" type="image/svg+xml" width="70%" height="auto"/>
+    <div on:click={() => $cartStore.cartActive = !$cartStore.cartActive}>
+        <object title="cart" class="cart" data="/svgs/cart.svg" type="image/svg+xml" width="70%" height="auto"/>
     </div>
     <CartInfo/>
 </li>

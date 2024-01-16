@@ -1,6 +1,7 @@
 <script>
     export let game;
     import { useCart } from '$lib/stores/cart';
+    
 	const cartStore = useCart();
 </script>
 
