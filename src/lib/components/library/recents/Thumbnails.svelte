@@ -7,7 +7,7 @@
 	{#each thumbnails as thumbnail}
 		<div
 			class="library--recents__thumbnails thumbnail--small"
-			style="background-image: url('{thumbnail.cover}');"
+			style="background-image: url('https://images.igdb.com/igdb/image/upload/t_cover_big/{thumbnail.cover.image_id}.png');"
 		/>
 	{/each}
 </div>

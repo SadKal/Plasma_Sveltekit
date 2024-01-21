@@ -1,19 +1,28 @@
 export async function load({ cookies }) {
     const response = await fetch('http://localhost:4000/users');
     const users = await response.json();
-    //????????????????????????????????????????????????????
-    //const user = users.find(user => user.id === "1");
-    const user = cookies.get('user');
-    console.log(cookies.get('user'));
-    let slug = "?id=";
-    for (const game of user.games) {
-        let toConcat = `${game.id}&id=`;
-        slug = slug + toConcat;
-    }
-    slug = slug.substring(0, slug.length - 4);
 
-    const responseGames = await fetch(`http://localhost:4000/games${slug}`);
-    const games = await responseGames.json();
+    const user = users.find(user => user.id === "1");
+
+    let gamesToSearch = ''
+    for (const game of user.games) {
+        gamesToSearch += game.id + ','
+    }
+    gamesToSearch = gamesToSearch.substring(0, gamesToSearch.length - 1);
+
+    const gameTestResponse = await fetch(
+        "https://api.igdb.com/v4/games",
+        {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
+                'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
+            },
+            body: `fields artworks,cover.image_id,name,screenshots.*; where id=(${gamesToSearch});`
+        });
+
+    const games = await gameTestResponse.json();
 
     user.games = user.games.map((userGame) => { return { ...games.find((game) => userGame.id === game.id), ...userGame } });
 

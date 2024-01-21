@@ -11,7 +11,6 @@
 	}
 
 	let thumbnails = $userStore.games.slice().sort(sortRecent).slice(0,5);
-	
 </script>
 
 <div class="library--recents__title">Biblioteca de {$userStore.username}</div> 

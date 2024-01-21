@@ -55,8 +55,8 @@
 	{#each games as game (game.id)}
 		<div
 			class="gamelist__content"
-			style="background-image: url('{game.cover}');"
-			animate:flip={{ duration: 400, delay: 10 * game.id, easing: expoInOut }}
+			style="background-image: url('https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover.image_id}.png');"
+			animate:flip={{ duration: 400, delay: game.id/1000, easing: expoInOut }}
 		>
 			<span class="gamelist__content_title">
 				{game.name}

@@ -4,7 +4,6 @@
 	import { useUser } from '$lib/stores/user';
 
 	export let data;
-
 	const userStore = useUser();
 	$userStore = data;
 </script>
