@@ -1,27 +1,31 @@
 <script>
     import libraryStore from "$lib/stores/library";
-    import cartStore from "$lib/stores/cart"
+    import { useCart } from "$lib/stores/cart"
+    import { useUser } from "$lib/stores/user"
     import { goto } from "$app/navigation"
 
     export let game;
+
+    const cartStore = useCart();
+    const userStore = useUser();
 
     let genreGame;
     let gameOwned;
     let gameInCart;
     
-    $: if($libraryStore.gamesInLibrary.includes(game)){
+    $: if($userStore.games.some( libraryGame => libraryGame.id === game.id)){
         gameOwned=true;
     }
-    $: 	if ($cartStore.gamesInCart.includes(game)){
+    $: 	if ($cartStore.gamesInCart.some( cartGame => cartGame.id === game.id)){
 			gameInCart=true;
 		}else{
-			gameInCart=false;
+			gameInCart=false; 
 		}
 </script>
 
 <div 
 bind:this={genreGame} 
-class="genre-game clearfix"
+class="genre-game"
 on:click={ () => goto(`/game/${game.id}`)}>
     <div class="genre-game__img--container">
         <img class="genre-game__img" src={game.image}/>
@@ -35,6 +39,7 @@ on:click={ () => goto(`/game/${game.id}`)}>
             {/each}
         </div>
     </div>
+
     <div class="genre-game__price">
         {#if gameOwned}
             Ya tienes este juego.
@@ -48,15 +53,14 @@ on:click={ () => goto(`/game/${game.id}`)}>
 </div>
 
 <style lang="scss">
-    .clearfix::after {
-        content: ""; 
-        clear: both;
-        display: block;
-    } 
     .genre-game{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
         margin: .3rem auto;
-        width: 80%;
-        height: 250px;
+        width: 80vw;
+        height: 13vw;
         box-sizing: border-box;
 
         font-weight: 700;
@@ -83,8 +87,7 @@ on:click={ () => goto(`/game/${game.id}`)}>
             &--container{
                 height: 100%;
                 width: 30%;
-                margin-right: 1.5rem;
-                float: left;     
+                margin-right: 1.5rem;   
             }
             @media (max-width: 1200px) {
                 height: 200px;
@@ -94,14 +97,11 @@ on:click={ () => goto(`/game/${game.id}`)}>
 
         &__name{
             margin-left: 3rem;
-            margin-top: 1rem;
             font-size: 2.5rem;
             position: relative;
-            top: 40%;
-            transform: translateY(-50%);
-            float: left;
             font-style: italic;
             color: var(--selected-text-color);
+
             @media (max-width: 1200px) {
                 width: 30%;
                 font-size: 1.5rem;
@@ -130,11 +130,8 @@ on:click={ () => goto(`/game/${game.id}`)}>
         }
 
         &__price{
+            margin-left: auto;
             font-size: 1.7rem;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            float: right;
             margin-right: 5rem;
             max-width: 15%;
             text-align: center;

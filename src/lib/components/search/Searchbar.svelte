@@ -76,8 +76,7 @@
             type="search" 
             placeholder="Escribe para buscar..." 
             bind:value={searchValue}/>
-        <div class="search__results"
-            >
+        <div class="search__results">
             {#each searchResult as game (game.name)}
                 <SearchResult {game}/>
             {/each}
@@ -93,9 +92,6 @@
         margin-top: 1.3rem;
         width: 80%;
         height: 5rem;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
         z-index: 40;
         max-height: 10vw;
 
@@ -126,6 +122,11 @@
             }
         }
 
+        &__container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
         &__bar{
             width: 100%;
             padding: .5rem;

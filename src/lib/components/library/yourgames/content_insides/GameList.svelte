@@ -1,22 +1,23 @@
 <script>
-	import libraryStore from "$lib/stores/library";
 	import Select from "./GameListSelect.svelte";
 	import { flip } from "svelte/animate";
 	import { expoInOut } from "svelte/easing";
+
+	export let games;
 
 	sortBy("Nombre");
 
 	function sortBy(selectedValue) {
 		if (selectedValue === "Nombre") {
-			$libraryStore.gamesInLibrary.sort((a, b) => {
+			games.sort((a, b) => {
 				if (a.name < b.name) return -1;
 				if (a.name > b.name) return 1;
 				if (a.name === b.name) return 0;
 			});
 		}
 		if (selectedValue === "Más jugados") {
-			$libraryStore.gamesInLibrary.sort((a, b) => {
-				return -(a.hrsPlayed - b.hrsPlayed);
+			games.sort((a, b) => {
+				return -(a.hoursplayed - b.hoursplayed);
 			});
 		}
 		if (selectedValue === "Fecha adq.") {
@@ -31,11 +32,11 @@
 				prototype.toLocaleString();
 
 			*/
-			$libraryStore.gamesInLibrary.sort((a, b) => {
-				return -(a.adqDate - b.adqDate);
+			games.sort((a, b) => {
+				return -(a.buydate - b.buydate);
 			});
 		}
-		$libraryStore.gamesInLibrary = $libraryStore.gamesInLibrary;
+		games = games;
 	}
 </script>
 
@@ -51,7 +52,7 @@
 </div>
 
 <div class="gamelist__container">
-	{#each $libraryStore.gamesInLibrary as game (game.id)}
+	{#each games as game (game.id)}
 		<div
 			class="gamelist__content"
 			style="background-image: url('{game.cover}');"

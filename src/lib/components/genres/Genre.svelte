@@ -5,9 +5,11 @@
     export let bg_color;
     export let svg_src;
     export let text_color; 
+    export let index;
+    index += 1;
 </script>
 
-<div class="genre" 
+<div class="genre genre--{index}" 
     style= "background-color: {bg_color};
             color: {text_color}"
             on:click={() => goto(`/genres/${name}`)}>
@@ -20,15 +22,13 @@
 <style lang="scss">
     .genre{
         box-sizing: border-box;
-        width: calc((100% - (3 * var(--gutter-horizontal))) / 4);
+        width: 80%;
         height: max-content;
-        float: left;
         
         position: relative;
         text-align: center;
         padding: 3rem 0 1.5rem;
         font-weight: 700;
-
 
         background-image: url('https://cdn.mos.cms.futurecdn.net/HsDtpFEHbDpae6wBuW5wQo.jpg');
         background-blend-mode: soft-light;

@@ -2,6 +2,9 @@
     import { goto } from "$app/navigation"
 
     export let game;
+    export let index;
+    index += 1;
+
     let cover=game.cover;
     let name=game.name;
     let genres=game.genres;
@@ -28,7 +31,7 @@
         }
     }
 
-</script>
+</script> 
 
 <div 
     bind:this={card}
@@ -36,7 +39,7 @@
     on:mousemove={updateRotation}
     on:mouseleave={resetRotation} 
     on:click={() => goto(`/game/${game.id}`)}
-    class="most-sold__game">
+    class="most-sold__game most-sold__game--{index}">
         <img class="most-sold__image" src={cover} alt="cover"/>
         <div class="most-sold__data">
             <p class="most-sold__name">{name}</p> 
@@ -50,24 +53,22 @@
     
     .most-sold{
         &__game{
-            width: calc((100% - (2 * var(--gutter-horizontal))) / 3);
-            height: 40vw;
-            float: left;
+            width: 100%;
+            height: 100%;
             transition: all .4s;
             position: relative;
             
-            &:not(:last-child){
-                margin-right: var(--gutter-horizontal);
-            }
+          
             &:hover{
                 cursor: pointer;
                 transform-origin: center center;
                 transition: all .1s;
                 z-index: 5;
             }
+
             @media (max-width: 450px) {
                 height: 120vw;
-                width:60%;
+                width:100%;
                 left: 50%;
                 transform: translateX(-50%);
                 

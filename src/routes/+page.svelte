@@ -30,12 +30,22 @@
     });
 </script>
 
-<Searchbar/>
+<div class="app-body">
+	<Searchbar/>
 
-<Novedades/>
+	<Novedades/>
 
-<Slideshow {slides}/>
+	<Slideshow {slides}/>
 
-<MostSold {mostSold}/>
+	<MostSold {mostSold}/>
 
-<Genres {genres}/>
+	<Genres {genres}/>
+</div>
+
+<style lang="scss">
+	.app-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+</style>

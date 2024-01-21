@@ -1,14 +1,13 @@
 <script>
-	import libraryStore from "$lib/stores/library";
-
+	export let thumbnails;
 </script>
 
 <div class="library--recents">
-	<div class="library--recents__title">Jugado recientemente</div>
-	{#each $libraryStore.recentlyPlayed as img}
+	<div class="library--recents__title">Juegos recientes</div>
+	{#each thumbnails as thumbnail}
 		<div
 			class="library--recents__thumbnails thumbnail--small"
-			style="background-image: url('{img.cover}');"
+			style="background-image: url('{thumbnail.cover}');"
 		/>
 	{/each}
 </div>
@@ -16,7 +15,7 @@
 <style lang="scss">
 	.library--recents {
 		width: 90%;
-		margin: 0 auto;
+		margin: 0 auto; 
 
 		&__title {
 			font-weight: 600;

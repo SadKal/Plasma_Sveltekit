@@ -7,11 +7,11 @@
 
 </script>
 
-<div class="search-result clearfix" on:click={() => goto(`/game/${game.id}`)}> 
-    <div class="search-result__image-container search-result__float">
+<div class="search-result" on:click={() => goto(`/game/${game.id}`)}> 
+    <div class="search-result__image-container">
         <img class="search-result__image" src={game.image}>
     </div>
-    <div class="search-result__name search-result__float">
+    <div class="search-result__name">
         {game.name} 
     </div>
     <div class="search-result__price">
@@ -20,19 +20,15 @@
 </div>
 
 <style lang="scss">
-    .clearfix::after {
-        content: ""; 
-        clear: both;
-        display: block;
-    } 
     .search-result{
+        display: flex;
+        align-items: center;
         box-sizing: border-box;
-        width: 100%;
         height: 8rem;
         background-color: var(--search-result-color);
-        position: relative;
         padding: .3rem;
         transition: all .3s;
+
         @media (max-width: 650px) {
             height: 5rem;
             font-size: .75rem;
@@ -53,8 +49,6 @@
             font-weight: 700;
             font-size: 25px;
             position: relative;
-            top: 50%;
-            transform: translateY(-50%);
             @media (max-width: 650px) {
             height: 5rem;
             font-size: 1.25rem;
@@ -71,8 +65,6 @@
             width: 100%;
             object-fit: cover;
             position: relative;
-            top: 50%;
-            transform: translateY(-50%);
 
             &-container{
                 height: 100%;
@@ -84,13 +76,11 @@
             }
         }
         &__price{
+            margin-left: auto;
             color: var(--text-color);
             font-weight: 700;
             font-size: 25px;
             position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            float: right;
             margin-right: .5rem;
             @media (max-width: 650px) {
             height: 5rem;
@@ -101,9 +91,6 @@
                 height: 2rem;
                 font-size: 12px;
             }
-        }
-        &__float{
-            float: left;
         }
 
     }

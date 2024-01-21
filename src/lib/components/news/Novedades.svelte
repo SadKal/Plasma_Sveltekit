@@ -26,7 +26,7 @@
     .novedades{  
         width: 100%;
         text-align: center;
-        margin-top: 8vw;
+        margin-top: 5rem;
         animation: fadein var(--seconds-fadein) ease-in;
 
         &__title{

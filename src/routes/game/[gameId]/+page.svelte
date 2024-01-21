@@ -1,16 +1,17 @@
 <script>
-	import libraryStore from "$lib/stores/library";
 	import GamePageContent from "$lib/components/gameShop/ShopPageContent.svelte";
 	import { onMount } from "svelte";
 	import { useCart } from '$lib/stores/cart';
+	import { useUser } from "$lib/stores/user";
 	
     export let data;
 
 	const cartStore = useCart();
+	const userStore = useUser();
 
 	let game = data.game;
 
-	$: gameOwned = ($libraryStore.gamesInLibrary.some( libraryGame => libraryGame.id === game.id )? true : false);
+	$: gameOwned = ($userStore.games.some( libraryGame => libraryGame.id === game.id )? true : false);
 	$: gameInCart = ($cartStore.gamesInCart.some( cartGame => cartGame.id === game.id ) ? true : false);
 
 	function setGameInCart() {

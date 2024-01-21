@@ -77,7 +77,7 @@
     };
 </script>
 
-<div class="slideshow clearfix" on:touchstart={swipeStart} on:touchmove={swipeEnd} on:touchend={swipeAction}>
+<div class="slideshow" on:touchstart={swipeStart} on:touchmove={swipeEnd} on:touchend={swipeAction}>
     {#each Object.values(slidesData) as slide, index (slide.source)}
         <div class="slideshow__slide">
             {#key slide.position}
@@ -90,13 +90,9 @@
 
 
 <style lang="scss">
-    .clearfix::after {
-        content: ""; 
-        clear: both;
-        display: block;
-    } 
-
     .slideshow{
+        display: flex;
+        height: 17vw;
         margin-top: 6rem; 
         animation: fadein var(--seconds-fadein) ease-in;  
         
@@ -107,8 +103,6 @@
         &__slide{
             height: 100%;
             width: calc(100%/3);
-            display: inline;
-            float: left; 
             position: relative;  
         }  
     }

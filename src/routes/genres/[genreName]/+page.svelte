@@ -20,20 +20,18 @@
 <!--Este key es solo para forzar el rerender para la animacion, funciona perfectamente sin el-->
 {#key selectedOption}
 <div class="genres">
-    <div class="genres__title">
-        <div class="genres__title--name">
-            <select 
-                bind:value={selectedOption}
-                on:input={changeSelection}
-                class="genres__select">
+    <div class="genres__title"> 
+        <select 
+            bind:value={selectedOption}
+            on:input={changeSelection}
+            class="genres__select">
 
-                <option selected>{data.genre}</option>
-                
-                {#each genreList as genreOption}
-                    <option>{genreOption}</option>
-                {/each} 
-            </select>
-        </div>
+            <option selected>{data.genre}</option>
+            
+            {#each genreList as genreOption}
+                <option>{genreOption}</option>
+            {/each} 
+        </select>
     </div>
    
     <div class="genres__game-list">
@@ -53,7 +51,13 @@
     }
 
     .genres{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
         animation: fadein var(--seconds-fadein) ease-in;
+        
         &__select{
             text-align: center;
             background-color: transparent;
@@ -68,13 +72,10 @@
                 outline: none;
             }
         }
-
         &__title{
             box-sizing: border-box; 
             position: fixed;
-            margin-top: -96px;
-            left: 50%;
-            transform: translateX(-50%);
+            margin-top: 0;
             width: 25rem;
             outline: none;
             

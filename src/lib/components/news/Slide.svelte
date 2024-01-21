@@ -63,7 +63,6 @@
 
 <style lang="scss">
     .slide{
-        
         height: 100%;
         width: 100%;
         position: relative;
@@ -127,7 +126,7 @@
                 z-index: 10;
                 color: var(--game-title-color-center);
                 background-color: var(--game-title-background-color-center);
-                bottom: -18%;   
+                bottom: -20%;   
                 clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
 
                 @media (max-width: 800px) {
