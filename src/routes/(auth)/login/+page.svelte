@@ -29,9 +29,32 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
             <a href="" class="cruz"></a>
         </div>
     </div>
+
     <div class="login__form">
+
+        <span>Inicia sesión</span>
+        <div class="login__form__links">
+            <button class="login__form__links__facebook">
+                <i class="fab fa-facebook-f fa-2x"></i>                      
+            </button>
+
+            <button class="login__form__links__google">
+                <div class="google"></div>
+            </button>
+
+            <button class="login__form__links__apple">
+                <i class="fab fa-apple fa-2x"></i>
+            </button>
+
+            <button class="login__form__links__discord">
+                <i class="fab fa-discord fa-2x"></i>
+            </button>
+        </div>
+
+        <div class="login__form__separator">
+        </div>
+
         <form method="POST" action={'?/login&redirectTo=' + redirectTo} use:enhance><!-- Una vez que se envie el formulario lo envio a la URL de donde estoy que es login y luego otra parte de la url que es para reedirigir que me manda a la pagina que quiero --> <!-- Y uso enhance para mejorar las capacidades del form como el manejo de eventos y validcion -->
-            <label for="username">Username</label><br />
             <input
                 type="text"
                 name="username"
@@ -46,7 +69,6 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
         <br>
         <br>
         
-        <label for="password">Password</label><br />
         <input type="text" name="password" id="password" placeholder="Password" />
         
             <br />
@@ -57,9 +79,7 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
         <br/>
         <button type="submit">Submit</button>
 
-        <div class="login__form__links">
-            
-        </div>
+        
 
 
         </form>
@@ -84,7 +104,6 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
         display: grid;
         grid-template-columns:1fr 1fr 1fr;
 
-
         &__icon{
             display: grid;
             place-items: start;
@@ -101,10 +120,7 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
 			}
 		}
 
-        &__checkbox:checked + &__button &__icon::before {
-            top: 0;
-            transform: rotate(135deg);
-        }
+        
         }
         
         &__cross{
@@ -155,9 +171,72 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
         justify-content: center;
         margin: auto;
         max-width: 550px;
-        padding: 80px 60px 60px;
+        padding: 70px 40px 60px;
         width: 100%;
+
+        span{
+            font-size: 24px;
+        }
         
+        &__links{
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-template-rows: 1;
+            justify-content: space-between;
+            height: 50px;
+            margin: 20px 0 0 0;
+
+            button{
+                border: none;
+                border-radius: 5%;
+            }
+
+            &__facebook{
+                background-color: #1877f2;
+                color: white;
+            }
+
+            &__google{
+                background-color: white;
+                display: grid;
+                
+                .google{
+                    background-image: url('google.png');
+                    background-size: contain;  // Ajusta según tus necesidades
+                    background-repeat: no-repeat;
+                    width: 25px;  // Ajusta según tus necesidades
+                    height: 25px;
+                    margin: auto auto;
+                }
+            }
+
+            &__apple{
+                background-color: black;
+                color: white;
+            }
+
+            &__discord{
+                background-color: #5865f2;
+                color: white;
+            }
+        }
+
+        &__separator {
+            width: 100%;
+            margin: 40px 0; // Ajusta según tus necesidades
+            position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 100%;
+          height: 1.5px;
+          background-color: var(--text-color);
+        }
+      }
+
         form{
             width: 100%;
             height: 100%;
@@ -179,7 +258,7 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
                 color: beige;
                     }
 
-        button{
+        button[type="submit"]{
             width: 100%;
             padding: 15px;
             text-align: center;
