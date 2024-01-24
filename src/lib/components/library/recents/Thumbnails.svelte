@@ -1,5 +1,6 @@
 <script>
 	export let thumbnails;
+
 </script>
 
 <div class="library--recents">

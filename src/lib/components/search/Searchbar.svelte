@@ -29,6 +29,16 @@
         });
         searchResult = [...startsWith, ...otherGames]; 
     };
+
+    function debounce(callback, wait) {
+  let timerId;
+  return (...args) => {
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      callback(...args);
+    }, wait);
+  };
+}
     
     $: {
         if (searchValue) {

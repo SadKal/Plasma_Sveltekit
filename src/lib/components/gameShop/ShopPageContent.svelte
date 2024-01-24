@@ -1,7 +1,9 @@
 <script>
-
 	export let game;
-	let genres = game.genres;
+	let genres = [];
+	game.genres.forEach(genre => {
+		genres.push(genre.name);
+	});
 </script>
 
 <div class="shopGame__content_container">

@@ -7,7 +7,7 @@
 	import { onMount } from "svelte";
 
 	export let data;
-	let { mostSold, slides, genres } = data;
+	let { bestRated, slides, genres } = data;
 
     function scrollOnLoad() {
 		requestAnimationFrame(() => {
@@ -27,9 +27,9 @@
 
     onMount(() => {
         scrollOnLoad();
-    });
+    }); 
 </script>
-
+ 
 <div class="app-body">
 	<Searchbar/>
 
@@ -37,7 +37,7 @@
 
 	<Slideshow {slides}/>
 
-	<MostSold {mostSold}/>
+	<MostSold mostSold={bestRated}/>
 
 	<Genres {genres}/>
 </div>

@@ -1,16 +1,14 @@
 <script>
     let today = new Date();
     let currentDay = today.getDay();
-    let monday = new Date();
-    let sunday = new Date();
+    let sevenDaysAgo = new Date();
 
     //Calculo el lunes. Resto al numero de dia del mes el numero de dias que llevamos de semana menos uno, asi siempre llego al dia del mes que corresponde al lunes
-    monday.setDate(today.getDate() - (currentDay - 1));
-    sunday.setDate(today.getDate() + (7 - currentDay));
+    sevenDaysAgo.setDate(today.getDate() - 7);
 
-    //Cambio de numero de mes a nombre de mes, para que ponga "noviembre" en vez de "10"(los meses cuenta de 0 a 11)
-    const mondayMonth = monday.toLocaleString('default', { month: 'long' });
-    const sundayMonth = sunday.toLocaleString('default', { month: 'long' });
+    //Cambio de numero de mes a nombre de mes, para que ponga "noviembre" en vez de "10"(los meses cuenta de 0 a 11) 
+    const todayMonth = today.toLocaleString('default', { month: 'long' });
+    const sevenDaysAgoMonth = sevenDaysAgo.toLocaleString('default', { month: 'long' });
 </script>
 
 <div class="novedades">
@@ -18,7 +16,7 @@
         Novedades
     </div>
     <div class="novedades__subtitle">
-        (Semana del {monday.getDate()} de {mondayMonth} al {sunday.getDate()} de {sundayMonth})
+        (Juegos lanzados entre el {sevenDaysAgo.getDate()} de {sevenDaysAgoMonth} y el {today.getDate()} de {todayMonth})
     </div>
 </div>
 
@@ -33,7 +31,7 @@
             color: var(--text-color);
             font-size: 7rem;
             letter-spacing: .4rem;
-            font-weight: 400;
+            font-weight: 400;   
             @media (max-width: 1050px){
                 font-size: 5rem;
                 letter-spacing: .8rem;

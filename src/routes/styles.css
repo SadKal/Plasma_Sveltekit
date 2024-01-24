@@ -58,5 +58,13 @@ html, body{
         opacity: 40%;
     }
 }
+@keyframes slide{
+    from {
+        left: 110%;
+    }
+    to{
+        left: -140%;
+    }
+}
 
 

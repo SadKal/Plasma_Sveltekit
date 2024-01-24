@@ -10,7 +10,7 @@ export async function load({ cookies }) {
     }
     gamesToSearch = gamesToSearch.substring(0, gamesToSearch.length - 1);
 
-    const gameTestResponse = await fetch(
+    const gameResponse = await fetch(
         "https://api.igdb.com/v4/games",
         {
             method: 'POST',
@@ -19,12 +19,16 @@ export async function load({ cookies }) {
                 'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
                 'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
             },
-            body: `fields artworks,cover.image_id,name,screenshots.*; where id=(${gamesToSearch});`
+            body: `fields artworks.image_id,cover.image_id,name,screenshots.*; 
+                    where id=(${gamesToSearch});
+                    limit ${gamesToSearch.length};`
         });
 
-    const games = await gameTestResponse.json();
+    const games = await gameResponse.json();
+
 
     user.games = user.games.map((userGame) => { return { ...games.find((game) => userGame.id === game.id), ...userGame } });
 
     return user;
-}
+
+} 

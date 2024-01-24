@@ -9,4 +9,4 @@
 </script>
 
 <Recents />
-<YourGames />
+<YourGames /> 

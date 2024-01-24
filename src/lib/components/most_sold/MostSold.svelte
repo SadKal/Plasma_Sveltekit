@@ -6,8 +6,11 @@
 
 <div class="most-sold">
     <div class="most-sold__title">
-        Más Vendidos
+        Mejor valorados
     </div> 
+    <div class="most-sold__subtitle">
+        Juegos con las valoraciones mas altas
+    </div>
     <div class="most-sold__exhibitor"> 
         {#each mostSold as game, index}
             <MostSoldGame {game} {index}/>
@@ -34,6 +37,10 @@
             font-weight: 400;
             letter-spacing: .2rem;
         } 
+        &__subtitle{
+            color: var(--subtitle-text-color);
+            font-size: 1.25rem;
+        }
 
         &__exhibitor{
             display: grid;

@@ -1,11 +1,13 @@
 <script>
     import { goto } from "$app/navigation"
+	import { onMount } from "svelte";
 
     export let game;
     export let index;
     index += 1;
+    console.log(game);
 
-    let cover=game.cover;
+    let cover=game.cover.image_id;
     let name=game.name;
     let genres=game.genres;
 
@@ -30,7 +32,6 @@
             card.style.transform = 'perspective(1000px) rotateY(0)';
         }
     }
-
 </script> 
 
 <div 
@@ -40,11 +41,11 @@
     on:mouseleave={resetRotation} 
     on:click={() => goto(`/game/${game.id}`)}
     class="most-sold__game most-sold__game--{index}">
-        <img class="most-sold__image" src={cover} alt="cover"/>
+        <img class="most-sold__image" src='https://images.igdb.com/igdb/image/upload/t_cover_big/{cover}.png' alt="cover"/>
         <div class="most-sold__data">
             <p class="most-sold__name">{name}</p> 
             {#each genres as genre, index}
-                <span>{genre}{index === genres.length - 1 ? '' : ', '}</span>
+                <span class="most-sold__genre">{genre.name}{index === genres.length - 1 ? '' : ', '}</span>
             {/each} 
         </div>
 </div>
@@ -58,6 +59,7 @@
             transition: all .4s;
             position: relative;
             
+
           
             &:hover{
                 cursor: pointer;
@@ -103,10 +105,14 @@
             width: 100%;
             height: 20%;
             font-size: 1.75rem;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+            white-space: nowrap;
 
             padding: .5rem;
             text-align: center;
             box-shadow: 3px 4px 15px 0.5px black;
+            
             
             @media (max-width: 1500px) {
                 font-size: 1.5rem;
@@ -133,7 +139,13 @@
             font-weight: 700;
             line-height: 95%;
             margin: .25rem 0;
-            
+            left: 0;
+            position: relative;
+            transition: all 3s;
+            text-align: center;
+            overflow: visible;
+            white-space: wrap;
+
             @media (max-width: 1500px) {
                 font-size: 1.25rem;
             }
@@ -147,7 +159,12 @@
             @media (max-width: 450px) {
                 font-size: 1.5rem;
                 margin: .5rem 0;
-            }          
+            }    
+        }
+        
+
+        &__genre{
+            font-size: 1.3rem;
         }
     }
 </style>

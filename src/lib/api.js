@@ -23,7 +23,7 @@ export async function addGameToUser(userToUpdate, gameId) {
             };
             const updatedUser = {
                 ...user,
-                games: [...user.games, newGame],
+                games: [...user.games, newGame]
             };
             const response = await fetch(`${baseURL}/users/${userToUpdate.id}`, {
                 method: 'PATCH',

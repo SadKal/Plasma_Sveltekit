@@ -8,6 +8,7 @@
     export let index;
     export let cache;
     export let handleClick = (_);
+    src = `https://images.igdb.com/igdb/image/upload/t_1080p/${src}.jpg`;
 
     let positionClass = 'slide__img' + position; 
     let nameClass = 'slide__title' + position;
@@ -72,7 +73,7 @@
         &:hover{
             box-shadow: 0 0 20px 5px white; 
         }
-        
+
         &__img{
             width: 100%;
             height: 100%;
@@ -108,7 +109,7 @@
             cursor: pointer;
 
             @media (max-width: 1300px) {
-                font-size: 1.5rem;
+                font-size: 1.5rem; 
             }
             @media (max-width: 800px) {
                 font-size: 1rem;
@@ -128,6 +129,7 @@
                 background-color: var(--game-title-background-color-center);
                 bottom: -20%;   
                 clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+                font-size: 1.8rem;
 
                 @media (max-width: 800px) {
                     bottom: -17%;
