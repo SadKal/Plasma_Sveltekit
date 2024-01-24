@@ -8,23 +8,24 @@
 <div class="topbar clearfix">
 	<ul class="topbar__list">
 		<li class="topbar__element--container">
-			<img src={iconSrc} alt="logo" class="topbar__logo" />
-		</li>
+		<img src={iconSrc} alt="logo" class="topbar__logo" />
+	</li>
 		<HeaderElement name="Inicio" />
 		<HeaderElement name="Biblioteca" subdirectory="/library"/>
 		<HeaderElement name="Perfil"/>
-		<Cart />
-	</ul>
+		<a href="/login">Login</a>
+		<Cart />	
+</ul>
 </div>
  
 <style lang="scss">
-	.clearfix::after {
+.clearfix::after {
 		content: "";
 		clear: both;
 		display: block;
 	}
 	.topbar {
-		box-sizing: border-box;
+				box-sizing: border-box;
 		border-bottom: 6px solid var(--text-color);
 		background-color: var(--topbar-background-color);
 
@@ -36,7 +37,7 @@
 			list-style: none;
 			margin: 0;
 			padding: 0;
-			width: 100%;
+			width: 100%;	
 		}
 		position: sticky;
 		top: 0;
@@ -45,14 +46,14 @@
 		&__logo {
 			width: 45px;
 			height: auto;
-
+			
 			@media (max-width: 650px) {
 				top: 40%;
 				position: relative;
 				left: 35%;
 			}
 		}
-		&__element--container {
+&__element--container {
 			float: left;
 		}
 
