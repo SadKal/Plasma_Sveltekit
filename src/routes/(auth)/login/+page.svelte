@@ -30,28 +30,29 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
         </div>
     </div>
 
-    <div class="login__form">
+    <div class="login__register">
+    <div class="login__register__form">
 
         <span>Inicia sesión</span>
-        <div class="login__form__links">
-            <button class="login__form__links__facebook">
-                <i class="fab fa-facebook-f fa-2x"></i>                      
+        <div class="login__register__form__links">
+            <button class="login__register__form__links__facebook">
+                <div class="facebook"></div>
             </button>
 
-            <button class="login__form__links__google">
+            <button class="login__register__form__links__google">
                 <div class="google"></div>
             </button>
 
-            <button class="login__form__links__apple">
-                <i class="fab fa-apple fa-2x"></i>
+            <button class="login__register__form__links__apple">
+                <div class="apple"></div>
             </button>
 
-            <button class="login__form__links__discord">
-                <i class="fab fa-discord fa-2x"></i>
+            <button class="login__register__form__links__discord">
+                <div class="discord"></div>
             </button>
         </div>
 
-        <div class="login__form__separator">
+        <div class="login__register__form__separator">
         </div>
 
         <form method="POST" action={'?/login&redirectTo=' + redirectTo} use:enhance><!-- Una vez que se envie el formulario lo envio a la URL de donde estoy que es login y luego otra parte de la url que es para reedirigir que me manda a la pagina que quiero --> <!-- Y uso enhance para mejorar las capacidades del form como el manejo de eventos y validcion -->
@@ -77,12 +78,9 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
             <p style="color: red;">Contraseña requerida</p>
         {/if}
         <br/>
-        <button type="submit">Submit</button>
-
-        
-
-
+        <button type="submit">Accept</button>
         </form>
+    </div>
     </div>
 
     <div class="login__image">
@@ -96,7 +94,12 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+
+    @media screen and (max-width: 900px) {
+        grid-template-columns: 1fr;        
+    }
 
     &__navigation{
         width: 100%;
@@ -107,18 +110,17 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
         &__icon{
             display: grid;
             place-items: start;
-            margin: 20px;
+
+            @media screen and (max-width: 900px) {
+                grid-column: 2;
+                place-items: center;        
+            }
             
             .logo {
+                margin: 20px;
 			    width: 70px;
-			    height: auto;
-
-			@media (max-width: 650px) {
-				top: 40%;
-				position: relative;
-				left: 35%;
-			}
-		}
+			    height: 78px;
+		    }
 
         
         }
@@ -165,18 +167,20 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
     }
     
 
+    &__register{
+        display: grid;
+        height: 100vh;
     &__form{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: auto;
-        max-width: 550px;
-        padding: 70px 40px 60px;
+        place-self: center;
+        display: grid;
+        grid-template-rows: 20px 1fr 1fr;
+        grid-template-columns: 1fr;
+        max-width: 400px;
         width: 100%;
-
         span{
             font-size: 24px;
         }
+        
         
         &__links{
             display: grid;
@@ -189,11 +193,26 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
             button{
                 border: none;
                 border-radius: 5%;
+                transition: background-color 0.3s ease-in-out; // Transición para suavizar el cambio de color de fondo
+
+            &:hover {
+                background-color: var(--text-color), 10%; // Cambia el color de fondo al hacer hover
+            }
             }
 
             &__facebook{
                 background-color: #1877f2;
                 color: white;
+
+                .facebook{
+                    background-image: url('facebook.png');
+                    background-size: contain; 
+                    background-repeat: no-repeat;
+                    background-position:center ; 
+                    width: 50px;  
+                    height: 50px;
+                    margin: auto auto;
+                }
             }
 
             &__google{
@@ -202,10 +221,11 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
                 
                 .google{
                     background-image: url('google.png');
-                    background-size: contain;  // Ajusta según tus necesidades
+                    background-size: contain; 
                     background-repeat: no-repeat;
-                    width: 25px;  // Ajusta según tus necesidades
-                    height: 25px;
+                    background-position:center ; 
+                    width: 30px;  
+                    height: 30px;
                     margin: auto auto;
                 }
             }
@@ -213,17 +233,35 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
             &__apple{
                 background-color: black;
                 color: white;
+
+                .apple{
+                    background-image: url('apple.png');
+                    background-size: contain; 
+                    background-repeat: no-repeat;
+                    background-position:center ; 
+                    width: 48px;  
+                    height: 48px;
+                    margin: auto auto;
+                }
             }
 
             &__discord{
                 background-color: #5865f2;
-                color: white;
+                .discord{
+                    background-image: url('discord.png');
+                    background-size: contain; 
+                    background-repeat: no-repeat;
+                    background-position:center ; 
+                    width: 30px;  
+                    height: 30px;
+                    margin: auto auto;
+                }
             }
         }
 
         &__separator {
             width: 100%;
-            margin: 40px 0; // Ajusta según tus necesidades
+            margin: 40px 0; 
             position: relative;
 
         &::after {
@@ -240,11 +278,6 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
         form{
             width: 100%;
             height: 100%;
-        }
-
-        label{
-            font-size: 2.5rem;
-            color: var(--text-color);
         }
 
             input{
@@ -269,17 +302,26 @@ import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy
             font-size: 16px;
             font-weight: bold;
         }
-        
 
-
+    }
     }
 
     &__image{
         height: 100vh;
         background-image: url('gta.jpg');
         background-size: cover;
-        background-position:center ;    
+        background-position:center ; 
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
+          
     }
 }
+
+//MEDIAQUERY
+
+
+ 
+
 
 </style>

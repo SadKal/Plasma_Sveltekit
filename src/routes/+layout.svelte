@@ -13,9 +13,9 @@
 </script>
 
 <div class="app">
-    <Header />
+    <!-- <Header /> -->
     <slot/>
-    <Footer />
+    <!-- <Footer /> -->
 </div>
 
 <style lang="scss">
