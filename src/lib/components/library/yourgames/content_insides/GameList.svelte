@@ -2,6 +2,7 @@
 	import Select from "./GameListSelect.svelte";
 	import { flip } from "svelte/animate";
 	import { expoInOut } from "svelte/easing";
+	import { goto } from '$app/navigation';
 
 	export let games;
 
@@ -57,8 +58,9 @@
 			class="gamelist__content"
 			style="background-image: url('https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover.image_id}.png');"
 			animate:flip={{ duration: 400, delay: game.id/1000, easing: expoInOut }}
+			on:click={goto(`/library/${game.id}`)}
 		>
-			<span class="gamelist__content_title">
+			<span class="gamelist__content_title" on:click={goto(`/library/${game.id}`)}>
 				{game.name}
 			</span>
 		</div>
@@ -77,6 +79,7 @@
 		flex-wrap: wrap;
 		margin-top: 20px;
 		justify-content: start;
+		cursor: pointer
 	}
 	.gamelist__content {
 		height: 21vw;
@@ -89,6 +92,7 @@
 		margin-top: 1.5rem;
 		border-radius: 4px;
 		transition: all 0.2s;
+		cursor: pointer;
 		&:hover,
 		&:active {
 			scale: 1.05;
@@ -114,7 +118,7 @@
 			font-weight: 900;
 			transition: all 0.25s;
 			transition-duration: 0.25s;
-			margin: 20% 0 0 -1px; //needed to make the title stay flush to the side, is there really no better way?
+			margin: 100% 0 0 -1px; //needed to make the title stay flush to the side, is there really no better way?
 
 		}
 		@media (max-width: 1750px) and (orientation: landscape) {

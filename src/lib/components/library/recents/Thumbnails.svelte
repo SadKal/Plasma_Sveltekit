@@ -1,5 +1,6 @@
 <script>
 	export let thumbnails;
+	import { goto } from '$app/navigation';
 
 </script>
 
@@ -9,6 +10,7 @@
 		<div
 			class="library--recents__thumbnails thumbnail--small"
 			style="background-image: url('https://images.igdb.com/igdb/image/upload/t_cover_big/{thumbnail.cover.image_id}.png');"
+			on:click={goto(`/library/${thumbnail.id}`)}
 		/>
 	{/each}
 </div>
@@ -68,6 +70,7 @@
 			transition: all 0.2s;
 			margin-top: 1%;
 			margin-bottom: 2%;
+			cursor: pointer;
 		}
 	}
 </style>
