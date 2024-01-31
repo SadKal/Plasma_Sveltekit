@@ -1,24 +1,24 @@
 <script>
-	import GamePageContent from "$lib/components/gameShop/ShopPageContent.svelte";
-	import { onMount } from "svelte";
+	import GamePageContent from '$lib/components/gameShop/ShopPageContent.svelte';
+	import { onMount } from 'svelte';
 	import { useCart } from '$lib/stores/cart';
-	import { useUser } from "$lib/stores/user";
+	import { useUser } from '$lib/stores/user';
 	import { browser } from '$app/environment';
-	
-    export let data;
+
+	export let data;
 
 	const cartStore = useCart();
 	const userStore = useUser();
 
 	let { game } = data;
 
-	$: gameOwned = ($userStore.games.some( libraryGame => libraryGame.id === game.id )? true : false);
-	$: gameInCart = ($cartStore.gamesInCart.some( cartGame => cartGame.id === game.id ) ? true : false); 
+	$: gameOwned = $userStore.games.some((libraryGame) => libraryGame.id === game.id) ? true : false;
+	$: gameInCart = $cartStore.gamesInCart.some((cartGame) => cartGame.id === game.id) ? true : false;
 
 	function setGameInCart() {
 		if (!gameOwned) {
 			cartStore.addGameToCart(game);
-			gameInCart = true; 
+			gameInCart = true;
 			setTimeout(() => {
 				$cartStore.cartActive = true;
 			}, 350);
@@ -27,23 +27,27 @@
 			}, 2000);
 		}
 	}
-	const allImages = [...game.artworks, ...game.screenshots]; 
- 
-	const random =  Math.floor(Math.random() * allImages.length);
-	const artwork = allImages[random]; 
+	const allImages = [...game.artworks, ...game.screenshots];
+
+	const random = Math.floor(Math.random() * allImages.length);
+	const artwork = allImages[random];
 </script>
 
 <div class="shopGame__container">
-	<div class="shopGame__gameBG" style="background-image: url(https://images.igdb.com/igdb/image/upload/t_original/{artwork.image_id}.jpg);" />
+	<div
+		class="shopGame__gameBG"
+		style="background-image: url(https://images.igdb.com/igdb/image/upload/t_original/{artwork.image_id}.jpg);"
+	/>
 	<div
 		class="shopGame__coverArt"
 		class:active={gameInCart}
-		style="background-image: url(https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover.image_id}.png);"
+		style="background-image: url(https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover
+			.image_id}.png);"
 	/>
 	<div class="shopGame__title">
 		<span>{game.name}</span>
 	</div>
-</div> 
+</div>
 
 <div class="shopGame__toCart" on:click={setGameInCart}>
 	{#if gameOwned}
@@ -55,7 +59,7 @@
 	{/if}
 </div>
 
-<GamePageContent {game}/>
+<GamePageContent {game} />
 
 <style lang="scss">
 	* {
@@ -72,12 +76,12 @@
 		height: 60vh;
 		background-repeat: space;
 		background-size: cover;
-		filter: blur(.5rem);
+		filter: blur(0.5rem);
 		position: relative;
 		z-index: 0;
-		
+
 		margin: 0px 0px 0px -25px;
-		@media (max-width: 650px) and (orientation:portrait) {
+		@media (max-width: 650px) and (orientation: portrait) {
 			height: 40vh;
 		}
 	}
@@ -97,7 +101,6 @@
 			height: 400px;
 			width: 300px;
 			left: 60%;
-
 		}
 		@media (max-width: 650px) and (orientation: portrait) {
 			height: 225px;
@@ -135,31 +138,31 @@
 		background-color: var(--game-title-background-color);
 
 		color: var(--selected-text-color);
-		padding: .75rem 4rem;
+		padding: 0.75rem 4rem;
 		top: 40%;
 		left: 10%;
 		text-align: center;
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 		font-size: 2rem;
 		position: absolute;
-		
-		@media (max-width: 900px) and (orientation:portrait) {
+
+		@media (max-width: 900px) and (orientation: portrait) {
 			max-width: 25%;
 			top: 15%;
 		}
-		@media (max-width: 650px) and (orientation:portrait) {
-			font-size: 1.25rem;	
+		@media (max-width: 650px) and (orientation: portrait) {
+			font-size: 1.25rem;
 			max-width: 30%;
 			padding: 3% 7%;
 		}
-		@media (max-width: 450px) and (orientation:portrait) {
-			font-size: 1rem;	
+		@media (max-width: 450px) and (orientation: portrait) {
+			font-size: 1rem;
 		}
 		@media (max-height: 900px) and (orientation: landscape) {
 			top: 20%;
 		}
-		@media (max-height: 600px) and (orientation:landscape) {
-			font-size: 1.5rem;		
+		@media (max-height: 600px) and (orientation: landscape) {
+			font-size: 1.5rem;
 			max-width: 30%;
 			top: 10%;
 			padding: 1% 5%;
@@ -176,26 +179,26 @@
 		position: absolute;
 		top: 45%;
 		left: 10%;
-		padding: .5rem 1.5em;
+		padding: 0.5rem 1.5em;
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 		cursor: pointer;
 		user-select: none;
-		@media (max-width: 900px) and (orientation:portrait) {
+		@media (max-width: 900px) and (orientation: portrait) {
 			top: 45%;
 			width: 25%;
 		}
-		@media (max-width: 650px) and (orientation:portrait) {
+		@media (max-width: 650px) and (orientation: portrait) {
 			top: 35%;
 		}
-		@media (max-width: 450px) and (orientation:portrait) {
-			font-size: .75rem;	
+		@media (max-width: 450px) and (orientation: portrait) {
+			font-size: 0.75rem;
 			max-width: 30%;
 			padding: 2% 4%;
 		}
 		@media (max-height: 900px) and (orientation: landscape) {
-			top:45%
+			top: 45%;
 		}
-		@media (max-height: 600px) and (orientation:landscape) {
+		@media (max-height: 600px) and (orientation: landscape) {
 			top: 50%;
 			width: 15%;
 			font-size: 1rem;

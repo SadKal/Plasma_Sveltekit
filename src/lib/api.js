@@ -45,3 +45,5 @@ export async function addGameToUser(userToUpdate, gameId) {
         console.error('Error fetching user:', error);
     }
 }
+
+
