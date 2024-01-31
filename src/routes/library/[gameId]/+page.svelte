@@ -46,7 +46,20 @@
 	   </div> 
 	</div>
 </div>
-<div class="gamePage_playInfo"></div>
+<div class="gamePage__playInfo">
+	<div class="gamePage__playInfo-rating">
+		<p class="gamePage__playInfo-titles">Valoración media:</p>
+		<span>{roundedRating}</span>
+	</div>
+	<div class="gamePage__playInfo-update">
+		<p class="gamePage__playInfo-titles">Última actualización:</p>
+		<span>{lastUpdate}</span>
+	</div>
+	<div class="gamePage__playInfo-launch">
+		<p class="gamePage__playInfo-titles">Fecha de lanzamiento:</p>
+		<span>{releaseDate}</span>
+	</div>
+</div>
 
 <style lang="scss">
 	* {
@@ -187,6 +200,32 @@
 		&:hover{
 			max-height: 100px;
 			transition: all .75s ease-in-out;
+		}
+	}
+	.gamePage__playInfo {
+		background-color: var(--gamepage-playinfo-bg-color);
+    	margin-top: -10px;
+    	z-index: 1;
+    	position: relative;
+		display: flex;
+		justify-content: space-around;
+
+		&-titles {
+			font-size: 2rem;
+			margin: 1rem 20px 1rem 0;
+		}
+		
+		& span {
+			font-size: 1.5rem;
+			align-self: center;
+			color: var(--selected-text-color);
+		}
+
+		&-rating,
+		&-update,
+		&-launch {
+			display: flex;
+			width: fit-content;
 		}
 	}
 	

@@ -19,7 +19,7 @@ export async function load({ cookies }) {
                 'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
                 'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
             },
-            body: `fields artworks.image_id,cover.image_id,name,screenshots.*; 
+            body: `fields cover.image_id,name; 
                     where id=(${gamesToSearch});
                     limit ${gamesToSearch.length};`
         });
