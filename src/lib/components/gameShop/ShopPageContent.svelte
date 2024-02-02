@@ -4,6 +4,7 @@
 	game.genres.forEach(genre => {
 		genres.push(genre.name);
 	});
+	console.log(game);
 </script>
 
 <div class="shopGame__content_container">

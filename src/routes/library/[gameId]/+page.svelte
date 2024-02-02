@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+	import GamePageContent from '$lib/components/gamePage/GamePageContent.svelte';
 
 	export let data;
 
@@ -60,6 +61,8 @@
 		<span>{releaseDate}</span>
 	</div>
 </div>
+
+<GamePageContent {game}/>
 
 <style lang="scss">
 	* {
@@ -219,6 +222,7 @@
 			font-size: 1.5rem;
 			align-self: center;
 			color: var(--selected-text-color);
+			margin: 1.5rem 20px 1.5rem 0;
 		}
 
 		&-rating,
