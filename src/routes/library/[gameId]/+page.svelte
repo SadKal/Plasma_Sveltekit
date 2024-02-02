@@ -28,6 +28,7 @@
 		style="background-image: url(https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover
 			.image_id}.png);"
 	/>
+
 	<div class="gamePage__libInfo">
 		<div class="gamePage__title">
 			<span>{game.name}</span>
@@ -42,9 +43,11 @@
 				<span>{buydate}</span>
 			</div>
 		</div>
+
 		<div class="gamePage__moreInfo-toShopPage">
-		   <p>+ Info</p> <!-- ver por que el on:click me hace el redireccionamiento automaticamente, need to rethink this -->
-	   </div> 
+			<p>+ Info</p>
+			<!-- ver por que el on:click me hace el redireccionamiento automaticamente, need to rethink this -->
+		</div>
 	</div>
 </div>
 <div class="gamePage__playInfo">
@@ -125,12 +128,13 @@
 		justify-content: space-around;
 		transform: translate(0%, 50%);
 	}
-	.gamePage__libInfo { //breaks on 1400px
+	.gamePage__libInfo {
+		//breaks on 1400px
 		display: grid;
-    	grid-template-rows: 1fr 1fr;
-    	width: 35%;
+		grid-template-rows: 1fr 1fr;
+		width: 35%;
 	}
-	
+
 	.gamePage__title {
 		background-color: var(--game-title-background-color);
 		color: var(--selected-text-color);
@@ -171,7 +175,7 @@
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 		padding: 5px 75px;
 		align-self: end;
-		& span{
+		& span {
 			font-size: 2rem;
 			font-weight: 600;
 			color: var(--selected-text-color);
@@ -184,8 +188,8 @@
 		}
 
 		&:hover ~ .gamePage__moreInfo-toShopPage {
-			max-height: 100px;	//needed to make the transition, doesnt work with height
-			transition: all .75s ease-in-out;
+			max-height: 100px; //needed to make the transition, doesnt work with height
+			transition: all 0.75s ease-in-out;
 		}
 	}
 	.gamePage__moreInfo-toShopPage {
@@ -194,22 +198,21 @@
 		max-height: 5px;
 		font-size: 1.5rem;
 		clip-path: polygon(0% 0%, 90% 0%, 90% 100%, 0% 100%);
-		transition: all .75s ease-in-out;
+		transition: all 0.75s ease-in-out;
 
 		& p {
 			margin: 10px;
-			
 		}
-		&:hover{
+		&:hover {
 			max-height: 100px;
-			transition: all .75s ease-in-out;
+			transition: all 0.75s ease-in-out;
 		}
 	}
 	.gamePage__playInfo {
 		background-color: var(--gamepage-playinfo-bg-color);
-    	margin-top: -10px;
-    	z-index: 1;
-    	position: relative;
+		margin-top: -10px;
+		z-index: 1;
+		position: relative;
 		display: flex;
 		justify-content: space-around;
 
@@ -217,7 +220,7 @@
 			font-size: 2rem;
 			margin: 1rem 20px 1rem 0;
 		}
-		
+
 		& span {
 			font-size: 1.5rem;
 			align-self: center;
@@ -232,5 +235,4 @@
 			width: fit-content;
 		}
 	}
-	
 </style>
