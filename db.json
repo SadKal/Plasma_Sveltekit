@@ -1,406 +1,616 @@
 {
-    "games" : [
-        {
-            "id":1,
-            "name":"Persona 5 Royal",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_Persona5Royal_image1600w.jpg",
-            "cover":"https://i0.wp.com/xboxera.com/wp-content/uploads/2022/10/I37BgLmQ.jpeg?fit=2438%2C3225&ssl=1",
-            "genres": ["JRPG", "Por turnos", "Novela Visual"],
-            "price":"5999"
-        },
-        {
-            "id":2,
-            "name":"Xenoblade Chronicles 3",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_XenobladeChronicles3_image1600w.jpg",
-            "cover":"https://i.ebayimg.com/images/g/b6QAAOSwJ5Vi1a8j/s-l1200.webp",
-            "genres": ["JRPG", "Acción Aventura"],
-            "price":"5999"
-        },
-        {
-            "id":3,
-            "name":"Rimworld",
-            "image":"https://cdn1.epicgames.com/7051eadbb8c2435caf32a9bc0dc17936/offer/EGS_RimWorld_LudeonStudios_S1-2560x1440-410a62ec21d44260409182e1174cce2e.jpg",
-            "cover":"https://images.igdb.com/igdb/image/upload/t_cover_big/co1j6x.jpg",
-            "genres": ["Simulación"],
-            "price":"5999"
-        },
-        {
-            "id":4,
-            "name":"Hollow Knight",
-            "image":"https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000003208/4643fb058642335c523910f3a7910575f56372f612f7c0c9a497aaae978d3e51",
-            "cover":"https://cdnb.artstation.com/p/assets/images/images/017/028/727/large/martina-bonanni-hollowknight2.jpg?1554366863",
-            "genres": ["Metroidvania", "Souls-like"],
-            "price":"5999"
-        },
-        {
-            "id":5,
-            "name":"Red Dead Redemption 2",
-            "image":"https://compass-ssl.xbox.com/assets/64/02/6402981a-9446-46d8-8289-e370f3158746.jpg?n=Red-Dead-Redemption-II_GLP-Page-Hero-1084_1920x1080.jpg",
-            "cover":"https://cdn1.epicgames.com/epic/offer/RDR2PC1227_Epic%20Games_860x1148-860x1148-b4c2210ee0c3c3b843a8de399bfe7f5c.jpg",
-            "genres": ["Acción Aventura", "Histórico", "Vaqueros"],
-            "price":"5999"
-        },
-        {
-            "id":6,
-            "name":"Final Fantasy 14",
-            "image":"https://areajugones.sport.es/wp-content/uploads/2023/09/final-fantasy-xiv.jpg",
-            "cover":"https://i.imgur.com/Lh7vqLN.jpeg",
-            "genres": ["JRPG", "MMO"],
-            "price":"5999"
-        },
-        {
-            "id":7,
-            "name":"Phoenix Wright: Ace Attorney",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_PhoenixWrightAceAttorneyTrilogy.jpg",
-            "cover":"https://store-images.s-microsoft.com/image/apps.615.67362291782661543.eb0267ee-9235-487a-b697-5cc49c0703c1.327dcfde-8472-4f0e-b91e-9b4856238352",
-            "genres": ["Novela Visual", "Policíaco"],
-            "price":"5999"
-        },
-        {
-            "id":8,
-            "name":"Disco Elysium",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_DiscoElysiumTheFinalCut_image1600w.jpg",
-            "cover":"https://cdn1.epicgames.com/ff52981b1d9947978153c7a7f8bc6d90/offer/EGS_DiscoElysiumTheFinalCut_ZAUM_S6-1200x1600-486d4da970eede7364b9650d63900bad.jpg",
-            "genres": ["Policíaco", "RPG"],
-            "price":"5999"
-        },
-        {
-            "id":9,
-            "name":"Resident Evil 4",
-            "image":"https://i.blogs.es/b0418e/resident-evil-4-2023/1366_2000.jpeg",
-            "cover":"https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/EVWyZD63pahuh95eKloFaJuC.png",
-            "genres": ["Horror", "Acción Aventura"],
-            "price":"5999"
-        },
-        {
-            "id":10,
-            "name":"Signalis",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Signalis_image1600w.jpg",
-            "cover":"https://cdn.cdkeys.com/700x700/media/catalog/product/d/a/das.jpg",
-            "genres": ["Horror", "Clásico", "Misterio"],
-            "price":"5999"            
-        },
-        {
-            "id":11,
-            "name":"Kingdom Hearts 3",
-            "image":"https://www.kh13.com/uploads/monthly_2018_10/large.gallery_52163_4_563758.png.23df6f3703e26bc051dade9093896382.png",
-            "cover":"https://cdn11.bigcommerce.com/s-hfy8688lak/images/stencil/1280x1280/products/908/2165/88c11e0a782ef4e5738ffce90c125e15__94749.1675454821.jpg?c=1",
-            "genres": ["JRPG", "Acción Aventura"],
-            "price":"5999"            
-        },
-        {
-            "id":12,
-            "name":"Minecraft",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Minecraft.jpg",
-            "cover":"https://cdn.mobygames.com/covers/1687450-minecraft-playstation-4-edition-xbox-one-front-cover.png",
-            "genres": ["Simulación", "Acción Aventura"],
-            "price":"5999"            
-        },
-        {
-            "id":13,
-            "name":"Outer Wilds",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_OuterWilds_image1600w.jpg",
-            "cover":"https://mixcreeping.files.wordpress.com/2020/06/outerwildscover-1.jpg",
-            "genres": ["Misterio", "Horror", "Espacio"],
-            "price":"5999"            
-        },
-        {
-            "id":14,
-            "name":"Sekiro",
-            "image":"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2018/09/sekiro-shadows-die-twice.jpg?tf=3840x",
-            "cover":"https://i.pinimg.com/originals/ba/a0/8b/baa08bc3dc95fb3d105391e7ca24dd82.jpg",
-            "genres": ["Souls-like", "Acción Aventura"],
-            "price":"5999"            
-        },
-        {
-            "id":15,
-            "name":"Resident Evil 2",
-            "image":"https://gaming-cdn.com/images/products/3666/orig/resident-evil-2-biohazard-re-2-deluxe-edition-deluxe-edition-pc-juego-steam-cover.jpg?v=1683556284",
-            "cover":"https://steamuserimages-a.akamaihd.net/ugc/938320777502349153/A23419F5A98D244A523B5B96BA4E868B834F987A/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
-            "genres": ["Horror", "Acción Aventura"],
-            "price":"5999"            
-        },
-        {
-            "id":16,
-            "name":"Dark Souls 3",
-            "image":"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/03/576928-dark-souls-3-logros-trofeos.jpg",
-            "cover":"https://m.media-amazon.com/images/M/MV5BM2I5Nzk0NTAtOThlYS00MWZmLWEwMzItMDkwNzRkZDJjODhmXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
-            "genres": ["Souls-like", "Acción Aventura"],
-            "price":"5999"            
-        },
-        {
-            "id":17,
-            "name":"Dark Souls",
-            "image":"https://gaming-cdn.com/images/products/2364/orig/dark-souls-remastered-pc-juego-steam-cover.jpg?v=1657531277",
-            "cover":"https://cdn.mobygames.com/covers/3483990-dark-souls-remastered-xbox-one-front-cover.jpg",
-            "genres": ["Souls-like", "Acción Aventura"],
-            "price":"5999"            
-        },
-        {
-            "id":18,
-            "name":"Metro 2033",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Metro2033Redux_enGB_image1280w.jpg",
-            "cover":"https://cdn.cdkeys.com/700x700/media/catalog/product/6/1/616e983f0d253c42d49fa640_13_.jpg",
-            "genres": ["Horror", "Acción Aventura", "Postapocalíptico"],
-            "price":"5999"            
-        },
-        {
-            "id":19,
-            "name":"Okami",
-            "image":"https://waytoomany.games/wp-content/uploads/2018/08/Okami-Cover-Art.jpg",
-            "cover":"https://akihabarablues.com/wp-content/uploads/2018/01/okami-hd-poster.jpg",
-            "genres": ["Acción Aventura"],
-            "price":"5999"            
-        },
-        {
-            "id":20,
-            "name":"Forza Horizon 4",
-            "image":"https://cdna.artstation.com/p/assets/images/images/014/440/720/large/scott-huntsman-sunrise-keyart-spring-horiz-rgb-final-halfsize.jpg?1543974777s",
-            "cover":"https://cdnb.artstation.com/p/assets/covers/images/012/420/199/large/ludovico-antonicelli-forza4cover2.jpg?1534717771",
-            "genres": ["Simulación", "Carreras"],
-            "price":"5999"            
-        },
-        {
-            "id":21,
-            "name":"Dirt 4",
-            "image":"https://gaming-cdn.com/images/products/1893/orig/dirt-4-pc-mac-juego-steam-cover.jpg?v=1650458746",
-            "cover":"https://howlongtobeat.com/games/43274_Dirt_4.jpg",
-            "genres": ["Simulación", "Carreras"],
-            "price":"5999"            
-        },
-        {
-            "id":22,
-            "name":"Enter the Gungeon",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_EnterTheGungeon_image1600w.jpg",
-            "cover":"https://cdn1.epicgames.com/offer/be13f6c4fb11427fbf3313ce93b97cc0/EnterTheGungeon_S2_1200x1600_1200x1600-4d79aae1e860c191c706e4e8bfdef244",
-            "genres": ["Acción Aventura", "Rogue-Like"],
-            "price":"5999"
-        },
-        {
-            "id":23,
-            "name":"Total War: Warhammer 2",
-            "image":"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2017/08/avance-total-war-warhammer-ii.jpg",
-            "cover":"https://www.semperludo.com/wp-content/uploads/2018/04/Total-War-Warhammer-2-cover-PC-b.jpg",
-            "genres": ["Simulación", "RTS"],
-            "price":"5999"
-        },
-        {
-            "id":24,
-            "name":"Stardew Valley",
-            "image":"https://fotografias-neox.atresmedia.com/clipping/cmsimages02/2018/04/10/CC7B324C-0DC1-4560-8E5C-269F3C0C6341/98.jpg?crop=1272,716,x0,y4&width=1900&height=1069&optimize=high&format=webply",
-            "cover":"https://i.pinimg.com/550x/25/f7/be/25f7bea013a30a61b5aca0158b02506b.jpg",
-            "genres": ["Simulación", "Granja"],
-            "price":"5999"
-        },
-        {
-            "id":25,
-            "name":"Hatoful Boyfriend",
-            "image":"https://images.launchbox-app.com/2ad1c1a6-d893-426e-8ea1-4f800c77db3b.jpg",
-            "cover":"https://cdn-products.eneba.com/resized-products/DWMlGJT7RZJeCtTWxGuBAXRbuhYXZiVgoCcQqmrpL2g_350x200_3x-0.jpeg",
-            "genres": ["Simulación", "Novela Visual", "Citas"],
-            "price":"5999"
-        },
-        {
-            "id":26,
-            "name":"Hades",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Hades_image1600w.png",
-            "cover":"https://cdn1.epicgames.com/min/offer/1200x1600-1200x1600-e92fa6b99bb20c9edee19c361b8853b9.jpg",
-            "genres": ["Rogue-Like", "Acción Aventura"],
-            "price":"5999"
-        },
-        {
-            "id":27,
-            "name":"FIFA 23",
-            "image":"https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000047794/40f9e2f6d344d2607d4be72c6c4ebd3c18717ff87a56d6bbc303c42e58dd570d",
-            "cover":"https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt6ce962f552812df5/62d6bd83c4f39a1084ff5bef/GettyImages-1409223178.jpg?format=webp",
-            "genres": ["Simulación", "Deportes"],
-            "price":"5999"
-        },
-        {
-            "id":28,
-            "name":"Mario Golf Super Rush",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_MarioGolfSuperRush_image1600w.jpg",
-            "cover":"https://cdn.cdkeys.com/500x706/media/catalog/product/n/e/new_project_-_2023-08-04t101156.557.jpg",
-            "genres": ["Simulación", "Deportes"],
-            "price":"5999"
-        },
-        {
-            "id":29,
-            "name":"Super Mario Galaxy 2",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/wii_24/SI_Wii_SuperMarioGalaxy2_image1600w.png",
-            "cover":"https://i.ebayimg.com/images/g/118AAOSwbK9kPy8v/s-l1200.jpg",
-            "genres": ["Acción Aventura", "Espacio"],
-            "price":"5999"
-        },
-        {
-            "id":30,
-            "name":"Metroid Dread",
-            "image":"https://i.ytimg.com/vi/bbSdDDp9CNQ/maxresdefault.jpg",
-            "cover":"https://i.pinimg.com/1200x/1a/c1/16/1ac116705ddc640dbb0232ac07163724.jpg",
-            "genres": ["Acción Aventura", "Espacio", "Metroidvania"],
-            "price":"5999"
-        },
-        {
-            "id":31,
-            "name":"Guilty Gear: STRIVE",
-            "image":"https://images7.alphacoders.com/132/1325415.png",
-            "cover":"https://fightersgeneration.com/news2022/game/guiltygearstrive-season2-solbadguy-art.jpg",
-            "genres": ["Lucha"],
-            "price":"5999"
-        },
-        {
-            "id":32,
-            "name":"Melty Blood: TYPE Lumina",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_MeltyBloodTypeLumina_image1600w.jpg",
-            "cover":"https://img.europapress.es/fotoweb/fotonoticia_20230920190122_1200.jpg",
-            "genres": ["Lucha"],
-            "price":"5999"
-        },
-        {
-            "id":33,
-            "name":"Persona 4 Golden",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_Persona4Golden_image1600w.jpg",
-            "cover":"https://image.api.playstation.com/vulcan/ap/rnd/202211/1812/UMxh8ivoTvoWEjXH0WSFsr70.jpg",
-            "genres": ["JRPG", "Por turnos", "Novela Visual"],
-            "price":"5999"
-        },
-        {
-            "id":34,
-            "name":"Persona 3 Portable",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_Persona3Portable_image1600w.jpg",
-            "cover":"https://store-images.s-microsoft.com/image/apps.33834.13672969377617960.8b9caabb-4abd-4de7-8a2e-96f8a9f13b21.022ba128-e3f7-4cc1-82ff-bffd12f4bacd",
-            "genres": ["JRPG", "Por turnos", "Novela Visual"],
-            "price":"5999"
-        },
-        {
-            "id":35,
-            "name":"Xenoblade Chronicles 2",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_XenobladeChronicles2_image1600w.jpg",
-            "cover":"https://m.media-amazon.com/images/M/MV5BYTRiMzM3OWEtNGU1Yi00MmMwLTkzMDYtZTc4MjA0MmI2ZjQ1XkEyXkFqcGdeQXVyNjcwMzExMzU@._V1_.jpg",
-            "genres": ["JRPG", "Acción Aventura"],
-            "price":"5999"
-        },
-        {
-            "id":36,
-            "name":"Xenoblade Chronicles",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_XenobladeChroniclesDefinitiveEdition_image1600w.jpg",
-            "cover":"https://m.media-amazon.com/images/M/MV5BODE4YTBmYzItY2ZhYi00YzY2LThmY2EtODkwMjYxYWEyZGM0XkEyXkFqcGdeQXVyNjcwMzExMzU@._V1_.jpg",
-            "genres": ["JRPG", "Acción Aventura"],
-            "price":"5999"
-        },
-        {
-            "id":37,
-            "name":"NBA 2K24",
-            "image":"https://image.api.playstation.com/vulcan/ap/rnd/202308/0109/a591495d12a1f0a03bd477b383a7a952e774d8dd49daf064.jpg",
-            "cover":"https://www.operationsports.com/wp-content/uploads/2023/07/NBA-2K24-WNBA-Edition-Cover.jpg?fit=800%2C960&resize=800%2C960",
-            "genres": ["Deportes", "Simulación"],
-            "price":"5999"
-        },
-        {
-            "id":38,
-            "name":"MADDEN 2K24",
-            "image":"https://media.contentapi.ea.com/content/dam/eacom/common/m24-deluxe-branded-keyart-16x9.jpg.adapt.crop191x100.1200w.jpg",
-            "cover":"https://m.media-amazon.com/images/I/81kvvz0aJbL._AC_UF1000,1000_QL80_.jpg",
-            "genres": ["Deportes", "Simulación"],
-            "price":"5999"
-        },
-        {
-            "id":39,
-            "name":"F1 2023",
-            "image":"https://gaming-cdn.com/images/products/14246/orig/f1-23-champions-edition-champions-edition-pc-juego-ea-app-cover.jpg?v=1697644479",
-            "cover":"https://www.hoyfut.com/__export/1684093313130/sites/elimparcial/img/2023/05/14/644fbb42335dd.png_1322270752.png",
-            "genres": ["Deportes", "Simulación", "Carreras"],
-            "price":"5999"
-        },
-        {
-            "id":40,
-            "name":"Super Smash Bros. Ultimate",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperSmashBrosUltimate_02_image1600w.jpg",
-            "cover":"https://upload.wikimedia.org/wikipedia/en/5/50/Super_Smash_Bros._Ultimate.jpg",
-            "genres": ["Lucha"],
-            "price":"5999"
-        },
-        {
-            "id":41,
-            "name":"Mortal Kombat 1",
-            "image":"https://cdn1.epicgames.com/offer/fda0f2b4047f46ffb4e94d5595c1468e/EGS_MortalKombat1PremiumEdition_NetherRealmStudios_Editions_S1_2560x1440-43d47cfc125118b13b26cea9c80ae15c",
-            "cover":"https://cdn.thegamesdb.net/images/original/screenshot/119454-1.jpg",
-            "genres": ["Lucha"],
-            "price":"5999"
-        },
-        {
-            "id":42,
-            "name":"Blasphemous",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Blasphemous.jpg",
-            "cover":"https://cdn.mobygames.com/covers/8616613-blasphemous-xbox-one-front-cover.jpg",
-            "genres": ["Metroidvania", "Acción Aventura"],
-            "price":"5999"
-        },
-        {
-            "id":43,
-            "name":"Gato Roboto",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_GatoRoboto_image1600w.jpg",
-            "cover":"https://cdn.mobygames.com/covers/8993376-gato-roboto-windows-apps-front-cover.jpg",
-            "genres": ["Metroidvania", "Acción Aventura"],
-            "price":"5999"
-        },
-        {
-            "id":44,
-            "name":"Guacamelee",
-            "image":"https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/wiiu_download_software_5/SI_WiiUDS_GuacameleeSuperTurboChampionshipEdition_843x422_image1600w.jpg",
-            "cover":"https://media.vandal.net/m/21759/guacamelee-gold-edition-20131216173854_1.jpg",
-            "genres": ["Metroidvania", "Acción Aventura"],
-            "price":"5999"
-        }
+    "games": [
+      {
+        "id": 1,
+        "name": "Persona 5 Royal",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_Persona5Royal_image1600w.jpg",
+        "cover": "https://i0.wp.com/xboxera.com/wp-content/uploads/2022/10/I37BgLmQ.jpeg?fit=2438%2C3225&ssl=1",
+        "genres": [
+          "JRPG",
+          "Por turnos",
+          "Novela Visual"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 2,
+        "name": "Xenoblade Chronicles 3",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_XenobladeChronicles3_image1600w.jpg",
+        "cover": "https://i.ebayimg.com/images/g/b6QAAOSwJ5Vi1a8j/s-l1200.webp",
+        "genres": [
+          "JRPG",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 3,
+        "name": "Rimworld",
+        "image": "https://cdn1.epicgames.com/7051eadbb8c2435caf32a9bc0dc17936/offer/EGS_RimWorld_LudeonStudios_S1-2560x1440-410a62ec21d44260409182e1174cce2e.jpg",
+        "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1j6x.jpg",
+        "genres": [
+          "Simulación"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 4,
+        "name": "Hollow Knight",
+        "image": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000003208/4643fb058642335c523910f3a7910575f56372f612f7c0c9a497aaae978d3e51",
+        "cover": "https://cdnb.artstation.com/p/assets/images/images/017/028/727/large/martina-bonanni-hollowknight2.jpg?1554366863",
+        "genres": [
+          "Metroidvania",
+          "Souls-like"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 5,
+        "name": "Red Dead Redemption 2",
+        "image": "https://compass-ssl.xbox.com/assets/64/02/6402981a-9446-46d8-8289-e370f3158746.jpg?n=Red-Dead-Redemption-II_GLP-Page-Hero-1084_1920x1080.jpg",
+        "cover": "https://cdn1.epicgames.com/epic/offer/RDR2PC1227_Epic%20Games_860x1148-860x1148-b4c2210ee0c3c3b843a8de399bfe7f5c.jpg",
+        "genres": [
+          "Acción Aventura",
+          "Histórico",
+          "Vaqueros"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 6,
+        "name": "Final Fantasy 14",
+        "image": "https://areajugones.sport.es/wp-content/uploads/2023/09/final-fantasy-xiv.jpg",
+        "cover": "https://i.imgur.com/Lh7vqLN.jpeg",
+        "genres": [
+          "JRPG",
+          "MMO"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 7,
+        "name": "Phoenix Wright: Ace Attorney",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_PhoenixWrightAceAttorneyTrilogy.jpg",
+        "cover": "https://store-images.s-microsoft.com/image/apps.615.67362291782661543.eb0267ee-9235-487a-b697-5cc49c0703c1.327dcfde-8472-4f0e-b91e-9b4856238352",
+        "genres": [
+          "Novela Visual",
+          "Policíaco"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 8,
+        "name": "Disco Elysium",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_DiscoElysiumTheFinalCut_image1600w.jpg",
+        "cover": "https://cdn1.epicgames.com/ff52981b1d9947978153c7a7f8bc6d90/offer/EGS_DiscoElysiumTheFinalCut_ZAUM_S6-1200x1600-486d4da970eede7364b9650d63900bad.jpg",
+        "genres": [
+          "Policíaco",
+          "RPG"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 9,
+        "name": "Resident Evil 4",
+        "image": "https://i.blogs.es/b0418e/resident-evil-4-2023/1366_2000.jpeg",
+        "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/EVWyZD63pahuh95eKloFaJuC.png",
+        "genres": [
+          "Horror",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 10,
+        "name": "Signalis",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Signalis_image1600w.jpg",
+        "cover": "https://cdn.cdkeys.com/700x700/media/catalog/product/d/a/das.jpg",
+        "genres": [
+          "Horror",
+          "Clásico",
+          "Misterio"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 11,
+        "name": "Kingdom Hearts 3",
+        "image": "https://www.kh13.com/uploads/monthly_2018_10/large.gallery_52163_4_563758.png.23df6f3703e26bc051dade9093896382.png",
+        "cover": "https://cdn11.bigcommerce.com/s-hfy8688lak/images/stencil/1280x1280/products/908/2165/88c11e0a782ef4e5738ffce90c125e15__94749.1675454821.jpg?c=1",
+        "genres": [
+          "JRPG",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 12,
+        "name": "Minecraft",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Minecraft.jpg",
+        "cover": "https://cdn.mobygames.com/covers/1687450-minecraft-playstation-4-edition-xbox-one-front-cover.png",
+        "genres": [
+          "Simulación",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 13,
+        "name": "Outer Wilds",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_OuterWilds_image1600w.jpg",
+        "cover": "https://mixcreeping.files.wordpress.com/2020/06/outerwildscover-1.jpg",
+        "genres": [
+          "Misterio",
+          "Horror",
+          "Espacio"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 14,
+        "name": "Sekiro",
+        "image": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2018/09/sekiro-shadows-die-twice.jpg?tf=3840x",
+        "cover": "https://i.pinimg.com/originals/ba/a0/8b/baa08bc3dc95fb3d105391e7ca24dd82.jpg",
+        "genres": [
+          "Souls-like",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 15,
+        "name": "Resident Evil 2",
+        "image": "https://gaming-cdn.com/images/products/3666/orig/resident-evil-2-biohazard-re-2-deluxe-edition-deluxe-edition-pc-juego-steam-cover.jpg?v=1683556284",
+        "cover": "https://steamuserimages-a.akamaihd.net/ugc/938320777502349153/A23419F5A98D244A523B5B96BA4E868B834F987A/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+        "genres": [
+          "Horror",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 16,
+        "name": "Dark Souls 3",
+        "image": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/03/576928-dark-souls-3-logros-trofeos.jpg",
+        "cover": "https://m.media-amazon.com/images/M/MV5BM2I5Nzk0NTAtOThlYS00MWZmLWEwMzItMDkwNzRkZDJjODhmXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
+        "genres": [
+          "Souls-like",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 17,
+        "name": "Dark Souls",
+        "image": "https://gaming-cdn.com/images/products/2364/orig/dark-souls-remastered-pc-juego-steam-cover.jpg?v=1657531277",
+        "cover": "https://cdn.mobygames.com/covers/3483990-dark-souls-remastered-xbox-one-front-cover.jpg",
+        "genres": [
+          "Souls-like",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 18,
+        "name": "Metro 2033",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Metro2033Redux_enGB_image1280w.jpg",
+        "cover": "https://cdn.cdkeys.com/700x700/media/catalog/product/6/1/616e983f0d253c42d49fa640_13_.jpg",
+        "genres": [
+          "Horror",
+          "Acción Aventura",
+          "Postapocalíptico"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 19,
+        "name": "Okami",
+        "image": "https://waytoomany.games/wp-content/uploads/2018/08/Okami-Cover-Art.jpg",
+        "cover": "https://akihabarablues.com/wp-content/uploads/2018/01/okami-hd-poster.jpg",
+        "genres": [
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 20,
+        "name": "Forza Horizon 4",
+        "image": "https://cdna.artstation.com/p/assets/images/images/014/440/720/large/scott-huntsman-sunrise-keyart-spring-horiz-rgb-final-halfsize.jpg?1543974777s",
+        "cover": "https://cdnb.artstation.com/p/assets/covers/images/012/420/199/large/ludovico-antonicelli-forza4cover2.jpg?1534717771",
+        "genres": [
+          "Simulación",
+          "Carreras"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 21,
+        "name": "Dirt 4",
+        "image": "https://gaming-cdn.com/images/products/1893/orig/dirt-4-pc-mac-juego-steam-cover.jpg?v=1650458746",
+        "cover": "https://howlongtobeat.com/games/43274_Dirt_4.jpg",
+        "genres": [
+          "Simulación",
+          "Carreras"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 22,
+        "name": "Enter the Gungeon",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_EnterTheGungeon_image1600w.jpg",
+        "cover": "https://cdn1.epicgames.com/offer/be13f6c4fb11427fbf3313ce93b97cc0/EnterTheGungeon_S2_1200x1600_1200x1600-4d79aae1e860c191c706e4e8bfdef244",
+        "genres": [
+          "Acción Aventura",
+          "Rogue-Like"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 23,
+        "name": "Total War: Warhammer 2",
+        "image": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2017/08/avance-total-war-warhammer-ii.jpg",
+        "cover": "https://www.semperludo.com/wp-content/uploads/2018/04/Total-War-Warhammer-2-cover-PC-b.jpg",
+        "genres": [
+          "Simulación",
+          "RTS"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 24,
+        "name": "Stardew Valley",
+        "image": "https://fotografias-neox.atresmedia.com/clipping/cmsimages02/2018/04/10/CC7B324C-0DC1-4560-8E5C-269F3C0C6341/98.jpg?crop=1272,716,x0,y4&width=1900&height=1069&optimize=high&format=webply",
+        "cover": "https://i.pinimg.com/550x/25/f7/be/25f7bea013a30a61b5aca0158b02506b.jpg",
+        "genres": [
+          "Simulación",
+          "Granja"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 25,
+        "name": "Hatoful Boyfriend",
+        "image": "https://images.launchbox-app.com/2ad1c1a6-d893-426e-8ea1-4f800c77db3b.jpg",
+        "cover": "https://cdn-products.eneba.com/resized-products/DWMlGJT7RZJeCtTWxGuBAXRbuhYXZiVgoCcQqmrpL2g_350x200_3x-0.jpeg",
+        "genres": [
+          "Simulación",
+          "Novela Visual",
+          "Citas"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 26,
+        "name": "Hades",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Hades_image1600w.png",
+        "cover": "https://cdn1.epicgames.com/min/offer/1200x1600-1200x1600-e92fa6b99bb20c9edee19c361b8853b9.jpg",
+        "genres": [
+          "Rogue-Like",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 27,
+        "name": "FIFA 23",
+        "image": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000047794/40f9e2f6d344d2607d4be72c6c4ebd3c18717ff87a56d6bbc303c42e58dd570d",
+        "cover": "https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt6ce962f552812df5/62d6bd83c4f39a1084ff5bef/GettyImages-1409223178.jpg?format=webp",
+        "genres": [
+          "Simulación",
+          "Deportes"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 28,
+        "name": "Mario Golf Super Rush",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_MarioGolfSuperRush_image1600w.jpg",
+        "cover": "https://cdn.cdkeys.com/500x706/media/catalog/product/n/e/new_project_-_2023-08-04t101156.557.jpg",
+        "genres": [
+          "Simulación",
+          "Deportes"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 29,
+        "name": "Super Mario Galaxy 2",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/wii_24/SI_Wii_SuperMarioGalaxy2_image1600w.png",
+        "cover": "https://i.ebayimg.com/images/g/118AAOSwbK9kPy8v/s-l1200.jpg",
+        "genres": [
+          "Acción Aventura",
+          "Espacio"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 30,
+        "name": "Metroid Dread",
+        "image": "https://i.ytimg.com/vi/bbSdDDp9CNQ/maxresdefault.jpg",
+        "cover": "https://i.pinimg.com/1200x/1a/c1/16/1ac116705ddc640dbb0232ac07163724.jpg",
+        "genres": [
+          "Acción Aventura",
+          "Espacio",
+          "Metroidvania"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 31,
+        "name": "Guilty Gear: STRIVE",
+        "image": "https://images7.alphacoders.com/132/1325415.png",
+        "cover": "https://fightersgeneration.com/news2022/game/guiltygearstrive-season2-solbadguy-art.jpg",
+        "genres": [
+          "Lucha"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 32,
+        "name": "Melty Blood: TYPE Lumina",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_MeltyBloodTypeLumina_image1600w.jpg",
+        "cover": "https://img.europapress.es/fotoweb/fotonoticia_20230920190122_1200.jpg",
+        "genres": [
+          "Lucha"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 33,
+        "name": "Persona 4 Golden",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_Persona4Golden_image1600w.jpg",
+        "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202211/1812/UMxh8ivoTvoWEjXH0WSFsr70.jpg",
+        "genres": [
+          "JRPG",
+          "Por turnos",
+          "Novela Visual"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 34,
+        "name": "Persona 3 Portable",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_Persona3Portable_image1600w.jpg",
+        "cover": "https://store-images.s-microsoft.com/image/apps.33834.13672969377617960.8b9caabb-4abd-4de7-8a2e-96f8a9f13b21.022ba128-e3f7-4cc1-82ff-bffd12f4bacd",
+        "genres": [
+          "JRPG",
+          "Por turnos",
+          "Novela Visual"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 35,
+        "name": "Xenoblade Chronicles 2",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_XenobladeChronicles2_image1600w.jpg",
+        "cover": "https://m.media-amazon.com/images/M/MV5BYTRiMzM3OWEtNGU1Yi00MmMwLTkzMDYtZTc4MjA0MmI2ZjQ1XkEyXkFqcGdeQXVyNjcwMzExMzU@._V1_.jpg",
+        "genres": [
+          "JRPG",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 36,
+        "name": "Xenoblade Chronicles",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_XenobladeChroniclesDefinitiveEdition_image1600w.jpg",
+        "cover": "https://m.media-amazon.com/images/M/MV5BODE4YTBmYzItY2ZhYi00YzY2LThmY2EtODkwMjYxYWEyZGM0XkEyXkFqcGdeQXVyNjcwMzExMzU@._V1_.jpg",
+        "genres": [
+          "JRPG",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 37,
+        "name": "NBA 2K24",
+        "image": "https://image.api.playstation.com/vulcan/ap/rnd/202308/0109/a591495d12a1f0a03bd477b383a7a952e774d8dd49daf064.jpg",
+        "cover": "https://www.operationsports.com/wp-content/uploads/2023/07/NBA-2K24-WNBA-Edition-Cover.jpg?fit=800%2C960&resize=800%2C960",
+        "genres": [
+          "Deportes",
+          "Simulación"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 38,
+        "name": "MADDEN 2K24",
+        "image": "https://media.contentapi.ea.com/content/dam/eacom/common/m24-deluxe-branded-keyart-16x9.jpg.adapt.crop191x100.1200w.jpg",
+        "cover": "https://m.media-amazon.com/images/I/81kvvz0aJbL._AC_UF1000,1000_QL80_.jpg",
+        "genres": [
+          "Deportes",
+          "Simulación"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 39,
+        "name": "F1 2023",
+        "image": "https://gaming-cdn.com/images/products/14246/orig/f1-23-champions-edition-champions-edition-pc-juego-ea-app-cover.jpg?v=1697644479",
+        "cover": "https://www.hoyfut.com/__export/1684093313130/sites/elimparcial/img/2023/05/14/644fbb42335dd.png_1322270752.png",
+        "genres": [
+          "Deportes",
+          "Simulación",
+          "Carreras"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 40,
+        "name": "Super Smash Bros. Ultimate",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperSmashBrosUltimate_02_image1600w.jpg",
+        "cover": "https://upload.wikimedia.org/wikipedia/en/5/50/Super_Smash_Bros._Ultimate.jpg",
+        "genres": [
+          "Lucha"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 41,
+        "name": "Mortal Kombat 1",
+        "image": "https://cdn1.epicgames.com/offer/fda0f2b4047f46ffb4e94d5595c1468e/EGS_MortalKombat1PremiumEdition_NetherRealmStudios_Editions_S1_2560x1440-43d47cfc125118b13b26cea9c80ae15c",
+        "cover": "https://cdn.thegamesdb.net/images/original/screenshot/119454-1.jpg",
+        "genres": [
+          "Lucha"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 42,
+        "name": "Blasphemous",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Blasphemous.jpg",
+        "cover": "https://cdn.mobygames.com/covers/8616613-blasphemous-xbox-one-front-cover.jpg",
+        "genres": [
+          "Metroidvania",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 43,
+        "name": "Gato Roboto",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_GatoRoboto_image1600w.jpg",
+        "cover": "https://cdn.mobygames.com/covers/8993376-gato-roboto-windows-apps-front-cover.jpg",
+        "genres": [
+          "Metroidvania",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      },
+      {
+        "id": 44,
+        "name": "Guacamelee",
+        "image": "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/wiiu_download_software_5/SI_WiiUDS_GuacameleeSuperTurboChampionshipEdition_843x422_image1600w.jpg",
+        "cover": "https://media.vandal.net/m/21759/guacamelee-gold-edition-20131216173854_1.jpg",
+        "genres": [
+          "Metroidvania",
+          "Acción Aventura"
+        ],
+        "price": "5999"
+      }
     ],
     "genres": [
-        {
-            "name": "Horror",
-            "bg_color": "rgba(255,255,255,.8)",
-            "svg_src": "/svgs/horror.svg",
-            "text_color": "black"
-        },
-        {
-            "name": "Acción Aventura",
-            "bg_color": "rgb(46,139,87)",
-            "svg_src": "/svgs/adventure.svg",
-            "text_color": "rgb(255,255,0)"
-        },
-        {
-            "name": "Simulación",
-            "bg_color": "rgb(100,149,237)",
-            "svg_src": "/svgs/simulation.svg",
-            "text_color": "rgb(245,245,245)"
-        },
-        {
-            "name": "Lucha",
-            "bg_color": "rgb(255,215,0)",
-            "svg_src": "/svgs/fighting.svg",
-            "text_color": "rgb(255,0,0)"
-        },
-        {
-            "name": "Novela Visual",
-            "bg_color": "rgb(128,0,0)",
-            "svg_src": "/svgs/vns.svg",
-            "text_color": "rgb(255,215,0)"
-        },
-        {
-            "name": "Carreras",
-            "bg_color": "rgb(105,105,105)",
-            "svg_src": "/svgs/racing.svg",
-            "text_color": "rgb(220,220,220)"
-        },
-        {
-            "name": "Deportes",
-            "bg_color": "rgb(210,180,140)",
-            "svg_src": "/svgs/sports.svg",
-            "text_color": "black"
-        },
-        {
-            "name": "Metroidvania",
-            "bg_color": "rgb(95,158,160)",
-            "svg_src": "/svgs/metroidvania.svg",
-            "text_color": "rgb(139,0,0)"
-        }
+      {
+        "name": "Horror",
+        "bg_color": "rgba(255,255,255,.8)",
+        "svg_src": "/svgs/horror.svg",
+        "text_color": "black"
+      },
+      {
+        "name": "Acción Aventura",
+        "bg_color": "rgb(46,139,87)",
+        "svg_src": "/svgs/adventure.svg",
+        "text_color": "rgb(255,255,0)"
+      },
+      {
+        "name": "Simulación",
+        "bg_color": "rgb(100,149,237)",
+        "svg_src": "/svgs/simulation.svg",
+        "text_color": "rgb(245,245,245)"
+      },
+      {
+        "name": "Lucha",
+        "bg_color": "rgb(255,215,0)",
+        "svg_src": "/svgs/fighting.svg",
+        "text_color": "rgb(255,0,0)"
+      },
+      {
+        "name": "Novela Visual",
+        "bg_color": "rgb(128,0,0)",
+        "svg_src": "/svgs/vns.svg",
+        "text_color": "rgb(255,215,0)"
+      },
+      {
+        "name": "Carreras",
+        "bg_color": "rgb(105,105,105)",
+        "svg_src": "/svgs/racing.svg",
+        "text_color": "rgb(220,220,220)"
+      },
+      {
+        "name": "Deportes",
+        "bg_color": "rgb(210,180,140)",
+        "svg_src": "/svgs/sports.svg",
+        "text_color": "black"
+      },
+      {
+        "name": "Metroidvania",
+        "bg_color": "rgb(95,158,160)",
+        "svg_src": "/svgs/metroidvania.svg",
+        "text_color": "rgb(139,0,0)"
+      }
+    ],
+    "users": [
+      {
+        "id": "1",
+        "username": "JohnVideogame",
+        "password": "xenoispeak",
+        "games": [ 
+          {
+            "id": 191411,
+            "hoursplayed": 40,
+            "buydate": 1684079773621
+          },
+          {
+            "id": 11416,
+            "hoursplayed": 67,
+            "buydate": 1789242198
+          },
+          {
+            "id": 386,
+            "hoursplayed": 22,
+            "buydate": 1436860067
+          },
+          {
+            "id": 76882,
+            "hoursplayed": 41,
+            "buydate": 1270363433
+          },
+          {
+            "id": 11182,
+            "hoursplayed": 94,
+            "buydate": 1657936330
+          },
+          {
+            "id": 103244,
+            "hoursplayed": 12,
+            "buydate": 1040875214
+          },
+          {
+            "id": 11737,
+            "hoursplayed": 53,
+            "buydate": 1325657589
+          },
+          {
+            "id": 15698,
+            "hoursplayed": 78,
+            "buydate": 1561508259
+          },
+          {
+            "id": 26766,
+            "hoursplayed": 19,
+            "buydate": 1215688756
+          },
+          {
+            "id": 2155,
+            "hoursplayed": 63,
+            "buydate": 1691153668
+          },
+          {
+            "id": 279657,
+            "hoursplayed": 0,
+            "buydate": 1705912031177
+          },
+          {
+            "id": 55090,
+            "hoursplayed": 0,
+            "buydate": 1706262300313
+          },
+          {
+            "id": 217623,
+            "hoursplayed": 0,
+            "buydate": 1706272775334
+          }
+        ]
+      }
     ]
-}
+  }

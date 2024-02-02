@@ -1,6 +1,7 @@
 <script>
     export let name;
     export let subdirectory = "/";
+    
 </script>
 
 <li class="topbar__element--container">

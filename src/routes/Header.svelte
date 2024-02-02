@@ -6,6 +6,8 @@
 	console.log($page.data.username);
 
 	let iconSrc = "/plasma_icon_notext.png";
+	let iconLogin = "/login/login.png";
+	let iconLogout = "/login/logout.png";
 </script>
 
 <div class="topbar clearfix">
@@ -18,20 +20,29 @@
 		<HeaderElement name="Perfil" subdirectory="/profile"/>
 		
 		{#if !$page.data.username}
-			<HeaderElement name="Login" subdirectory="/login"/>
-		{:else}
-		<!--Al no estar en la ruta de login el action tiene que indicar la ruta y la acción-->
+		<li class="topbar__element--container">
+			<a href="/login">
+				<img src={iconLogin} alt="logo" class="topbar__logo" />
+			</a>
+		</li>
 
+		  {:else}
+		<!--Al no estar en la ruta de login el actio	n tiene que indicar la ruta y la acción-->
+		<li class="topbar__element--container">
 			<form method="POST" action="/login?/logout&redirectTo={$page.url.pathname}">
-				<button type="submit">Logout</button>
+				<button type="submit" class="custom">Logout	</button>
 			</form>
+			<li/>
 		{/if}
+
+		<a href="/register">Register</a>
 
 		<Cart />	
 </ul>
 </div>
  
 <style lang="scss">
+	
 .clearfix::after {
 		content: "";
 		clear: both;

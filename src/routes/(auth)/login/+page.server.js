@@ -13,7 +13,7 @@ export const actions = {
 		if (!password) {
 			return fail(400, { passwordMissing: true });
 		}
-		cookies.set('token', 'token_value', { path: '/' });
+		cookies.set('token', username, { path: '/' });
 
 		throw redirect (302,'/');
 	},
