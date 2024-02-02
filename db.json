@@ -598,17 +598,27 @@
         {
           "id": 279657,
           "hoursplayed": 0,
-          "buydate": 1705912031177
+          "buydate": 1705912031
         },
         {
           "id": 55090,
           "hoursplayed": 0,
-          "buydate": 1706262300313
+          "buydate": 1706262300
         },
         {
           "id": 217623,
           "hoursplayed": 0,
-          "buydate": 1706272775334
+          "buydate": 1706272775
+        },
+        {
+          "id": 22788,
+          "hoursplayed": 0,
+          "buydate": 1706864014.423
+        },
+        {
+          "id": 117271,
+          "hoursplayed": 0,
+          "buydate": 1706864165.665
         }
       ]
     }

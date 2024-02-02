@@ -15,7 +15,7 @@ export async function addGameToUser(userToUpdate, gameId) {
         const responseUser = await fetch(`http://localhost:4000/users/${userToUpdate.id}`);
         const user = await responseUser.json();
         try {
-            const currentDate = new Date().getTime();
+            const currentDate = new Date().getTime() / 1000;
             const newGame = {
                 id: gameId,
                 hoursplayed: 0,

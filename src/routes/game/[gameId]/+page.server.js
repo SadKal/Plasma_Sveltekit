@@ -16,5 +16,6 @@ export async function load({ params }) {
 
     const games = await gameResponse.json();
     const game = games[0]
+    console.log(game);
     return { game };
-}  
+}

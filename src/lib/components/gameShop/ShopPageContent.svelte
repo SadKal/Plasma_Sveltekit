@@ -1,33 +1,32 @@
 <script>
 	export let game;
 	let genres = [];
-	game.genres.forEach(genre => {
+	game.genres.forEach((genre) => {
 		genres.push(genre.name);
 	});
 </script>
 
 <div class="shopGame__content_container">
 	<div class="shopGame__gameInfo">
-		<div class="shopGame__nonTechInfo">
+		<div class="shopGame__main">
 			<h1>Descripción:</h1>
 			<p>
 				<!-- will be changed once we get API access and can bring from there-->
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab consectetur
-				mollitia expedita quae quod provident praesentium amet eligendi iste alias
-				soluta dolorum earum voluptatem repellat magnam dolore, omnis animi magni!
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab consectetur mollitia expedita quae
+				quod provident praesentium amet eligendi iste alias soluta dolorum earum voluptatem repellat
+				magnam dolore, omnis animi magni!
 			</p>
 			<h2>Sinopsis:</h2>
 			<p>
 				<!-- will be changed once we get API access and can bring from there-->
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab consectetur
-				mollitia expedita quae quod provident praesentium amet eligendi iste alias
-				soluta dolorum earum voluptatem repellat magnam dolore, omnis animi magni!
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi fugit incidunt
-				asperiores autem similique officiis temporibus inventore ipsam sunt. Eaque
-				illum vero dolorem quo rem. Autem sunt delectus perferendis eum.
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab consectetur mollitia expedita quae
+				quod provident praesentium amet eligendi iste alias soluta dolorum earum voluptatem repellat
+				magnam dolore, omnis animi magni! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
+				fugit incidunt asperiores autem similique officiis temporibus inventore ipsam sunt. Eaque illum
+				vero dolorem quo rem. Autem sunt delectus perferendis eum.
 			</p>
 		</div>
-		<div class="shopGame__techInfo">
+		<div class="shopGame__secondary">
 			<h2>Géneros:</h2>
 			{#each genres as genre}
 				<!-- ideally, clickable and will bring to genres-->
@@ -57,12 +56,8 @@
 
 	.shopGame__content_container {
 		width: 100%;
-		background: linear-gradient(
-				130deg,
-				rgba(0, 61, 53, 0.95) 40%,
-				rgba(0, 0, 0, 0.95) 100%
-			),
-			url("/bg.png");
+		background: linear-gradient(130deg, rgba(0, 61, 53, 0.95) 40%, rgba(0, 0, 0, 0.95) 100%),
+			url('/bg.png');
 		background-attachment: fixed;
 		z-index: 10;
 		position: relative;
@@ -79,7 +74,7 @@
 			display: block;
 		}
 	}
-	.shopGame__nonTechInfo {
+	.shopGame__main {
 		width: 70%;
 		border-right: 3px solid var(--game-data-bg-color);
 		padding-right: 7.5%;
@@ -88,7 +83,7 @@
 			border-right: none;
 		}
 	}
-	.shopGame__techInfo {
+	.shopGame__secondary {
 		justify-content: flex-start;
 		display: flex;
 		flex-wrap: wrap;
