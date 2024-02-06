@@ -1,14 +1,14 @@
 <script>
     let today = new Date();
-    let currentDay = today.getDay();
-    let sevenDaysAgo = new Date();
+    let currentDay = today.getDay(); //del?
+    let fourteenDaysAgo = new Date();
 
     //Calculo el lunes. Resto al numero de dia del mes el numero de dias que llevamos de semana menos uno, asi siempre llego al dia del mes que corresponde al lunes
-    sevenDaysAgo.setDate(today.getDate() - 7);
+    fourteenDaysAgo.setDate(today.getDate() - 14);
 
     //Cambio de numero de mes a nombre de mes, para que ponga "noviembre" en vez de "10"(los meses cuenta de 0 a 11) 
     const todayMonth = today.toLocaleString('default', { month: 'long' });
-    const sevenDaysAgoMonth = sevenDaysAgo.toLocaleString('default', { month: 'long' });
+    const fourteenDaysAgoMonth = fourteenDaysAgo.toLocaleString('default', { month: 'long' });
 </script>
 
 <div class="novedades">
@@ -16,7 +16,7 @@
         Novedades
     </div>
     <div class="novedades__subtitle">
-        (Juegos lanzados entre el {sevenDaysAgo.getDate()} de {sevenDaysAgoMonth} y el {today.getDate()} de {todayMonth})
+        (Juegos lanzados entre el {fourteenDaysAgo.getDate()} de {fourteenDaysAgoMonth} y el {today.getDate()} de {todayMonth})
     </div>
 </div>
 

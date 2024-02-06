@@ -1,14 +1,11 @@
 <script>
 	import { goto } from '$app/navigation';
 	import GamePageContent from '$lib/components/gamePage/GamePageContent.svelte';
-
 	export let data;
 
 	let { game } = data;
 
 	const allImages = [...game.artworks, ...game.screenshots];
-	const onlyScreenshots = game.screenshots;
-
 	const random = Math.floor(Math.random() * allImages.length);
 	const artwork = allImages[random];
 
@@ -20,15 +17,11 @@
 
 <div
 	class="gamePage__gameBG"
-	style="background-image: url(https://images.igdb.com/igdb/image/upload/t_original/{artwork.image_id}.jpg);"
-/>
+	style="background-image: url(https://images.igdb.com/igdb/image/upload/t_original/{artwork.image_id}.jpg);"/>
 <div class="gamePage__mainInfo">
 	<div
 		class="gamePage__coverArt"
-		style="background-image: url(https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover
-			.image_id}.png);"
-	/>
-
+		style="background-image: url(https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover.image_id}.png);"/>
 	<div class="gamePage__libInfo">
 		<div class="gamePage__title">
 			<span>{game.name}</span>
@@ -43,10 +36,8 @@
 				<span>{buydate}</span>
 			</div>
 		</div>
-
-		<div class="gamePage__moreInfo-toShopPage">
-			<p>+ Info</p>
-			<!-- ver por que el on:click me hace el redireccionamiento automaticamente, need to rethink this -->
+		<div class="gamePage__moreInfo-toShopPage" on:click={() => goto(`/game/${game.id}`)}>
+			<p>Ir a la tienda</p>
 		</div>
 	</div>
 </div>
@@ -79,7 +70,6 @@
 		background-size: cover;
 		filter: blur(0.5rem);
 		position: relative;
-		z-index: 0;
 		margin: 0px 0px 0px -25px;
 		@media (max-width: 650px) and (orientation: portrait) {
 			height: 40vh;
@@ -94,7 +84,6 @@
 		background-repeat: round;
 		border-radius: 1%;
 		transition: all 0.4s ease-in-out;
-		opacity: 100%;
 		@media (max-width: 1050px) and (orientation: portrait) {
 			height: 400px;
 			width: 300px;
@@ -122,11 +111,10 @@
 	.gamePage__mainInfo {
 		position: absolute;
 		width: 100%;
-		margin: auto;
-		top: 0%;
 		display: flex;
 		justify-content: space-around;
 		transform: translate(0%, 50%);
+		top: 0%;
 	}
 	.gamePage__libInfo {
 		//breaks on 1400px
@@ -145,7 +133,6 @@
 		font-size: 3rem;
 		align-self: start;
 		justify-self: center;
-
 		@media (max-width: 900px) and (orientation: portrait) {
 			max-width: 25%;
 			top: 15%;
@@ -173,7 +160,7 @@
 		justify-content: space-between;
 		background-color: var(--game-title-background-color);
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-		padding: 5px 75px;
+		padding: .5rem 5rem;
 		align-self: end;
 		& span {
 			font-size: 2rem;
@@ -182,52 +169,50 @@
 			width: max-content;
 		}
 		& h4 {
-			margin-top: 10px;
+			margin-top: .5rem;
 			font-size: 1.25rem;
-			margin-bottom: 5px;
+			margin-bottom: .5rem;
 		}
-
 		&:hover ~ .gamePage__moreInfo-toShopPage {
 			max-height: 100px; //needed to make the transition, doesnt work with height
-			transition: all 0.75s ease-in-out;
+			transition: all 0.75s ;
+			clip-path: polygon(0% 0%, 90% 0%, 95% 100%, 5% 100%);
 		}
 	}
 	.gamePage__moreInfo-toShopPage {
-		margin-top: -1px;
-		background-color: var(--add-to-cart-button-background);
+		background-color: var(--selected-text-color);
 		max-height: 5px;
 		font-size: 1.5rem;
 		clip-path: polygon(0% 0%, 90% 0%, 90% 100%, 0% 100%);
-		transition: all 0.75s ease-in-out;
-
+		transition: all 0.75s ;
+		cursor: pointer;
 		& p {
-			margin: 10px;
+			margin: 10px 10px 10px 30px;
+			color: var(--gamepage-playinfo-bg-color);
+			font-weight: 700;
 		}
 		&:hover {
 			max-height: 100px;
-			transition: all 0.75s ease-in-out;
+			transition: all 0.75s;
+			clip-path: polygon(0% 0%, 90% 0%, 95% 100%, 5% 100%);
 		}
 	}
 	.gamePage__playInfo {
 		background-color: var(--gamepage-playinfo-bg-color);
 		margin-top: -10px;
-		z-index: 1;
 		position: relative;
 		display: flex;
 		justify-content: space-around;
-
 		&-titles {
 			font-size: 2rem;
 			margin: 1rem 20px 1rem 0;
 		}
-
 		& span {
 			font-size: 1.5rem;
 			align-self: center;
 			color: var(--selected-text-color);
 			margin: 1.5rem 20px 1.5rem 0;
 		}
-
 		&-rating,
 		&-update,
 		&-launch {
