@@ -1,16 +1,18 @@
 <script>
 	import ShopPageContent from '$lib/components/gameShop/ShopPageContent.svelte';
-	import { onMount } from 'svelte';
 	import { useCart } from '$lib/stores/cart';
 	import { useUser } from '$lib/stores/user';
-	import { browser } from '$app/environment';
+	import { page } from '$app/stores';
+
+	console.log('alo');
 
 	export let data;
+	console.log($page);
 
 	const cartStore = useCart();
 	const userStore = useUser();
 
-	let { game } = data;
+	let { game, gamesFromSeries } = data;
 
 	$: gameOwned = $userStore.games.some((libraryGame) => libraryGame.id === game.id) ? true : false;
 	$: gameInCart = $cartStore.gamesInCart.some((cartGame) => cartGame.id === game.id) ? true : false;
@@ -27,41 +29,65 @@
 			}, 2000);
 		}
 	}
-	const allImages = [...game.artworks, ...game.screenshots];
 
-	const random = Math.floor(Math.random() * allImages.length);
-	const artwork = allImages[random];
+	//Background handling
+	const artworks = game.artworks;
+	const screenshots = game.screenshots;
+
+	let allImages;
+	if (artworks == undefined) {
+		if (screenshots == undefined) {
+			allImages = undefined;
+		} else {
+			allImages = screenshots;
+		}
+	} else {
+		if (screenshots == undefined) {
+			allImages = artworks;
+		} else {
+			allImages = [...artworks, ...screenshots];
+		}
+	}
+
+	const random = allImages ? Math.floor(Math.random() * allImages.length) : -1;
+	const background =
+		random != -1
+			? `https://images.igdb.com/igdb/image/upload/t_screenshot_med/${allImages[random].image_id}.jpg`
+			: '/images_not_available/no_bg_available.png';
+
+	//Cover handling
+	let cover =
+		game.cover.image_id == undefined
+			? '/images_not_available/no_cover_available.jpg'
+			: `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`;
 </script>
 
-<div
-	class="shopGame__gameBG"
-	style="background-image: url(https://images.igdb.com/igdb/image/upload/t_screenshot_med/{artwork.image_id}.jpg);"
-/>
-<div class="shopGame__container">
-	<div
-		class="shopGame__coverArt"
-		class:active={gameInCart}
-		style="background-image: url(https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover
-			.image_id}.png);"
-	/>
-
-	<div class="shopGame__info">
-		<div class="shopGame__title">
-			<span>{game.name}</span>
+{#key data.game}
+	<div class="shopGame__gameBG" style="background-image: url({background});" />
+	<div class="shopGame__container">
+		<div class="shopGame__info">
+			<div class="shopGame__title">
+				<span>{game.name}</span>
+			</div>
+			<div class="shopGame__toCart" on:click={setGameInCart}>
+				{#if gameOwned}
+					Ya tienes este juego.
+				{:else if gameInCart}
+					Juego ya en el carrito.
+				{:else}
+					Añadir al carrito: 59.99€
+				{/if}
+			</div>
 		</div>
-		<div class="shopGame__toCart" on:click={setGameInCart}>
-			{#if gameOwned}
-				Ya tienes este juego.
-			{:else if gameInCart}
-				Juego ya en el carrito.
-			{:else}
-				Añadir al carrito: 59.99€
-			{/if}
-		</div>
+		<div
+			class="shopGame__coverArt"
+			class:active={gameInCart}
+			style="background-image: url({cover});"
+		/>
 	</div>
-</div>
 
-<ShopPageContent {game} />
+	<ShopPageContent {game} {gamesFromSeries} />
+{/key}
 
 <style lang="scss">
 	* {
@@ -138,8 +164,8 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
-		align-items: baseline;
-		max-width: 50%;
+		align-items: flex-start;
+		width: 50%;
 	}
 	.shopGame__title {
 		background-color: var(--game-title-background-color);
@@ -148,7 +174,7 @@
 		padding: 0.75rem 4rem;
 		margin: 0 0 2rem 0;
 		text-align: center;
-		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+		clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
 		font-size: 2.5rem;
 
 		@media (max-width: 900px) and (orientation: portrait) {
