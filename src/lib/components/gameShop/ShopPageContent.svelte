@@ -1,5 +1,11 @@
 <script>
+	import { Progressbar } from 'flowbite-svelte';
+	import GameFromSeries from './GameFromSeries.svelte';
+	import GenreGame from '../genres/GenreGame.svelte';
+
 	export let game;
+	export let gamesFromSeries;
+
 	let genres = [];
 	game.genres.forEach((genre) => {
 		genres.push(genre.name);
@@ -27,12 +33,35 @@
 			</p>
 		</div>
 		<div class="shopGame__secondary">
-			<h2>Géneros:</h2>
-			{#each genres as genre}
-				<!-- ideally, clickable and will bring to genres-->
-				<p>{genre}</p>
-			{/each}
-			<br />
+			<div class="shopGame__rating">
+				{#if game.total_rating != undefined}
+					<h1>Valoración: {Math.round(game.total_rating)}</h1>
+					<Progressbar progress={game.total_rating} color="primary" size="h-5" />
+				{:else}
+					<h1>Este juego no tiene valoración</h1>
+				{/if}
+			</div>
+
+			<div class="shopGame__genres">
+				<h1>Géneros:</h1>
+				{#each genres as genre}
+					<!-- ideally, clickable and will bring to genres-->
+					<p>{genre}</p>
+				{/each}
+			</div>
+
+			{#if gamesFromSeries.length > 0}
+				<div class="shopGame__series">
+					<h1>Saga:</h1>
+					<p>{game.collections[0].name}</p>
+
+					<div class="shopGame__seriesGames">
+						{#each gamesFromSeries as gameFromSeries (gameFromSeries.id)}
+							<GameFromSeries game={gameFromSeries} />
+						{/each}
+					</div>
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>
@@ -78,17 +107,16 @@
 		width: 70%;
 		border-right: 3px solid var(--game-data-bg-color);
 		padding-right: 7.5%;
+		margin-right: 2rem;
 		@media (max-width: 750px) and (orientation: portrait) {
 			width: 100%;
 			border-right: none;
 		}
 	}
 	.shopGame__secondary {
-		justify-content: flex-start;
+		justify-content: space-between;
 		display: flex;
-		flex-wrap: wrap;
 		flex-direction: column;
-		align-items: flex-end;
 		text-align: end;
 		@media (max-width: 750px) {
 			text-align: start;
@@ -96,5 +124,17 @@
 			width: 100%;
 			border-right: none;
 		}
+
+		& h1 {
+			font-size: 1.5rem;
+		}
+	}
+	.shopGame__rating {
+		color: var(--subtitle-text-color);
+	}
+	.shopGame__seriesGames {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
 	}
 </style>

@@ -14,7 +14,7 @@ export async function load() {
                 'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
             },
             body: `fields artworks.*, name;
-            where first_release_date < ${Math.floor(Date.now() / 1000)} & first_release_date > ${Math.floor(Date.now() / 1000) - 7 * 24 * 60 * 60} & total_rating > 70 
+            where first_release_date < ${Math.floor(Date.now() / 1000)} & first_release_date > ${Math.floor(Date.now() / 1000) - 14 * 24 * 60 * 60} & total_rating > 70 
             & artworks != null;
             limit 20;
             sort first_release_date desc;`
