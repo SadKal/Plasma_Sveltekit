@@ -20,7 +20,7 @@ export async function GET({ url }) {
             body: `
                 fields artworks.image_id, name, category;
                 where artworks != null & cover != null & name != null & genres != null 
-                    & category != (11) & name ~ "${toSearch}"* & first_release_date < ${Math.floor(Date.now() / 1000)}  ;
+                    & category != (11) & name ~ "${toSearch}"* & first_release_date < ${Math.floor(Date.now() / 1000)};
                 limit 20; 
                 sort total_rating:desc;
             `

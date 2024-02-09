@@ -1,60 +1,61 @@
 <script>
 	import { Progressbar } from 'flowbite-svelte';
 	import GameFromSeries from './GameFromSeries.svelte';
-	import GenreGame from '../genres/GenreGame.svelte';
+	import GameShopTextField from './GameShopTextField.svelte';
 
 	export let game;
 	export let gamesFromSeries;
 
 	let genres = [];
-	game.genres.forEach((genre) => {
-		genres.push(genre.name);
-	});
+	let localizations = [];
+	if (game.genres) {
+		game.genres.forEach((genre) => {
+			genres.push(genre.name);
+		});
+	}
 	console.log(game);
+	if (game.game_localizations) {
+		game.game_localizations.forEach((loc) => {
+			localizations.push(loc.name);
+		});
+	}
 </script>
 
 <div class="shopGame__content_container">
 	<div class="shopGame__gameInfo">
 		<div class="shopGame__main">
-			<h1>Descripción:</h1>
-			<p>
-				<!-- will be changed once we get API access and can bring from there-->
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab consectetur mollitia expedita quae
-				quod provident praesentium amet eligendi iste alias soluta dolorum earum voluptatem repellat
-				magnam dolore, omnis animi magni!
-			</p>
-			<h2>Sinopsis:</h2>
-			<p>
-				<!-- will be changed once we get API access and can bring from there-->
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab consectetur mollitia expedita quae
-				quod provident praesentium amet eligendi iste alias soluta dolorum earum voluptatem repellat
-				magnam dolore, omnis animi magni! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
-				fugit incidunt asperiores autem similique officiis temporibus inventore ipsam sunt. Eaque illum
-				vero dolorem quo rem. Autem sunt delectus perferendis eum.
-			</p>
+			{#if game.game_localizations}
+				<GameShopTextField title="Títulos internacionales:" content={localizations} />
+			{/if}
+			{#if game.summary}
+				<GameShopTextField title="Descripción:" content={game.summary} />
+			{/if}
+			{#if game.storyline}
+				<GameShopTextField title="Sinopsis:" content={game.storyline} />
+			{/if}
 		</div>
+
 		<div class="shopGame__secondary">
 			<div class="shopGame__rating">
 				{#if game.total_rating != undefined}
-					<h1>Valoración: {Math.round(game.total_rating)}</h1>
+					<GameShopTextField
+						title="Valoración:"
+						content={Math.round(game.total_rating)}
+						font_size="1.5rem"
+					/>
 					<Progressbar progress={game.total_rating} color="primary" size="h-5" />
 				{:else}
-					<h1>Este juego no tiene valoración</h1>
+					<GameShopTextField title="Este juego no tiene valoración" />
 				{/if}
 			</div>
 
 			<div class="shopGame__genres">
-				<h1>Géneros:</h1>
-				{#each genres as genre}
-					<!-- ideally, clickable and will bring to genres-->
-					<p>{genre}</p>
-				{/each}
+				<GameShopTextField title="Géneros:" content={genres} />
 			</div>
 
 			{#if gamesFromSeries.length > 0}
 				<div class="shopGame__series">
-					<h1>Saga:</h1>
-					<p>{game.collections[0].name}</p>
+					<GameShopTextField title="Saga:" content={game.collections[0].name} />
 
 					<div class="shopGame__seriesGames">
 						{#each gamesFromSeries as gameFromSeries (gameFromSeries.id)}
@@ -73,16 +74,6 @@
 		animation-duration: var(--seconds-fadein);
 		animation-timing-function: ease-in;
 	}
-	h1,
-	h2 {
-		color: var(--subtitle-text-color);
-	}
-	p {
-		color: var(--text-color);
-		font-weight: 600;
-		line-height: 140%;
-		margin: 3px 0;
-	}
 
 	.shopGame__content_container {
 		width: 100%;
@@ -95,7 +86,7 @@
 		margin-bottom: 10rem;
 	}
 	.shopGame__gameInfo {
-		width: 80%;
+		width: 90%;
 		margin: 0 auto;
 		padding-top: 2rem;
 		display: flex;
@@ -105,10 +96,13 @@
 		}
 	}
 	.shopGame__main {
+		display: flex;
+		flex-direction: column;
 		width: 70%;
 		border-right: 3px solid var(--game-data-bg-color);
 		padding-right: 7.5%;
 		margin-right: 2rem;
+		gap: 1.5rem;
 		@media (max-width: 750px) and (orientation: portrait) {
 			width: 100%;
 			border-right: none;
@@ -117,8 +111,11 @@
 	.shopGame__secondary {
 		justify-content: space-between;
 		display: flex;
+		gap: 1.5rem;
 		flex-direction: column;
 		text-align: end;
+		width: 30%;
+
 		@media (max-width: 750px) {
 			text-align: start;
 			justify-content: start;
@@ -136,6 +133,8 @@
 	.shopGame__seriesGames {
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
+		align-items: flex-start;
+		height: 20rem;
+		overflow-y: scroll;
 	}
 </style>

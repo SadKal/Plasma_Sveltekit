@@ -23,8 +23,8 @@
 		justify-content: space-between;
 		align-items: center;
 
-		width: 100%;
-		height: 7rem;
+		width: 90%;
+		min-height: 13vh;
 		box-sizing: border-box;
 		margin-top: 0.5rem;
 
@@ -48,10 +48,11 @@
 			width: 40%;
 		}
 		&__img {
-			object-fit: fill;
-			clip-path: polygon(7% 0, 100% 0%, 93% 100%, 0% 100%);
+			object-fit: cover;
+			clip-path: polygon(7% 0, 100% 0%, 100% 100%, 0% 100%);
 			height: 100%;
 			width: 100%;
+
 			&--container {
 				height: 100%;
 				width: 35%;
