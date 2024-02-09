@@ -1,5 +1,6 @@
-export async function load({ params, url }) {
+export async function load({ params }) {
     const { gameId } = params;
+
     const gameResponse = await fetch(
         "https://api.igdb.com/v4/games",
         {
@@ -9,7 +10,8 @@ export async function load({ params, url }) {
                 'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
                 'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
             },
-            body: `fields artworks.image_id,cover.image_id,name,genres.name, screenshots.image_id, total_rating, collections.name, collections.games; 
+            body: `fields artworks.image_id,cover.image_id,name,genres.name, 
+            screenshots.image_id, total_rating, collections.name, collections.games, summary, storyline, game_localizations.name; 
                     where id=(${gameId});`
         });
     const games = await gameResponse.json();
@@ -33,8 +35,8 @@ export async function load({ params, url }) {
             });
         gamesFromSeries = await gamesSeriesResponse.json();
     }
+    console.log(game);
 
-    console.log("Hola", game)
 
     return { game, gamesFromSeries };
 }
