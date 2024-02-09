@@ -23,7 +23,5 @@ export async function load({ params }) {
     const gameData = user.games.find((toFind) => toFind.id === game.id)
     game.hoursplayed = gameData.hoursplayed;
     game.buydate = gameData.buydate; 
-
-    console.log(game);
     return { game };
 }  

@@ -17,11 +17,14 @@
 
 <div
 	class="gamePage__gameBG"
-	style="background-image: url(https://images.igdb.com/igdb/image/upload/t_original/{artwork.image_id}.jpg);"/>
+	style="background-image: url(https://images.igdb.com/igdb/image/upload/t_original/{artwork.image_id}.jpg);"
+/>
 <div class="gamePage__mainInfo">
 	<div
 		class="gamePage__coverArt"
-		style="background-image: url(https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover.image_id}.png);"/>
+		style="background-image: url(https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover
+			.image_id}.png);"
+	/>
 	<div class="gamePage__libInfo">
 		<div class="gamePage__title">
 			<span>{game.name}</span>
@@ -56,7 +59,7 @@
 	</div>
 </div>
 
-<GamePageContent {game}/>
+<GamePageContent {game} />
 
 <style lang="scss">
 	* {
@@ -160,7 +163,7 @@
 		justify-content: space-between;
 		background-color: var(--game-title-background-color);
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-		padding: .5rem 5rem;
+		padding: 0.5rem 5rem;
 		align-self: end;
 		& span {
 			font-size: 2rem;
@@ -169,13 +172,13 @@
 			width: max-content;
 		}
 		& h4 {
-			margin-top: .5rem;
+			margin-top: 0.5rem;
 			font-size: 1.25rem;
-			margin-bottom: .5rem;
+			margin-bottom: 0.5rem;
 		}
 		&:hover ~ .gamePage__moreInfo-toShopPage {
 			max-height: 100px; //needed to make the transition, doesnt work with height
-			transition: all 0.75s ;
+			transition: all 0.75s;
 			clip-path: polygon(0% 0%, 90% 0%, 95% 100%, 5% 100%);
 		}
 	}
@@ -184,7 +187,7 @@
 		max-height: 5px;
 		font-size: 1.5rem;
 		clip-path: polygon(0% 0%, 90% 0%, 90% 100%, 0% 100%);
-		transition: all 0.75s ;
+		transition: all 0.75s;
 		cursor: pointer;
 		& p {
 			margin: 10px 10px 10px 30px;
