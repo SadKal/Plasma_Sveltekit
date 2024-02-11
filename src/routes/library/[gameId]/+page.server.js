@@ -11,7 +11,7 @@ export async function load({ params }) {
                 'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
                 'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
             },
-            body: `fields artworks.image_id,cover.image_id,name,screenshots.image_id,total_rating,first_release_date,updated_at,dlcs,expansions; 
+            body: `fields artworks.image_id,cover.image_id,name,screenshots.image_id,total_rating,first_release_date,updated_at,dlcs,expansions,platforms; 
                     where id=(${gameId});`
         });
 
@@ -23,5 +23,6 @@ export async function load({ params }) {
     const gameData = user.games.find((toFind) => toFind.id === game.id)
     game.hoursplayed = gameData.hoursplayed;
     game.buydate = gameData.buydate; 
+    console.log(game);
     return { game };
 }  
