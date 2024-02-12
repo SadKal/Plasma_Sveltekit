@@ -31,6 +31,7 @@
 		&-titles {
 			font-size: 2rem;
 			margin: 1rem 20px 1rem 0;
+			color: white;
 		}
 		& span {
 			font-size: 1.5rem;

@@ -1,7 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-    import { goto } from '$app/navigation';
-
 	import Cover from '../../utils/Cover.svelte';
 	import GameTitle from '../../utils/GameTitle.svelte';
 	import UserPlayInfo from '../../utils/UserPlayInfo.svelte';
@@ -10,9 +8,6 @@
 
 	let background = '/loading.gif';
 	let cover = '/loading.gif';
-    const roundedRating = Math.round(game.total_rating);
-	const lastUpdate = new Date(game.updated_at * 1000).toISOString().slice(0, 10); //original example: 2024-01-26T23:29:28.000Z
-	const releaseDate = new Date(game.first_release_date * 1000).toISOString().slice(0, 10); //slice para quedarnos solo con la fecha
 	const buydate = new Date(game.buydate * 1000).toISOString().slice(0, 10);
 
 	onMount(() => {

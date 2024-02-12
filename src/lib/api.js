@@ -19,7 +19,7 @@ export async function addGameToUser(userToUpdate, gameId) {
             const newGame = {
                 id: gameId,
                 hoursplayed: 0,
-                buydate: currentDate
+                buydate: Math.floor(currentDate)
             };
             const updatedUser = {
                 ...user,

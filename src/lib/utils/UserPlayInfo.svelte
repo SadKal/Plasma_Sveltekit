@@ -2,8 +2,6 @@
     export let game;
     export let buydate;
     import { goto } from '$app/navigation';
-
-
 </script>
 
 <div class="gamePage__moreInfo">
