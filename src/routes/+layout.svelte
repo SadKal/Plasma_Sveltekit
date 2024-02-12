@@ -5,6 +5,7 @@
     import libraryStore from "$lib/stores/library";
     import games from "$lib/data/games.json"
 	import { onMount } from "svelte";
+    export let data;
 
     onMount ( () => {
         $libraryStore.recentlyPlayed = $libraryStore.fetchRecents(0, (games.data.length - 1))
@@ -13,7 +14,7 @@
 </script>
 
 <div class="app">
-    <Header />
+    <Header login={data.username}/>
     <slot/>
     <Footer />
 </div>

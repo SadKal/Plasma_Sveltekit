@@ -3,7 +3,7 @@
 	import Cart from "$lib/components/cart/Cart.svelte";
 	import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy y los datos asociados a esta ruta.
 	import { goto, invalidateAll, preloadData } from '$app/navigation'; //Se usa para manejr la navegación y la precarga de los datos. INVALIDATEALL es para para invalidar y reforzar la recarga de los datos precargados en la pagina actual
-	console.log($page.data.username);
+	export let login = false;
 
 	let iconSrc = "/plasma_icon_notext.png";
 	let iconLogin = "/login/login.png";
@@ -19,15 +19,17 @@
 		<HeaderElement name="Biblioteca" subdirectory="/library"/>
 		<HeaderElement name="Perfil" subdirectory="/profile"/>
 		
-		{#if !$page.data.username}
+		{#if login===null}
 		<li class="topbar__element--container">
 			<a href="/login">
 				<img src={iconLogin} alt="logo" class="topbar__logo" />
 			</a>
+
+			<a href="/register">Register</a>
 		</li>
 
 		  {:else}
-		<!--Al no estar en la ruta de login el actio	n tiene que indicar la ruta y la acción-->
+		<!--Al no estar en la ruta de login el action tiene que indicar la ruta y la acción-->
 		<li class="topbar__element--container">
 			<form method="POST" action="/login?/logout&redirectTo={$page.url.pathname}">
 				<button type="submit" class="custom">Logout	</button>
@@ -35,7 +37,7 @@
 			<li/>
 		{/if}
 
-		<a href="/register">Register</a>
+
 
 		<Cart />	
 </ul>

@@ -83,6 +83,10 @@
         {/if}
         <br/>
         <button type="submit">Accept</button>
+
+        {#if form?.userNotFound}<!-- Pongo ? para que en el caso de que sea nulo me lo ponga undefined y si passwwordMissing tiene valor me lo devuelve -->
+        <p style="color: red;">El usuario no esta registrado</p>
+        {/if}
         </form>
     </div>
     </div>
