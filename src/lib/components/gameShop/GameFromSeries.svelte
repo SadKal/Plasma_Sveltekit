@@ -7,7 +7,7 @@
 		: '/images_not_available/no_bg_available.png';
 </script>
 
-<div class="gameFromSeries" on:click={() => goto(`/game/${game.id}`)}>
+<a class="gameFromSeries" href="/game/{game.id}">
 	<div class="gameFromSeries__name">
 		{game.name}
 	</div>
@@ -15,7 +15,7 @@
 	<div class="gameFromSeries__img--container">
 		<img class="gameFromSeries__img" src={artwork} alt="game artwork" />
 	</div>
-</div>
+</a>
 
 <style lang="scss">
 	.gameFromSeries {

@@ -5,13 +5,15 @@
 
 	export let data;
 
-	$: ({ game, gamesFromSeries } = data);
+	$: ({ game, dlcs, gamesFromSeries } = data);
+
+	console.log(game);
 </script>
 
 {#key game}
 	<div class="shopPage">
 		<ShopPageHeader {game} />
 
-		<ShopPageContent {game} {gamesFromSeries} />
+		<ShopPageContent {game} {dlcs} {gamesFromSeries} />
 	</div>
 {/key}

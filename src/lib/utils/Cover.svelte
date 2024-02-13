@@ -1,14 +1,18 @@
 <script>
 	export let cover;
-	export let gameInCart;
+	export let gameInCart = false;
+	export let height = '400px';
+	export let width = '300px';
 </script>
 
-<div class="coverArt" class:active={gameInCart} style="background-image: url({cover});" />
+<div
+	class="coverArt"
+	class:active={gameInCart}
+	style="background-image: url({cover}); height: {height}; width: {width}"
+/>
 
 <style lang="scss">
 	.coverArt {
-		height: 400px;
-		width: 300px;
 		top: 15%;
 		left: 10%;
 		background-size: cover;
