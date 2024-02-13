@@ -37,6 +37,5 @@ export async function load() {
     const [slides, bestRated] = await Promise.all([slidesResponse.json(), bestRatedResponse.json()]);
 
 
-
     return { bestRated, slides, genres }
 }
