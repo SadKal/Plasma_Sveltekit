@@ -9,6 +9,8 @@
 
 	let gameInCart;
 
+	let isDlc = game.category == 1;
+
 	let background = '/loading.gif';
 	let cover = '/loading.gif';
 
@@ -33,6 +35,7 @@
 		} else {
 			cover = '/images_not_available/no_cover_available.jpg';
 		}
+		console.log(isDlc);
 	});
 </script>
 
@@ -67,7 +70,6 @@
 		filter: blur(0.5rem);
 		position: relative;
 		z-index: 0;
-		margin: 0px 0px 0px -25px;
 		@media (max-width: 650px) and (orientation: portrait) {
 			height: 40vh;
 		}

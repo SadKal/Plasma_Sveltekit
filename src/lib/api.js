@@ -21,17 +21,15 @@ export async function addGameToUser(userToUpdate, gameId) {
                 hoursplayed: 0,
                 buydate: Math.floor(currentDate)
             };
-            const updatedUser = {
-                ...user,
-                games: [...user.games, newGame]
-            };
+            const games = [...user.games, newGame];
+
             const response = await fetch(`${baseURL}/users/${userToUpdate.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    games: updatedUser.games
+                    games: games
                 })
             }
             );

@@ -1,12 +1,5 @@
 export async function GET({ url }) {
     let toSearch = url.searchParams.get('q')
-    //console.log(gameReceived);
-    // const game = gameReceived;
-    // game = game.trim();
-    // console.log(game);
-    // const searchResponse =
-
-    // const search = await searchResponse.json();
     const response = await fetch(
         "https://api.igdb.com/v4/games",
         {
