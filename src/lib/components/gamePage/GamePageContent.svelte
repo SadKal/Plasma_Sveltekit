@@ -133,18 +133,6 @@
 				}
 			}
 		&-name {
-		/* 	height: fit-content;
-			padding: 5% 10%;
-			position: relative;
-			margin-top: -6rem;
-			opacity: 0;
-			text-align: center;
-			font-size: 1.2rem;
-			clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
-			background-color: var(--topbar-background-color);
-			color: var(--selected-text-color);
-			font-weight: 900;
-			transition: all 0.6s; */
 			display: flex;
 			height: fit-content;
 			align-self: center;
