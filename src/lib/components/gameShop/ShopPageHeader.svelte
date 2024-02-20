@@ -7,6 +7,7 @@
 
 	export let game;
 
+	console.log(game);
 	let gameInCart;
 
 	let isDlc = game.category == 1;

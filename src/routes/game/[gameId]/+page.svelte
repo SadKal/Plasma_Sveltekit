@@ -6,8 +6,6 @@
 	export let data;
 
 	$: ({ game, dlcs, gamesFromSeries } = data);
-
-	console.log(game);
 </script>
 
 {#key game}

@@ -35,11 +35,20 @@
 </script>
 
 <div class="shopGame__content_container">
+	{#if game.category == 1 || game.category == 2}
+		<div class="shopGame__isDLC">
+			<p>
+				Ojo! Este juego es una expansión de
+				<a href="/game/{game.parent_game.id}">{game.parent_game.name}</a>.
+			</p>
+		</div>
+	{/if}
+
 	<div class="shopGame__gameInfo">
 		<div class="shopGame__main">
 			{#if game.videos}
 				<div class="shopGame__trailer">
-					<div class="shopGame__trailer__title">
+					<div class="shopGame__trailer__title" on:click={() => (showTrailer = !showTrailer)}>
 						<GameShopTextField title="Trailer:" />
 						<span class="shopGame__trailer__show" class:active={showTrailer}>&lt</span>
 					</div>
@@ -197,6 +206,10 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+
+			&:hover {
+				cursor: pointer;
+			}
 		}
 		&__show {
 			box-sizing: border-box;
@@ -205,11 +218,25 @@
 			padding: 0.4rem;
 			font-size: 2rem;
 			margin-right: 2rem;
-			&:hover {
-				cursor: pointer;
-			}
+			transition: all 0.3s;
+
 			&.active {
 				transform: rotate(-90deg);
+			}
+		}
+	}
+
+	.shopGame__isDLC {
+		display: flex;
+		padding: 1rem;
+		font-size: 2rem;
+		color: lightgray;
+		background-color: var(--game-data-bg-color);
+		justify-content: center;
+		& a {
+			color: var(--gamepage-playinfo-bg-color);
+			&:hover {
+				text-shadow: 1px 1px 2px black;
 			}
 		}
 	}

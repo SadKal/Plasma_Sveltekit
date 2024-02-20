@@ -594,6 +594,36 @@
           "id": 2155,
           "hoursplayed": 63,
           "buydate": 1691153668
+        },
+        {
+          "id": 7498,
+          "hoursplayed": 0,
+          "buydate": 1707826853.093,
+          "dlcs": {
+            "id": 119123,
+            "hoursplayed": 0,
+            "buydate": 1707827819.331
+          }
+        },
+        {
+          "id": 3212,
+          "hoursplayed": 0,
+          "buydate": 1707842742.145,
+          "dlcs": {
+            "id": 13144,
+            "hoursplayed": 0,
+            "buydate": 1707842750.431
+          }
+        },
+        {
+          "id": 15707,
+          "hoursplayed": 0,
+          "buydate": 1708421228.745
+        },
+        {
+          "id": 103294,
+          "hoursplayed": 0,
+          "buydate": 1708423448.609
         }
       ]
     }

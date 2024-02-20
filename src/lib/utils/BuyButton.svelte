@@ -5,8 +5,22 @@
 	export let game;
 	export let gameInCart;
 
+	const parent = game?.parent_game;
+
+	console.log(game);
+	console.log(parent);
+	const userStore = useUser();
+	const cartStore = useCart();
+
+	let parentOwned = true;
+	if (parent) {
+		parentOwned = $userStore.games.some((libraryGame) => libraryGame.id === parent.id)
+			? true
+			: false;
+	}
+
 	function setGameInCart() {
-		if (!gameOwned) {
+		if (!gameOwned && parentOwned) {
 			cartStore.addGameToCart(game);
 			gameInCart = true;
 			setTimeout(() => {
@@ -18,9 +32,6 @@
 		}
 	}
 
-	const userStore = useUser();
-	const cartStore = useCart();
-
 	$: gameOwned = $userStore.games.some((libraryGame) => libraryGame.id === game.id) ? true : false;
 	$: gameInCart = $cartStore.gamesInCart.some((cartGame) => cartGame.id === game.id) ? true : false;
 </script>
@@ -30,6 +41,8 @@
 		Ya tienes este juego.
 	{:else if gameInCart}
 		Juego ya en el carrito.
+	{:else if !parentOwned}
+		No tienes el juego padre
 	{:else}
 		Añadir al carrito: 59.99€
 	{/if}

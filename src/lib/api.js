@@ -10,18 +10,34 @@ export const getGames = async () => {
     }
 };
 
-export async function addGameToUser(userToUpdate, gameId) {
+export async function addGameToUser(userToUpdate, game) {
     try {
         const responseUser = await fetch(`http://localhost:4000/users/${userToUpdate.id}`);
         const user = await responseUser.json();
         try {
             const currentDate = new Date().getTime() / 1000;
             const newGame = {
-                id: gameId,
+                id: game.id,
                 hoursplayed: 0,
                 buydate: currentDate
             };
-            const games = [...user.games, newGame];
+            let games;
+            if (game.category == 1 || game.category == 2) {
+                let newGames = user.games.map(userGame => {
+                    console.log(userGame);
+                    if (userGame.id === game.parent_game.id) {
+                        console.log("GOtcha")
+                        return { ...userGame, dlcs: newGame }
+                    }
+                    else {
+                        return userGame;
+                    }
+                });
+                console.log(newGames);
+                games = newGames;
+            } else {
+                games = [...user.games, newGame];
+            }
 
             const response = await fetch(`${baseURL}/users/${userToUpdate.id}`, {
                 method: 'PATCH',

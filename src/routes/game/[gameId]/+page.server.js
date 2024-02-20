@@ -60,6 +60,7 @@ export async function load({ params }) {
         dlcs = await dlcsResponse.json();
     }
 
+    console.log(game)
 
     return { game, dlcs, gamesFromSeries };
 }
