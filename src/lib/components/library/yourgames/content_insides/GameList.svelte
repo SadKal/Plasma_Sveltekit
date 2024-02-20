@@ -22,17 +22,6 @@
 			});
 		}
 		if (selectedValue === "Fecha adq.") {
-			/*
-			So, basically: Games need (or at least it would be best) to have their dates as a Unix timestamp, because when we add more games to the user, the 
-			Date.now() method returns the Unix timestamp of this exact moment, and parsing back and forth would be pointless (can be done with Date.parse(), 
-			but it would mean going timestamp -> string,  and then the other way around when comparing or doing anything).
-			
-			Methods that might be useful:
-				Date.now();
-				Date.parse();
-				prototype.toLocaleString();
-
-			*/
 			games.sort((a, b) => {
 				return -(a.buydate - b.buydate);
 			});
@@ -43,7 +32,6 @@
 
 <div class="gamelist__title">
 	<span class="library--urgames__title">Tus juegos</span>
-
 	<Select
 		label="Ordenar por"
 		values={["Nombre", "Más jugados", "Fecha adq."]}
@@ -119,7 +107,6 @@
 			transition: all 0.25s;
 			transition-duration: 0.25s;
 			margin: 100% 0 0 -1px; //needed to make the title stay flush to the side, is there really no better way?
-
 		}
 		@media (max-width: 1750px) and (orientation: landscape) {
 			height: 28vw;
@@ -141,7 +128,6 @@
 		letter-spacing: 1px;
 		display: flex;
 		@media (max-width: 1080px) and (orientation: portrait) {
-			//mobile
 			font-size: 2rem;
 		}
 	}

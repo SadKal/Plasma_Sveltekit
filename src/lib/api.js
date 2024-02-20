@@ -19,7 +19,7 @@ export async function addGameToUser(userToUpdate, game) {
             const newGame = {
                 id: game.id,
                 hoursplayed: 0,
-                buydate: currentDate
+                buydate: Math.floor(currentDate)
             };
             let games;
             if (game.category == 1 || game.category == 2) {

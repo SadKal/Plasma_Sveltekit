@@ -11,7 +11,7 @@ export async function load({ params }) {
                 'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
                 'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
             },
-            body: `fields artworks.image_id,cover.image_id,name,screenshots.image_id,total_rating,first_release_date,updated_at,dlcs,expansions; 
+            body: `fields artworks.image_id,cover.image_id,name,screenshots.image_id,total_rating,first_release_date,updated_at,dlcs.cover.image_id,dlcs.name,expansions.cover.image_id,expansions.name,platforms; 
                     where id=(${gameId});`
         });
 
@@ -20,6 +20,11 @@ export async function load({ params }) {
     const user = users.find(user => user.id === "1");
 
     const game = games[0];
+
+    const dlcs = game?.dlcs;
+    const expansions = game?.expansions;
+    const extracontent = dlcs ? [...dlcs, ...(expansions || [])] : expansions || [];
+    game.extracontent = extracontent;
     const gameData = user.games.find((toFind) => toFind.id === game.id)
     game.hoursplayed = gameData.hoursplayed;
     game.buydate = gameData.buydate;
