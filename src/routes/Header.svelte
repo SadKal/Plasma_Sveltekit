@@ -24,15 +24,15 @@
 			<a href="/login">
 				<img src={iconLogin} alt="logo" class="topbar__logo" />
 			</a>
-
-			<a href="/register">Register</a>
 		</li>
 
 		  {:else}
 		<!--Al no estar en la ruta de login el action tiene que indicar la ruta y la acción-->
 		<li class="topbar__element--container">
 			<form method="POST" action="/login?/logout&redirectTo={$page.url.pathname}">
-				<button type="submit" class="custom">Logout	</button>
+				<button type="submit" class="custom">
+					<img src={iconLogout} alt="" class="topbar__logo">
+				</button>
 			</form>
 			<li/>
 		{/if}
@@ -90,4 +90,11 @@
 			transition: all 0.3s;
 		}
 	}
+
+	button{
+		background: transparent;
+		border: none;
+		margin: 0;
+	}
+	
 </style>

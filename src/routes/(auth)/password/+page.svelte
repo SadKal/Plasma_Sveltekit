@@ -6,38 +6,39 @@
     
         export let form; //Se crea una variable que se puede pasar desde su padre
         
+        const redirectTo = $page.url.searchParams.get('redirectTo') || '/';//Aqui lo que hago es coger la URL actual y sus parametros y lo almaceno en la variable, sino lo encuentra me coge /
     
         let iconSrc = "/plasma_icon_notext.png";//Imagen del iconoç
     
     </script>
 
-<div class="register">
+<div class="password">
 
-    <div class="register__navigation">
-        <div class="register__navigation__icon">
+    <div class="password__navigation">
+        <div class="password__navigation__icon">
             <img src={iconSrc} alt="logo" class="logo" />
         </div>
 
-        <div class="register__navigation__cross">
+        <div class="password__navigation__cross">
             <a href="/" class="cruz"></a>
         </div>
     </div>
 
-    <div class="register__form">
+    <div class="password__form">
 
 <form method="POST">
 
-    <span>Registrarse</span>
+    <span>Cambiar la contraseña</span>
     <input
-        type="text"
-        name="email"
-        id="email"
-        placeholder="Email"
-        value={form?.email || ''}
-    /> <!-- Lo que hago aqui es que si en el formulario se ha dado un valor se va a quedar grabado pero sino se pondra '' -->
+    type="text"
+    name="username"
+    id="user"
+    placeholder="User"
+    value={form?.user || ''}
+/>
 
-{#if form?.emailMissing}
-    <p style="color:red;"> Email requerido</p>
+{#if form?.userMissing}<!-- Pongo ? para que en el caso de que sea nulo me lo ponga undefined y si passwwordMissing tiene valor me lo devuelve -->
+    <p style="color: red;">Usuario requerida</p>
 {/if}
    
 
@@ -48,31 +49,14 @@
     <p style="color: red;">Contraseña requerida</p>
 {/if}
 
-<input
-    type="text"
-    name="user"
-    id="user"
-    placeholder="User"
-    value={form?.user || ''}
-/>
-
-{#if form?.userMissing}<!-- Pongo ? para que en el caso de que sea nulo me lo ponga undefined y si passwwordMissing tiene valor me lo devuelve -->
-    <p style="color: red;">Usuario requerida</p>
-{/if}
 <button type="submit">Accept</button>
-
-<div class="register__forgot">
-    <a href="/login">¿Iniciar sesión?</a>
-</div>
-
-
 </form>
 </div>
 </div>
 
 <style lang="scss">
 
-    .register{
+    .password{
         height: 100vh;
         width: 100vw;
         display: grid;
@@ -186,16 +170,7 @@
         }
         }
 
-        &__forgot{
-        align-items: center;
-        margin-top: 10px;
         
-        a{
-            text-decoration: none;
-            color: var(--text-color);
-            margin: 10px 0 0 0;
-        }
-    }
     }
 
 </style>

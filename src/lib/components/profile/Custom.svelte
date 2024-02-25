@@ -1,4 +1,6 @@
 <script>
+    import Custom from "./Custom.svelte";
+    import {writable} from 'svelte/store';
 
     //Creamos un store para la imagen
     export const selectedImage = writable(null);
@@ -23,7 +25,7 @@
               reader.readAsDataURL(file);/* Que me lea la imagen como una URL */
           }else{
             selectedImage.set(null);
-              ChangeImage('src/assets/prof/default.jpg');/* En el caso de que no se cambie la imagen me dejas la de por defecto */
+              ChangeImage('/default.jpg');/* En el caso de que no se cambie la imagen me dejas la de por defecto */
           }
   
       }
@@ -46,8 +48,7 @@
                     <img src="{imgDefault}" alt="" class="image-rounded" on:click={handleClickOnImage}>
                     <input type="file" id="img-uploader2" on:change={HandleImg}>
                     <div class="custom__camera">
-                        <img src="src/assets/prof/photo.png" alt="">
-                        <div class="custom__cameraText">.jpg/png</div>
+                            <div class="custom__cameraText">.jpg/png</div>
                     </div>
                 </div>
             </div>

@@ -17,8 +17,8 @@ export const actions = {
 			return fail(400, { passwordMissing: true });
 		}
 
-		const userFound = users.find(user => user.username === username);
-	
+    const userFound = users.find(user => user.username === username && user.password === password);
+		
 		if (userFound) {
 			cookies.set('token', username, { path: '/' });
 			return { status: 200 };

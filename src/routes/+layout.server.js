@@ -12,6 +12,8 @@ export const load = async ({ cookies }) => {
 		user = { name: token,id: 1 };
 	}
 
+	//AQUI VOY A MIRAR SI ESTOY AUTENTICADO O NO
+
 	return {
         username: token ? (user ? user.name : null) : null
 		};

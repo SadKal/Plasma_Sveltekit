@@ -85,9 +85,15 @@
         <button type="submit">Accept</button>
 
         {#if form?.userNotFound}<!-- Pongo ? para que en el caso de que sea nulo me lo ponga undefined y si passwwordMissing tiene valor me lo devuelve -->
-        <p style="color: red;">El usuario no esta registrado</p>
+        <p style="color: red;">El usuario no esta registrado o la contraseña es incorrecta</p>
         {/if}
         </form>
+
+        <div class="login__forgot">
+            <a href="/register">¿Registrarse?</a>
+            <a href="/password">¿Has olvidado la contraseña?</a>
+        </div>
+        
     </div>
     </div>
 
@@ -185,6 +191,7 @@
         width: 100%;
         span{
             font-size: 24px;
+            color: var(--text-color);
         }
         
         
@@ -322,9 +329,19 @@
         }
           
     }
-}
 
-//MEDIAQUERY
+    &__forgot{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        a{
+            text-decoration: none;
+            color: var(--text-color);
+            margin: 10px 0 0 0;
+        }
+    }
+}
 
 
  

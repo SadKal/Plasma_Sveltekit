@@ -615,6 +615,27 @@
       "password": "1212",
       "email": "maria@gmail.com",
       "games": []
+    },
+    {
+      "id": 4,
+      "username": "",
+      "password": "",
+      "email": "",
+      "games": []
+    },
+    {
+      "id": 5,
+      "username": "pedo",
+      "password": "amapola",
+      "email": "mariaaaa",
+      "games": []
+    },
+    {
+      "id": 6,
+      "username": "amapola",
+      "password": "palo",
+      "email": "ama",
+      "games": []
     }
   ]
 }
