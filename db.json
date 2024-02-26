@@ -476,6 +476,8 @@
         "Acción Aventura"
       ],
       "price": "5999"
+<<<<<<< HEAD
+=======
     },
     {
       "id": 44,
@@ -487,6 +489,7 @@
         "Acción Aventura"
       ],
       "price": "5999"
+>>>>>>> refs/remotes/origin/main
     }
   ],
   "genres": [
@@ -544,16 +547,28 @@
       "id": "1",
       "username": "JohnVideogame",
       "password": "xenoispeak",
+<<<<<<< HEAD
+      "email": "hola@gmail.com",
+=======
+>>>>>>> refs/remotes/origin/main
       "games": [
         {
           "id": 191411,
           "hoursplayed": 40,
+<<<<<<< HEAD
+          "buydate": 1684079773621
+=======
           "buydate": 1684079773
+>>>>>>> refs/remotes/origin/main
         },
         {
           "id": 11416,
           "hoursplayed": 67,
+<<<<<<< HEAD
+          "buydate": 1789242198
+=======
           "buydate": 1680450275
+>>>>>>> refs/remotes/origin/main
         },
         {
           "id": 386,
@@ -563,7 +578,11 @@
         {
           "id": 76882,
           "hoursplayed": 41,
+<<<<<<< HEAD
+          "buydate": 1270363433
+=======
           "buydate": 1596125431
+>>>>>>> refs/remotes/origin/main
         },
         {
           "id": 11182,
@@ -573,22 +592,38 @@
         {
           "id": 103244,
           "hoursplayed": 12,
+<<<<<<< HEAD
+          "buydate": 1040875214
+=======
           "buydate": 1688158139
+>>>>>>> refs/remotes/origin/main
         },
         {
           "id": 11737,
           "hoursplayed": 53,
+<<<<<<< HEAD
+          "buydate": 1325657589
+=======
           "buydate": 1559045716
+>>>>>>> refs/remotes/origin/main
         },
         {
           "id": 15698,
           "hoursplayed": 78,
+<<<<<<< HEAD
+          "buydate": 1561508259
+=======
           "buydate": 1656101762
+>>>>>>> refs/remotes/origin/main
         },
         {
           "id": 26766,
           "hoursplayed": 19,
+<<<<<<< HEAD
+          "buydate": 1215688756
+=======
           "buydate": 1571406867
+>>>>>>> refs/remotes/origin/main
         },
         {
           "id": 2155,
@@ -596,6 +631,58 @@
           "buydate": 1691153668
         },
         {
+<<<<<<< HEAD
+          "id": 279657,
+          "hoursplayed": 0,
+          "buydate": 1705912031177
+        },
+        {
+          "id": 55090,
+          "hoursplayed": 0,
+          "buydate": 1706262300313
+        },
+        {
+          "id": 217623,
+          "hoursplayed": 0,
+          "buydate": 1706272775334
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "helloda",
+      "password": "ehe",
+      "email": "he",
+      "games": []
+    },
+    {
+      "id": 3,
+      "username": "rererer",
+      "password": "1212",
+      "email": "maria@gmail.com",
+      "games": []
+    },
+    {
+      "id": 4,
+      "username": "",
+      "password": "",
+      "email": "",
+      "games": []
+    },
+    {
+      "id": 5,
+      "username": "pedo",
+      "password": "amapola",
+      "email": "mariaaaa",
+      "games": []
+    },
+    {
+      "id": 6,
+      "username": "amapola",
+      "password": "palo",
+      "email": "ama",
+      "games": []
+=======
           "id": 7498,
           "hoursplayed": 0,
           "buydate": 1707826853.093,
@@ -626,6 +713,7 @@
           "buydate": 1708423448.609
         }
       ]
+>>>>>>> refs/remotes/origin/main
     }
   ]
 }
