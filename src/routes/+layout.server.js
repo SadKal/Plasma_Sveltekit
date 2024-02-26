@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 //Antes de cargar el componente lo que hago es obtener la cookie que he creado de el inicio de sesion
 export const load = async ({ cookies }) => {
@@ -18,3 +19,18 @@ export const load = async ({ cookies }) => {
         username: token ? (user ? user.name : null) : null
 		};
 };
+=======
+export async function load({ cookies }) {
+    const response = await fetch('http://localhost:4000/users');
+    const users = await response.json();
+
+    const user = users.find(user => user.id === "1");
+
+    cookies.set('user', user, {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 30
+    });
+
+    return user;
+} 
+>>>>>>> refs/remotes/origin/main

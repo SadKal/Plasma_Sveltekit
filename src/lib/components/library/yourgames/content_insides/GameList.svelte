@@ -1,47 +1,37 @@
 <script>
-	import libraryStore from "$lib/stores/library";
 	import Select from "./GameListSelect.svelte";
 	import { flip } from "svelte/animate";
 	import { expoInOut } from "svelte/easing";
+	import { goto } from '$app/navigation';
+
+	export let games;
 
 	sortBy("Nombre");
 
 	function sortBy(selectedValue) {
 		if (selectedValue === "Nombre") {
-			$libraryStore.gamesInLibrary.sort((a, b) => {
+			games.sort((a, b) => {
 				if (a.name < b.name) return -1;
 				if (a.name > b.name) return 1;
 				if (a.name === b.name) return 0;
 			});
 		}
 		if (selectedValue === "Más jugados") {
-			$libraryStore.gamesInLibrary.sort((a, b) => {
-				return -(a.hrsPlayed - b.hrsPlayed);
+			games.sort((a, b) => {
+				return -(a.hoursplayed - b.hoursplayed);
 			});
 		}
 		if (selectedValue === "Fecha adq.") {
-			/*
-			So, basically: Games need (or at least it would be best) to have their dates as a Unix timestamp, because when we add more games to the user, the 
-			Date.now() method returns the Unix timestamp of this exact moment, and parsing back and forth would be pointless (can be done with Date.parse(), 
-			but it would mean going timestamp -> string,  and then the other way around when comparing or doing anything).
-			
-			Methods that might be useful:
-				Date.now();
-				Date.parse();
-				prototype.toLocaleString();
-
-			*/
-			$libraryStore.gamesInLibrary.sort((a, b) => {
-				return -(a.adqDate - b.adqDate);
+			games.sort((a, b) => {
+				return -(a.buydate - b.buydate);
 			});
 		}
-		$libraryStore.gamesInLibrary = $libraryStore.gamesInLibrary;
+		games = games;
 	}
 </script>
 
 <div class="gamelist__title">
 	<span class="library--urgames__title">Tus juegos</span>
-
 	<Select
 		label="Ordenar por"
 		values={["Nombre", "Más jugados", "Fecha adq."]}
@@ -51,13 +41,14 @@
 </div>
 
 <div class="gamelist__container">
-	{#each $libraryStore.gamesInLibrary as game (game.id)}
+	{#each games as game (game.id)}
 		<div
 			class="gamelist__content"
-			style="background-image: url('{game.cover}');"
-			animate:flip={{ duration: 400, delay: 10 * game.id, easing: expoInOut }}
+			style="background-image: url('https://images.igdb.com/igdb/image/upload/t_cover_big/{game.cover.image_id}.png');"
+			animate:flip={{ duration: 400, delay: game.id/1000, easing: expoInOut }}
+			on:click={goto(`/library/${game.id}`)}
 		>
-			<span class="gamelist__content_title">
+			<span class="gamelist__content_title" on:click={goto(`/library/${game.id}`)}>
 				{game.name}
 			</span>
 		</div>
@@ -76,6 +67,7 @@
 		flex-wrap: wrap;
 		margin-top: 20px;
 		justify-content: start;
+		cursor: pointer
 	}
 	.gamelist__content {
 		height: 21vw;
@@ -88,6 +80,7 @@
 		margin-top: 1.5rem;
 		border-radius: 4px;
 		transition: all 0.2s;
+		cursor: pointer;
 		&:hover,
 		&:active {
 			scale: 1.05;
@@ -113,8 +106,7 @@
 			font-weight: 900;
 			transition: all 0.25s;
 			transition-duration: 0.25s;
-			margin: 20% 0 0 -1px; //needed to make the title stay flush to the side, is there really no better way?
-
+			margin: 100% 0 0 -1px; //needed to make the title stay flush to the side, is there really no better way?
 		}
 		@media (max-width: 1750px) and (orientation: landscape) {
 			height: 28vw;
@@ -136,7 +128,6 @@
 		letter-spacing: 1px;
 		display: flex;
 		@media (max-width: 1080px) and (orientation: portrait) {
-			//mobile
 			font-size: 2rem;
 		}
 	}

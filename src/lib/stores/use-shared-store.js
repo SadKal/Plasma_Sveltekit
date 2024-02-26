@@ -6,4 +6,4 @@ export const useSharedStore = (name, store) => {
     }
     setContext(name, store);
     return store;
-}; 
+};  

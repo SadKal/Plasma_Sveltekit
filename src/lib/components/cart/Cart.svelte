@@ -6,8 +6,8 @@
  
 </script>
 
-<li class="cart--container">
-    <div class="cart__count--container">
+<div class="cart--container">
+    <div class="cart__count__container">
         <div class="cart__count">
             {$cartStore.gamesInCart.length}
         </div> 
@@ -16,47 +16,37 @@
         <object title="cart" class="cart" data="/svgs/cart.svg" type="image/svg+xml" width="70%" height="auto"/>
     </div>
     <CartInfo/>
-</li>
+</div>
  
  
 <style lang="scss">
     .cart{
         box-sizing: border-box;
-        user-select: none; 
+        user-select: none;
         pointer-events: none;
+        height: 4rem;
+        width: 4rem;
 
         &--container{
-            position: absolute;
-            top: 15%;
-            right: 0;
-            width: 5rem;
             cursor: pointer;
-            @media (max-width: 750px){
-                top: 1%
-            }
-            @media (max-width: 420px){
-                top: 1%
-            }
+            display: flex;
+            margin-right: 2rem;
         }
 
         &__count{
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
             color: lightgray;
-            user-select: none;
+            overflow: hidden;
+            white-space: nowrap;
 
-            &--container{
-                width: 1rem;
-                height: 1rem;
-                text-align: center;
-                position: absolute;
-                right: 25%;
-                background-color:rgb(0, 33, 29);
-                padding: .3rem;
+            &__container{
+                width: 1.3rem;
+                height: 1.3rem;
                 border-radius: 50%;
-                
+                display: flex;
+                justify-content: center;
+                text-overflow: clip;
+                align-items: center;
+                background-color: rgb(0, 33, 29);
             }
         }
     }

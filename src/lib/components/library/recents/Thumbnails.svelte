@@ -1,14 +1,16 @@
 <script>
-	import libraryStore from "$lib/stores/library";
+	export let thumbnails;
+	import { goto } from '$app/navigation';
 
 </script>
 
 <div class="library--recents">
-	<div class="library--recents__title">Jugado recientemente</div>
-	{#each $libraryStore.recentlyPlayed as img}
+	<div class="library--recents__title">Juegos recientes</div>
+	{#each thumbnails as thumbnail}
 		<div
 			class="library--recents__thumbnails thumbnail--small"
-			style="background-image: url('{img.cover}');"
+			style="background-image: url('https://images.igdb.com/igdb/image/upload/t_cover_big/{thumbnail.cover.image_id}.png');"
+			on:click={goto(`/library/${thumbnail.id}`)}
 		/>
 	{/each}
 </div>
@@ -16,7 +18,7 @@
 <style lang="scss">
 	.library--recents {
 		width: 90%;
-		margin: 0 auto;
+		margin: 0 auto; 
 
 		&__title {
 			font-weight: 600;
@@ -68,6 +70,7 @@
 			transition: all 0.2s;
 			margin-top: 1%;
 			margin-bottom: 2%;
+			cursor: pointer;
 		}
 	}
 </style>

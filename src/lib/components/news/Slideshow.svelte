@@ -4,6 +4,7 @@
  
     export let slides;
 
+
     let isSwiping=false;
     let startSwipe; 
     let endSwipe;
@@ -11,17 +12,17 @@
 
     let slidesData={
         left:{
-            source: slides[0].image,
+            source: slides[0].artworks[0].image_id,
             index: 0,
             position:'--side',
         },
         center:{
-            source: slides[1].image,
+            source: slides[1].artworks[0].image_id,
             index: 1,
             position:'--center',
         },
         right:{
-            source: slides[2].image,
+            source: slides[2].artworks[0].image_id,
             index: 2,
             position:'--side',
         }
@@ -57,19 +58,19 @@
                 };
             };
         };
-    };
+    }; 
 
     function showSlides(n) {
         if (n==0){
-            let shopGame = slides.find((game) => game.image==slidesData.center.source);
+            let shopGame = slides.find((game) => game.artworks[0].image_id==slidesData.center.source);
             goto(`/game/${shopGame.id}`)
-        };
+        }; 
 
         const border = n === +1 ? 0 : slides.length-1
         //Por cada slide, actualizamos el indice de slides y la imagen a mostrar
         Object.values(slidesData).forEach(slide => {
             slide.index = (slides[slide.index+n]==null ? border : slide.index+n);
-            slide.source = slides[slide.index].image;
+            slide.source = slides[slide.index].artworks[0].image_id;
             
             //Svelte que es esto por dios???
             slidesData=slidesData
@@ -77,7 +78,7 @@
     };
 </script>
 
-<div class="slideshow clearfix" on:touchstart={swipeStart} on:touchmove={swipeEnd} on:touchend={swipeAction}>
+<div class="slideshow" on:touchstart={swipeStart} on:touchmove={swipeEnd} on:touchend={swipeAction}>
     {#each Object.values(slidesData) as slide, index (slide.source)}
         <div class="slideshow__slide">
             {#key slide.position}
@@ -90,13 +91,9 @@
 
 
 <style lang="scss">
-    .clearfix::after {
-        content: ""; 
-        clear: both;
-        display: block;
-    } 
-
     .slideshow{
+        display: flex;
+        height: 17vw;
         margin-top: 6rem; 
         animation: fadein var(--seconds-fadein) ease-in;  
         
@@ -107,8 +104,6 @@
         &__slide{
             height: 100%;
             width: calc(100%/3);
-            display: inline;
-            float: left; 
             position: relative;  
         }  
     }

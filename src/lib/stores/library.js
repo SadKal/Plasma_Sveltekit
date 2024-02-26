@@ -28,7 +28,7 @@ function fetchOwned(min, max) {
 	gamesInLibrary = aux;
 	let limit = Math.min(gamesInLibrary.length, gamesData.data.length);
 	let i = 0;
-	let randGame;
+	let randGame; 
 	while (i < limit) {
 		randGame = Math.floor(Math.random() * (max - min + 1) + min);
 		if (!gamesInLibrary.includes(gamesData.data[randGame])) {

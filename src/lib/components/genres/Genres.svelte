@@ -5,35 +5,25 @@
 </script>
 
 <div class="genres">
+	<div class="genres__title">Géneros Populares</div>
 	<div class="genres__exhibitor">
-		<div class="genres__title">Géneros Populares</div>
-		<div class="genres__row clearfix">
-			{#each genres.slice(0, 4) as { name, bg_color, svg_src, text_color }}
-				<Genre {name} {bg_color} {svg_src} {text_color} />
-			{/each}
-		</div>
-		<div class="genres__row clearfix">
-			{#each genres.slice(4, 8) as { name, bg_color, svg_src, text_color }}
-				<Genre {name} {bg_color} {svg_src} {text_color} />
-			{/each}
-		</div>
+		{#each genres as { name, bg_color, svg_src, text_color }, index}
+			<Genre {name} {bg_color} {svg_src} {text_color} {index}/>
+		{/each}
 	</div>
 </div>
 
 <style lang="scss">
-	.clearfix::after {
-		content: ""; 
-		clear: both;
-		display: block;
-	}
 	.genres {
-		animation: fadein var(--seconds-fadein) ease-in;
-
+		width: 100%;
+        text-align: center;
+		
 		&__exhibitor {
-			width: 80%;
-			position: relative;
-			left: 50%;
-			transform: translateX(-50%);
+			margin-top: 3rem;
+			display: grid;
+			grid-template-columns: 20% 20% 20% 20%;
+            justify-content: center;
+            grid-gap: 5vh 0;
 		}
 		&__title {
 			width: 100%;
