@@ -6,6 +6,7 @@
 	export let gameInCart;
 
 	const parent = game?.parent_game;
+	console.log(game.category);
 
 	console.log(game);
 	console.log(parent);
@@ -41,7 +42,7 @@
 		Ya tienes este juego.
 	{:else if gameInCart}
 		Juego ya en el carrito.
-	{:else if !parentOwned}
+	{:else if (!parentOwned && game.category === 1) || game.category === 2}
 		No tienes el juego padre
 	{:else}
 		Añadir al carrito: 59.99€

@@ -234,6 +234,7 @@
 		background-color: var(--game-data-bg-color);
 		justify-content: center;
 		& a {
+			text-decoration: underline;
 			color: var(--gamepage-playinfo-bg-color);
 			&:hover {
 				text-shadow: 1px 1px 2px black;

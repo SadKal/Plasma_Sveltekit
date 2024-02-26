@@ -78,7 +78,6 @@
 			height: 100%;
 			object-fit: cover;
 			position: relative;
-
 			&--side {
 				opacity: 50%;
 			}

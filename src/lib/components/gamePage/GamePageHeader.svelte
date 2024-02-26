@@ -34,15 +34,12 @@
 	});
 </script>
 
-<div
-	class="gamePage__gameBG"
-	style="background-image: url({background});"
-/>
+<div class="gamePage__gameBG" style="background-image: url({background});" />
 <div class="gamePage__mainInfo">
-	<Cover {cover}/>
+	<Cover {cover} />
 	<div class="gamePage__libInfo">
-		<GameTitle title={game.name}/>
-		<UserPlayInfo {game} {buydate}/>
+		<GameTitle title={game.name} />
+		<UserPlayInfo {game} {buydate} />
 	</div>
 </div>
 
@@ -52,7 +49,7 @@
 		animation-duration: var(--seconds-fadein);
 		animation-timing-function: ease-in;
 	}
-    .gamePage__gameBG {
+	.gamePage__gameBG {
 		height: 60vh;
 		background-repeat: space;
 		background-size: cover;
@@ -63,7 +60,7 @@
 			height: 40vh;
 		}
 	}
-    .gamePage__mainInfo {
+	.gamePage__mainInfo {
 		position: absolute;
 		width: 100%;
 		display: flex;
@@ -71,7 +68,7 @@
 		transform: translate(0%, 50%);
 		top: 0%;
 	}
-    .gamePage__libInfo {
+	.gamePage__libInfo {
 		//breaks on 1400px
 		display: grid;
 		grid-template-rows: 1fr 1fr;
