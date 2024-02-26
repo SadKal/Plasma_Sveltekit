@@ -31,7 +31,7 @@
 	</div>
 {:else}
 	<div class="app">
-		<Header></Header>
+    <Header login={data.username}/>
 		<slot />
 		<Footer></Footer>
 	</div>

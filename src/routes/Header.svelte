@@ -1,8 +1,14 @@
 <script>
 	import HeaderElement from "./HeaderElement.svelte";
 	import Cart from "$lib/components/cart/Cart.svelte";
+	import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy y los datos asociados a esta ruta.
 
 	let iconSrc = "/plasma_icon_notext.png";
+
+	export let login = false;
+
+	let iconLogin = "/login/login.png";
+	let iconLogout = "/login/logout.png";
 </script>
 
 <div class="topbar">
@@ -13,6 +19,25 @@
 		<HeaderElement name="Inicio" />
 		<HeaderElement name="Biblioteca" subdirectory="/library"/>
 		<HeaderElement name="Perfil"/>
+
+		{#if login===null}
+		<li class="topbar__element--container">
+			<a href="/login">
+				<img src={iconLogin} alt="logo" class="topbar__logo" />
+			</a>
+		</li>	
+
+		  {:else}
+		<!--Al no estar en la ruta de login el action tiene que indicar la ruta y la acción-->
+		<li class="topbar__element--container">
+			<form method="POST" action="/login?/logout&redirectTo={$page.url.pathname}">
+				<button type="submit" class="custom">
+					<img src={iconLogout} alt="" class="topbar__logo">
+				</button>
+			</form>
+			<li/>
+		{/if}
+
 	</div>
 	<Cart />	
 </div>
