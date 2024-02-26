@@ -1,19 +1,14 @@
-<<<<<<< HEAD
 import { redirect } from '@sveltejs/kit';
 
 
-export const load = async ({ parent, url }) => {
-	const { username } = await parent();
-
-	if (!username) {
-		throw redirect(303 /*temporal redirect */, `/login?redirectTo=${url.pathname}`);
-	}
-	
-};
-=======
 export async function load({ cookies }) {
     const response = await fetch('http://localhost:4000/users');
     const users = await response.json();
+    const { username } = await parent();
+
+    if (!username) {
+        throw redirect(303 /*temporal redirect */, `/login?redirectTo=${url.pathname}`);
+    }
 
     const user = users.find(user => user.id === "1");
 
@@ -45,4 +40,3 @@ export async function load({ cookies }) {
     return user;
 
 } 
->>>>>>> refs/remotes/origin/main

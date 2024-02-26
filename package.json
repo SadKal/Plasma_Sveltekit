@@ -33,12 +33,7 @@
 		"vite": "^4.4.2"
 	},
 	"type": "module",
-<<<<<<< HEAD
-	"dependencies":{
-		"json-server":"^0.17.4"
-=======
 	"dependencies": {
 		"json-server": "^0.17.4"
->>>>>>> refs/remotes/origin/main
 	}
 }
