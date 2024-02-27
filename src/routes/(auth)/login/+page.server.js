@@ -9,7 +9,7 @@ export const actions = {
 		const response = await fetch("http://localhost:4000/users");//Hago un fetch para poder meterme en el json
 		const users = await response.json();//Y le digo que se trata de un json
 		console.log(users);
-		
+
 		if (!username) {
 			return fail(400, { usernameMissing: true }); //El passwordMissing es de el page.svelte lo que hago es que si esta mal me muestra un parrafo rojo.
 		}
@@ -17,15 +17,15 @@ export const actions = {
 			return fail(400, { passwordMissing: true });
 		}
 
-    const userFound = users.find(user => user.username === username && user.password === password);
-		
+		const userFound = users.find(user => user.username === username && user.password === password);
+
 		if (userFound) {
 			cookies.set('token', username, { path: '/' });
 			return { status: 200 };
 		}
 
 		return fail(400, { userNotFound: true });
-		
+
 	},
 	logout: ({ cookies, url }) => {
 		cookies.delete('token', { path: '/' });

@@ -2,9 +2,9 @@
 	import HeaderElement from './HeaderElement.svelte';
 	import Cart from '$lib/components/cart/Cart.svelte';
 	import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy y los datos asociados a esta ruta.
-	import { goto, invalidateAll, preloadData } from '$app/navigation'; //Se usa para manejr la navegación y la precarga de los datos. INVALIDATEALL es para para invalidar y reforzar la recarga de los datos precargados en la pagina actual
 	export let login = false;
 
+	console.log(login);
 	let iconSrc = '/plasma_icon_notext.png';
 	let iconLogin = '/login/login.png';
 	let iconLogout = '/login/logout.png';
@@ -18,7 +18,7 @@
 	<HeaderElement name="Biblioteca" subdirectory="/library" />
 	<HeaderElement name="Perfil" subdirectory="/profile" />
 
-	{#if login === null}
+	{#if login?.userFound === false}
 		<div class="topbar__element--container">
 			<a href="/login">
 				<img src={iconLogin} alt="logo" class="topbar__logo" />

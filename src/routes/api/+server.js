@@ -1,15 +1,19 @@
+import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
+
 export async function GET({ url }) {
     let toSearch = url.searchParams.get('q')
+
+    const headers = {
+        'Accept': 'application/json',
+        'Client-ID': `${SECRET_TWITCH_API_KEY}`,
+        'Authorization': `Bearer ${SECRET_TWITCH_API_BEARER}`,
+        'Access-Control-Allow-Origin': '*'
+    }
     const response = await fetch(
         "https://api.igdb.com/v4/games",
         {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
-                'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
-                'Access-Control-Allow-Origin': '*'
-            },
+            headers: headers,
             body: `
                 fields artworks.image_id, name, category;
                 where artworks != null & cover != null & name != null & genres != null 

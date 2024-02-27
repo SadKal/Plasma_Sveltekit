@@ -1,15 +1,21 @@
+import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
+
 export async function load({ params }) {
     const { gameId } = params;
+
+    const headers = {
+        'Accept': 'application/json',
+        'Client-ID': `${SECRET_TWITCH_API_KEY}`,
+        'Authorization': `Bearer ${SECRET_TWITCH_API_BEARER}`
+    }
+
+    console.log('HEADERS', headers);
 
     const gameResponse = await fetch(
         "https://api.igdb.com/v4/games",
         {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
-                'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
-            },
+            headers: headers,
             body: `fields artworks.image_id,cover.image_id,name,genres.name, 
             screenshots.image_id, total_rating, collections.name, collections.games, summary, 
             storyline, game_localizations.name, dlcs.id, expansions.id, category, 
@@ -19,6 +25,7 @@ export async function load({ params }) {
         });
     const games = await gameResponse.json();
     const game = games[0]
+    console.log('Juego>>>>>>>>>>>>>>>>>>>>>', game)
 
     let gamesFromSeries = [];
     if (game.collections) {
@@ -26,11 +33,7 @@ export async function load({ params }) {
             "https://api.igdb.com/v4/games",
             {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
-                    'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
-                },
+                headers: headers,
                 body: `fields artworks.image_id,name; 
                     where id=(${game.collections[0].games.toString()}) & category = 0;
                     limit ${game.collections[0].games.length};
@@ -47,11 +50,7 @@ export async function load({ params }) {
             "https://api.igdb.com/v4/games",
             {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
-                    'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
-                },
+                headers: headers,
                 body: `fields cover.image_id,name, category; 
                     where id=(${dlcID.toString()});
                     limit ${dlcID.length};

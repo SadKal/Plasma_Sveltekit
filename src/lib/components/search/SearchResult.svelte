@@ -1,7 +1,6 @@
 <script>
-	//import shopGameStore from "$stores/shopGame";
-
 	import { goto } from '$app/navigation';
+	import { getGamePrice } from '$lib/utils/functions.js';
 
 	export let game;
 </script>
@@ -17,7 +16,7 @@
 	<div class="search-result__name">
 		{game.name}
 	</div>
-	<div class="search-result__price">59.99€</div>
+	<div class="search-result__price">{getGamePrice(game.id)}€</div>
 </div>
 
 <style lang="scss">

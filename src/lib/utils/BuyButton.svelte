@@ -1,6 +1,7 @@
 <script>
 	import { useCart } from '$lib/stores/cart';
 	import { useUser } from '$lib/stores/user';
+	import { getGamePrice } from '$lib/utils/functions.js';
 
 	export let game;
 	export let gameInCart;
@@ -12,6 +13,7 @@
 	console.log(parent);
 	const userStore = useUser();
 	const cartStore = useCart();
+	$: console.log($userStore);
 
 	let parentOwned = true;
 	if (parent) {
@@ -45,7 +47,7 @@
 	{:else if (!parentOwned && game.category === 1) || game.category === 2}
 		No tienes el juego padre
 	{:else}
-		Añadir al carrito: 59.99€
+		Añadir al carrito: {getGamePrice(game.id)}€
 	{/if}
 </div>
 

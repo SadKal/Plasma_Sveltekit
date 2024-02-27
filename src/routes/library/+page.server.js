@@ -1,10 +1,17 @@
 import { redirect } from '@sveltejs/kit';
 
 
-export async function load({ cookies }) {
+import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
+
+export async function load({ cookies, parent, url }) {
     const response = await fetch('http://localhost:4000/users');
     const users = await response.json();
     const { username } = await parent();
+    const headers = {
+        'Accept': 'application/json',
+        'Client-ID': `${SECRET_TWITCH_API_KEY}`,
+        'Authorization': `Bearer ${SECRET_TWITCH_API_BEARER}`
+    }
 
     if (!username) {
         throw redirect(303 /*temporal redirect */, `/login?redirectTo=${url.pathname}`);
@@ -22,11 +29,7 @@ export async function load({ cookies }) {
         "https://api.igdb.com/v4/games",
         {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Client-ID': 'x4yzimuddvbcwzwqwxb3mi69o19urh',
-                'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
-            },
+            headers: headers,
             body: `fields cover.image_id,name; 
                     where id=(${gamesToSearch});
                     limit ${gamesToSearch.length};`

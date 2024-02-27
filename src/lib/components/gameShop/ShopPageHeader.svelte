@@ -1,9 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
 
-	import BuyButton from '../../utils/BuyButton.svelte';
-	import Cover from '../../utils/Cover.svelte';
-	import GameTitle from '../../utils/GameTitle.svelte';
+	import BuyButton from '$lib/utils/BuyButton.svelte';
+	import Cover from '$lib/utils/Cover.svelte';
+	import GameTitle from '$lib/utils/GameTitle.svelte';
 
 	export let game;
 

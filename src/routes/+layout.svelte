@@ -10,7 +10,7 @@
 
 	export let data;
 	const userStore = useUser();
-	$userStore = data;
+	$: $userStore = data;
 
 	$: title = $navigating ? 'Cargando' : $page.data?.game ? $page.data.game.name : 'Plasma';
 </script>
@@ -31,7 +31,7 @@
 	</div>
 {:else}
 	<div class="app">
-		<Header login={data.username}></Header>
+		<Header login={data}></Header>
 		<slot />
 		<Footer></Footer>
 	</div>
