@@ -43,17 +43,11 @@
 		align-items: center;
 		justify-content: space-between;
 		height: 6rem;
-
 		box-sizing: border-box;
 		border-bottom: 6px solid var(--text-color);
 		background-color: var(--topbar-background-color);
-
 		/*Necesitamos usarlo ya que si no las imagenes del slideshow apareceria por encima*/
 		z-index: 100;
-
-		&__list {
-			display: flex;
-		}
 		position: sticky;
 		top: 0;
 		z-index: 100;
@@ -70,7 +64,7 @@
 			}
 		}
 	}
-	xº button {
+	button {
 		background: transparent;
 		border: none;
 		margin: 0;
