@@ -48,7 +48,7 @@
 				display: grid;
 				grid-template-columns: 100%;
 				grid-template-rows: 1fr 1fr 1fr;
-				width: 40vw;
+				width: 400px;
 				height: 25vh;
 
 				span {
