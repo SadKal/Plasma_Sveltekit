@@ -7,17 +7,13 @@
 	export let gameInCart;
 
 	const parent = game?.parent_game;
-	console.log(game.category);
 
-	console.log(game);
-	console.log(parent);
 	const userStore = useUser();
 	const cartStore = useCart();
-	$: console.log($userStore);
 
 	let parentOwned = true;
 	if (parent) {
-		parentOwned = $userStore.games.some((libraryGame) => libraryGame.id === parent.id)
+		parentOwned = $userStore?.games?.some((libraryGame) => libraryGame.id === parent.id)
 			? true
 			: false;
 	}
@@ -35,7 +31,9 @@
 		}
 	}
 
-	$: gameOwned = $userStore.games.some((libraryGame) => libraryGame.id === game.id) ? true : false;
+	$: gameOwned = $userStore?.games?.some((libraryGame) => libraryGame.id === game.id)
+		? true
+		: false;
 	$: gameInCart = $cartStore.gamesInCart.some((cartGame) => cartGame.id === game.id) ? true : false;
 </script>
 

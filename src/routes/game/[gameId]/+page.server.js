@@ -9,7 +9,6 @@ export async function load({ params }) {
         'Authorization': `Bearer ${SECRET_TWITCH_API_BEARER}`
     }
 
-    console.log('HEADERS', headers);
 
     const gameResponse = await fetch(
         "https://api.igdb.com/v4/games",
@@ -25,7 +24,6 @@ export async function load({ params }) {
         });
     const games = await gameResponse.json();
     const game = games[0]
-    console.log('Juego>>>>>>>>>>>>>>>>>>>>>', game)
 
     let gamesFromSeries = [];
     if (game.collections) {
@@ -59,7 +57,6 @@ export async function load({ params }) {
         dlcs = await dlcsResponse.json();
     }
 
-    console.log(game)
 
     return { game, dlcs, gamesFromSeries };
 }

@@ -7,10 +7,7 @@
 
 	export let game;
 
-	console.log(game);
 	let gameInCart;
-
-	let isDlc = game.category == 1;
 
 	let background = '/loading.gif';
 	let cover = '/loading.gif';
@@ -36,7 +33,6 @@
 		} else {
 			cover = '/images_not_available/no_cover_available.jpg';
 		}
-		console.log(isDlc);
 	});
 </script>
 

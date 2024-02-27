@@ -4,7 +4,6 @@
 	import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy y los datos asociados a esta ruta.
 	export let login = false;
 
-	console.log(login);
 	let iconSrc = '/plasma_icon_notext.png';
 	let iconLogin = '/login/login.png';
 	let iconLogout = '/login/logout.png';
@@ -20,7 +19,7 @@
 
 	{#if login?.userFound === false}
 		<div class="topbar__element--container">
-			<a href="/login">
+			<a href="/login?redirectTo={$page.url.pathname}">
 				<img src={iconLogin} alt="logo" class="topbar__logo" />
 			</a>
 		</div>

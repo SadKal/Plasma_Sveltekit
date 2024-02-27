@@ -12,6 +12,7 @@ export const getGames = async () => {
 
 export async function addGameToUser(userToUpdate, game) {
     try {
+        console.log(userToUpdate);
         const responseUser = await fetch(`http://localhost:4000/users/${userToUpdate.id}`);
         const user = await responseUser.json();
         try {
@@ -24,16 +25,13 @@ export async function addGameToUser(userToUpdate, game) {
             let games;
             if (game.category == 1 || game.category == 2) {
                 let newGames = user.games.map(userGame => {
-                    console.log(userGame);
                     if (userGame.id === game.parent_game.id) {
-                        console.log("GOtcha")
                         return { ...userGame, dlcs: newGame }
                     }
                     else {
                         return userGame;
                     }
                 });
-                console.log(newGames);
                 games = newGames;
             } else {
                 games = [...user.games, newGame];

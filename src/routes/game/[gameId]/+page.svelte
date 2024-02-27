@@ -1,6 +1,5 @@
 <script>
 	import ShopPageContent from '$lib/components/gameShop/ShopPageContent.svelte';
-	import { page } from '$app/stores';
 	import ShopPageHeader from '../../../lib/components/gameShop/ShopPageHeader.svelte';
 
 	export let data;

@@ -1,19 +1,22 @@
-import { TWITCH_API_KEY } from '$env/static/private';
+import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
 
 export async function load({ params }) {
 
     const { gameId } = params;
     const userResponse = await fetch('http://localhost:4000/users');
 
+    const headers = {
+        'Accept': 'application/json',
+        'Client-ID': `${SECRET_TWITCH_API_KEY}`,
+        'Authorization': `Bearer ${SECRET_TWITCH_API_BEARER}`
+    }
+
+
     const gameResponse = await fetch(
         "https://api.igdb.com/v4/games",
         {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Client-ID': `${TWITCH_API_KEY}`,
-                'Authorization': 'Bearer 4cxn7og3bdosuzpdxslj3jcjl6hly9',
-            },
+            headers: headers,
             body: `fields artworks.image_id,cover.image_id,name,screenshots.image_id,total_rating,first_release_date,updated_at,dlcs.cover.image_id,dlcs.name,expansions.cover.image_id,expansions.name,platforms; 
                     where id=(${gameId});`
         });

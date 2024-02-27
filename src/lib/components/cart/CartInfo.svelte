@@ -4,20 +4,26 @@
 	import { useCart } from '$lib/stores/cart';
 	import { useUser } from '$lib/stores/user';
 	import { addGameToUser } from '$lib/api';
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 
 	const cartStore = useCart();
 	const userStore = useUser();
 
 	async function buyGames() {
-		for (const game of $cartStore.gamesInCart) {
-			try {
-				const updatedUser = await addGameToUser($userStore, game);
-				$userStore = updatedUser;
-			} catch (error) {
-				console.error('Error updating data:', error.message);
+		if ($userStore?.games) {
+			for (const game of $cartStore.gamesInCart) {
+				try {
+					const updatedUser = await addGameToUser($userStore, game);
+					$userStore = updatedUser;
+				} catch (error) {
+					console.error('Error updating data:', error.message);
+				}
 			}
+			$cartStore.gamesInCart = [];
+		} else {
+			goto(`/login?redirectTo=/${$page.url.pathname}`);
 		}
-		$cartStore.gamesInCart = [];
 	}
 </script>
 
