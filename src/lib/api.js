@@ -69,7 +69,7 @@ export async function deleteGameFromUser(userToUpdate, game) {
             games = games.filter(updGames => updGames.id !== game.id)
 
             const response = await fetch(`${baseURL}/users/${userToUpdate.id}`, {
-                method: 'PUT',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },

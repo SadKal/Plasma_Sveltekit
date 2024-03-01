@@ -1,5 +1,6 @@
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
 
+
 export async function load({ params }) {
     const { gameId } = params;
 
