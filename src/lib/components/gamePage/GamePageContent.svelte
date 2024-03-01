@@ -65,6 +65,7 @@
 
 <style lang="scss">
 	.gamePage__screenshots {
+		color: white;
 		background-color: var(--text-color);
 		padding-bottom: 10px;
 		&-title {
@@ -94,6 +95,7 @@
 	}
 	.gamePage__extraContent {
 		padding-bottom: 10px;
+		color: white;
 		&-title {
 			font-size: 3rem;
 			font-weight: 700;

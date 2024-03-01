@@ -48,6 +48,7 @@
 		animation-name: fadein;
 		animation-duration: var(--seconds-fadein);
 		animation-timing-function: ease-in;
+		color:  white;
 	}
 	.gamePage__gameBG {
 		height: 60vh;

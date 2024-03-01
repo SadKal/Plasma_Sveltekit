@@ -12,7 +12,7 @@ export const getGames = async () => {
 
 export async function addGameToUser(userToUpdate, game) {
     try {
-        console.log(userToUpdate);
+        //console.log(userToUpdate);
         const responseUser = await fetch(`http://localhost:4000/users/${userToUpdate.id}`);
         const user = await responseUser.json();
         try {
@@ -39,6 +39,37 @@ export async function addGameToUser(userToUpdate, game) {
 
             const response = await fetch(`${baseURL}/users/${userToUpdate.id}`, {
                 method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    games: games
+                })
+            }
+            );
+
+            return response.json();
+        }
+        catch (err) {
+            console.error('Error updating user:', err);
+        }
+    } catch (error) {
+        console.error('Error fetching user:', error);
+    }
+}
+
+export async function deleteGameFromUser(userToUpdate, game) {
+    try {
+        //console.log(userToUpdate);
+        const responseUser = await fetch(`http://localhost:4000/users/${userToUpdate.id}`);
+        const user = await responseUser.json();
+        try {
+            
+            let games = [...user.games];
+            games = games.filter(updGames => updGames.id !== game.id)
+
+            const response = await fetch(`${baseURL}/users/${userToUpdate.id}`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
