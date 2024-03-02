@@ -1,19 +1,22 @@
 <script>
 	import { goto } from '$app/navigation';
 
+	export let id;
+	export let kind;
 	export let name;
 	export let bg_color;
 	export let svg_src;
 	export let text_color;
 	export let index;
 	index += 1;
+	const link = kind + '-' + id;
 </script>
 
 <div
 	class="genre genre--{index}"
 	style="background-color: {bg_color};
             color: {text_color}"
-	on:click={() => goto(`/genres/${name}`)}
+	on:click={() => goto(`/genres/${link}`)}
 >
 	<object class="genre__svg" data={svg_src} type="image/svg+xml" width="70%" height="auto" />
 	<div class="genre__name">

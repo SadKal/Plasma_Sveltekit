@@ -22,8 +22,8 @@
 
 <style lang="scss">
 	.companies {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, 700px);
-		grid-gap: 2rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
 	}
 </style>

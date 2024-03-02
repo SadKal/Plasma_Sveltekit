@@ -1,17 +1,11 @@
 <script>
-	import games from '$lib/data/games.json';
 	import SearchResult from './SearchResult.svelte';
 	import { clickOutside } from '$lib/utils/outsideCart';
 
 	let searchValue = '';
 	let searchbar;
 	let scrollY;
-	let gameData = games.data;
 	let searchResult = [];
-	let test;
-
-	//Ordeno alfabeticamente, para resultado mas bonito
-	gameData.sort((a, b) => a.name.localeCompare(b.name));
 
 	function debounce(callback, wait) {
 		let timerId;

@@ -7,8 +7,8 @@
 <div class="genres">
 	<div class="genres__title">Géneros Populares</div>
 	<div class="genres__exhibitor">
-		{#each genres as { name, bg_color, svg_src, text_color }, index}
-			<Genre {name} {bg_color} {svg_src} {text_color} {index} />
+		{#each genres as { id, kind, name, bg_color, svg_src, text_color }, index}
+			<Genre {id} {kind} {name} {bg_color} {svg_src} {text_color} {index} />
 		{/each}
 	</div>
 </div>

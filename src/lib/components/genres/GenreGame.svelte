@@ -1,7 +1,9 @@
 <script>
+	import { getGamePrice } from '$lib/utils/functions.js';
 	import { useCart } from '$lib/stores/cart';
 	import { useUser } from '$lib/stores/user';
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 
 	export let game;
 
@@ -20,20 +22,35 @@
 	} else {
 		gameInCart = false;
 	}
+
+	let source;
+	console.log(game.genres);
+	onMount(() => {
+		const artworks = game?.artworks;
+		const screenshots = game?.screenshots;
+
+		// Depndiendo de si hay o no artworks o screenshots se rellena el array con ambos o con alguno o con ninguno
+		const allImages = artworks ? [...artworks] : screenshots || [];
+
+		if (allImages.length > 0) {
+			const randomIndex = Math.floor(Math.random() * allImages.length);
+			const randomImage = allImages[randomIndex];
+			if (randomImage) {
+				source = `https://images.igdb.com/igdb/image/upload/t_screenshot_med/${randomImage.image_id}.jpg`;
+			}
+		} else {
+			source = '/images_not_available/no_bg_available.png';
+		}
+	});
 </script>
 
 <div bind:this={genreGame} class="genre-game" on:click={() => goto(`/game/${game.id}`)}>
 	<div class="genre-game__img--container">
-		<img class="genre-game__img" src={game.image} />
+		<img class="genre-game__img" src={source} />
 	</div>
 
 	<div class="genre-game__name">
 		{game.name}
-		<div class="genre-game__genres">
-			{#each game.genres as genre, index}
-				<span>{genre}</span>{index === game.genres.length - 1 ? '' : ', '}
-			{/each}
-		</div>
 	</div>
 
 	<div class="genre-game__price">
@@ -42,7 +59,7 @@
 		{:else if gameInCart}
 			El juego ya esta en el carrito.
 		{:else}
-			{game.price / 100}€
+			{getGamePrice(game.id)}€
 		{/if}
 	</div>
 </div>
@@ -110,17 +127,6 @@
 			@media (max-width: 550px) {
 				font-size: 1rem;
 				margin-left: 1rem;
-			}
-		}
-		&__genres {
-			position: relative;
-			margin-top: 3rem;
-			font-size: 1.5rem;
-			left: -10%;
-			color: var(--text-color);
-			@media (max-width: 1200px) {
-				font-size: 1rem;
-				margin-top: 1rem;
 			}
 		}
 
