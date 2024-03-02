@@ -10,8 +10,6 @@
 	let genreList = [];
 	$: genreList = genres.filter((genre) => genre.id != currentGenre[1]).sort();
 
-	console.log(genres);
-
 	let selectedOption;
 	let selectedGenre = genres?.find(
 		(genre) => genre.id == currentGenre[1] && genre.kind == currentGenre[0]

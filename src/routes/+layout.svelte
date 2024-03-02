@@ -16,7 +16,6 @@
 	const userStore = useUser();
 	const cartStore = useCart();
 
-	console.log(data);
 	$: $userStore = data;
 
 	let cleanCartFlag = false;

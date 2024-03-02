@@ -54,7 +54,5 @@ export async function load({ params }) {
 		});
 	let games = await gamesResponse.json();
 
-	console.log(games);
-
 	return { genres, games, currentGenre };
 }

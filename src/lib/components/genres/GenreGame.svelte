@@ -14,7 +14,7 @@
 	let gameOwned;
 	let gameInCart;
 
-	$: if ($userStore.games.some((libraryGame) => libraryGame.id === game.id)) {
+	$: if ($userStore.games?.some((libraryGame) => libraryGame.id === game.id)) {
 		gameOwned = true;
 	}
 	$: if ($cartStore.gamesInCart.some((cartGame) => cartGame.id === game.id)) {

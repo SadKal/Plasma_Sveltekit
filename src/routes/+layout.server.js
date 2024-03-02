@@ -5,8 +5,7 @@ export const load = async ({ cookies }) => {
 	const response = await fetch("http://localhost:4000/users");//Hago un fetch para poder meterme en el json
 	const users = await response.json();//Y le digo que se trata de un json
 
-	console.log(users);
 	const userFound = users.find(user => user.username === token);
 
-	return userFound ? userFound : { userFound: false };
+	return userFound;
 };
