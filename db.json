@@ -237,6 +237,13 @@
           ]
         }
       ]
+    },
+    {
+      "id": 3,
+      "username": "testuser",
+      "password": "changepasswd",
+      "email": "plswork@gmail.com",
+      "games": []
     }
   ]
 }

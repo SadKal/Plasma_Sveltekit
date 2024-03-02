@@ -49,7 +49,8 @@
 <div class="gamePage__extraContent">
 	{#if dlcs.length === 0}
 		<div class="gamePage__extraContent-noDLCS">
-			<p>No tienes ningún contenido descargable para este juego. 
+			<p>
+				No tienes ningún contenido descargable para este juego.
 				<a href="/game/{game.id}">Ir a la tienda?</a>
 			</p>
 		</div>
@@ -63,10 +64,10 @@
 		color: white;
 		background-color: var(--text-color);
 		padding-bottom: 10px;
-		&-title {
+
+		&-title{
+			padding: 20px;
 			font-size: 3rem;
-			font-weight: 700;
-			padding: 30px;
 		}
 		&-gallery {
 			border: 20px solid var(--topbar-background-color);
@@ -91,12 +92,10 @@
 	.gamePage__extraContent {
 		padding-bottom: 10px;
 		color: white;
-		&-title {
-			font-size: 3rem;
-			font-weight: 700;
-			padding: 30px;
-		}
-		&-noDLCS{
+		width: 90%;
+		margin: 0 auto;
+		margin-top: 50px;
+		&-noDLCS {
 			width: 95%;
 			margin: 0 auto;
 			background-color: var(--topbar-background-color);

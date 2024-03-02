@@ -31,7 +31,7 @@
 		&__title {
 			margin: 75px 0px; 
 			text-align: center;
-			font-size: 6rem;
+			font-size: 5rem;
 			font-weight: 600;
 			color: var(--text-color);
 			letter-spacing: 1px;
