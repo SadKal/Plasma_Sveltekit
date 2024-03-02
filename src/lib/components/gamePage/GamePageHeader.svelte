@@ -110,9 +110,7 @@
 		filter: blur(0.5rem);
 		position: relative;
 		margin: 0px 0px 0px -25px;
-		@media (max-width: 650px) and (orientation: portrait) {
-			height: 40vh;
-		}
+		
 	}
 	.gamePage__mainInfo {
 		position: absolute;
@@ -126,6 +124,6 @@
 		//breaks on 1400px
 		display: grid;
 		grid-template-rows: 1fr 1fr;
-		width: 35%;
+		width: 30%;
 	}
 </style>

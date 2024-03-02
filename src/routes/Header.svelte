@@ -40,6 +40,7 @@
 <style lang="scss">
 	.topbar {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 		height: 6rem;
@@ -51,17 +52,20 @@
 		position: sticky;
 		top: 0;
 		z-index: 100;
-
 		&__logo {
 			width: 45px;
 			height: auto;
 			margin: 0 1rem;
 
 		}
-	}
+		@media (max-width: 900px){
+			height: 9rem;
+			justify-content: center;
+		}
 	button {
 		background: transparent;
 		border: none;
 		margin: 0;
 	}
+}
 </style>

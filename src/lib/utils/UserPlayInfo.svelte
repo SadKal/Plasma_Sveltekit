@@ -24,18 +24,18 @@
 		justify-content: space-between;
 		background-color: var(--game-title-background-color);
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-		padding: 0.5rem 5rem;
+		padding: 0.25rem 3rem;
 		align-self: end;
+		
 		& span {
 			font-size: 2rem;
 			font-weight: 600;
 			color: var(--selected-text-color);
-			width: max-content;
+			width: min-content;
 		}
 		& h4 {
-			margin-top: 0.5rem;
 			font-size: 1.25rem;
-			margin-bottom: 0.5rem;
+			margin: 0.5rem 0.25rem
 		}
 		&:hover ~ .gamePage__moreInfo-toShopPage {
 			max-height: 100px; //needed to make the transition, doesnt work with height
