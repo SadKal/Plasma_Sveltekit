@@ -47,9 +47,6 @@
 </div>
 <!-- svelte-ignore empty-block -->
 <div class="gamePage__extraContent">
-	<div class="gamePage__extraContent-title">
-		<GameShopTextField title="DLCs:" />
-	</div>
 	{#if dlcs.length === 0}
 		<div class="gamePage__extraContent-noDLCS">
 			<p>No tienes ningún contenido descargable para este juego. 
