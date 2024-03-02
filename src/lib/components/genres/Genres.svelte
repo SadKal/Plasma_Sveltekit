@@ -1,5 +1,5 @@
 <script>
-	import Genre from "./Genre.svelte";
+	import Genre from './Genre.svelte';
 
 	export let genres;
 </script>
@@ -8,7 +8,7 @@
 	<div class="genres__title">Géneros Populares</div>
 	<div class="genres__exhibitor">
 		{#each genres as { name, bg_color, svg_src, text_color }, index}
-			<Genre {name} {bg_color} {svg_src} {text_color} {index}/>
+			<Genre {name} {bg_color} {svg_src} {text_color} {index} />
 		{/each}
 	</div>
 </div>
@@ -16,14 +16,15 @@
 <style lang="scss">
 	.genres {
 		width: 100%;
-        text-align: center;
-		
+		text-align: center;
+		margin-bottom: 5rem;
+
 		&__exhibitor {
 			margin-top: 3rem;
 			display: grid;
-			grid-template-columns: 20% 20% 20% 20%;
-            justify-content: center;
-            grid-gap: 5vh 0;
+			grid-template-columns: repeat(auto-fit, 25rem);
+			justify-content: space-evenly;
+			gap: 5vh 0;
 		}
 		&__title {
 			width: 100%;

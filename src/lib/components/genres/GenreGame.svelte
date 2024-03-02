@@ -1,5 +1,4 @@
 <script>
-	import libraryStore from '$lib/stores/library';
 	import { useCart } from '$lib/stores/cart';
 	import { useUser } from '$lib/stores/user';
 	import { goto } from '$app/navigation';
