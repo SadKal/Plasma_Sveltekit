@@ -1,3 +1,4 @@
 export function getGamePrice(id) {
-    return Math.round((Math.log(id) + 1) * 4) - .01;
-} 
+    const price = Math.round((Math.log(id) + 1) * 4) - .01;
+    return parseFloat(price);
+}

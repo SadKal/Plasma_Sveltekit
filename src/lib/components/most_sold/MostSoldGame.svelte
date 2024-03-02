@@ -112,26 +112,6 @@
 			padding: 0.5rem;
 			text-align: center;
 			box-shadow: 3px 4px 15px 0.5px black;
-
-			@media (max-width: 1500px) {
-				font-size: 1.5rem;
-			}
-			@media (max-width: 1200px) {
-				font-size: 1.25rem;
-				height: 25%;
-			}
-			@media (max-width: 900px) {
-				padding: 0.1rem;
-				font-size: 0.9rem;
-				height: 13.5vw;
-			}
-			@media (max-width: 650px) {
-				font-size: 0.6rem;
-			}
-			@media (max-width: 450px) {
-				font-size: 1rem;
-				height: 25vw;
-			}
 		}
 		&__name {
 			font-size: 1.5rem;
@@ -144,21 +124,6 @@
 			text-align: center;
 			overflow: visible;
 			white-space: wrap;
-
-			@media (max-width: 1500px) {
-				font-size: 1.25rem;
-			}
-			@media (max-width: 1200px) {
-				font-size: 1rem;
-			}
-			@media (max-width: 650px) {
-				font-size: 0.75rem;
-				margin: 0.25rem 0;
-			}
-			@media (max-width: 450px) {
-				font-size: 1.5rem;
-				margin: 0.5rem 0;
-			}
 		}
 
 		&__genre {

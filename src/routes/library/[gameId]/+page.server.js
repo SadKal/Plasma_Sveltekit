@@ -1,8 +1,8 @@
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 
-export async function load({ params, parent }) {
-
+export async function load({ params, parent, cookies }) {
+    const token = cookies.get('token');
     const { gameId } = params;
     const userResponse = await fetch('http://localhost:4000/users');
     const { username } = await parent();
@@ -27,7 +27,7 @@ export async function load({ params, parent }) {
 
     const games = await gameResponse.json();
     const users = await userResponse.json();
-    const user = users.find(user => user.id === "1");
+    const user = users.find(user => user.username === token);
 
     const game = games[0];
 
@@ -38,7 +38,7 @@ export async function load({ params, parent }) {
     let auxArray = gameData.dlcs;
     let dlcs = [];
     let dlcID = [];
- 
+
     if (auxArray != undefined && auxArray[0] != undefined) {
         auxArray.forEach(dlc => { dlcID.push(dlc.id); });
     }

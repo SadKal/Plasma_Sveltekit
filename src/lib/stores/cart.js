@@ -36,7 +36,7 @@ function getTotalPrice(cart) {
         total += getGamePrice(game.id);
     });
 
-    return total;
+    return Math.round(total * 100) / 100;
 }
 
 const cartStore = {

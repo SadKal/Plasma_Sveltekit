@@ -45,8 +45,7 @@
 <style lang="scss">
 	option {
 		background-color: var(--text-color);
-		font-size: 1.5rem;
-		padding: 5rem;
+		font-size: 1rem;
 	}
 
 	.genres {

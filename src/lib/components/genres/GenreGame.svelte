@@ -24,7 +24,6 @@
 	}
 
 	let source;
-	console.log(game.genres);
 	onMount(() => {
 		const artworks = game?.artworks;
 		const screenshots = game?.screenshots;
@@ -108,7 +107,6 @@
 		}
 
 		&__name {
-			margin-left: 3rem;
 			font-size: 2.5rem;
 			position: relative;
 			font-style: italic;

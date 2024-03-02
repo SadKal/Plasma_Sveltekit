@@ -18,7 +18,7 @@
 <style lang="scss">
 	.dlcs {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, 200px);
+		grid-template-columns: repeat(auto-fit, 180px);
 		justify-content: space-around;
 
 		height: 20rem;

@@ -173,14 +173,66 @@
       "email": "gigidi@gmail.com",
       "games": [
         {
-          "id": 7498,
+          "id": 217590,
           "hoursplayed": 0,
-          "buydate": 1709385693,
+          "buydate": 1709392324
+        },
+        {
+          "id": 1879,
+          "hoursplayed": 0,
+          "buydate": 1709394806
+        },
+        {
+          "id": 25076,
+          "hoursplayed": 0,
+          "buydate": 1709394806
+        },
+        {
+          "id": 103337,
+          "hoursplayed": 0,
+          "buydate": 1709394806
+        },
+        {
+          "id": 90558,
+          "hoursplayed": 0,
+          "buydate": 1709394806
+        },
+        {
+          "id": 22439,
+          "hoursplayed": 0,
+          "buydate": 1709394806
+        },
+        {
+          "id": 250616,
+          "hoursplayed": 0,
+          "buydate": 1709394806
+        },
+        {
+          "id": 164867,
+          "hoursplayed": 0,
+          "buydate": 1709394806,
           "dlcs": [
             {
-              "id": 173151,
+              "id": 270502,
               "hoursplayed": 0,
-              "buydate": 1709385707
+              "buydate": 1709394850
+            }
+          ]
+        },
+        {
+          "id": 7498,
+          "hoursplayed": 0,
+          "buydate": 1709396666,
+          "dlcs": [
+            {
+              "id": 119124,
+              "hoursplayed": 0,
+              "buydate": 1709396675
+            },
+            {
+              "id": 119122,
+              "hoursplayed": 0,
+              "buydate": 1709396698
             }
           ]
         }

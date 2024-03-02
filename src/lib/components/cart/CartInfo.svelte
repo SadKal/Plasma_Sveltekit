@@ -51,7 +51,7 @@
 				<div class="cart-info__totalinfo">
 					<div class="cart-info__text">Total:</div>
 					<div class="cart-info__price">
-						{totalPrice}€
+						{parseFloat(totalPrice)}€
 					</div>
 				</div>
 			</div>

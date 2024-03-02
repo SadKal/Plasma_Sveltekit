@@ -48,7 +48,7 @@ export async function load({ params }) {
 			headers: headers,
 			body: `fields artworks.image_id,name,genres.name, themes.name, 
             screenshots.image_id; 
-            where ${currentGenre[0].toLowerCase()}=(${currentGenre[1]}) & total_rating > 70 & category != (1, 2);
+            where ${currentGenre[0].toLowerCase()}=(${currentGenre[1]}) & total_rating > 70 & category != (1, 2, 5, 12, 14);
 			sort first_release_date desc;
 			limit 100;`
 		});

@@ -40,7 +40,7 @@
 
 		&__exhibitor {
 			display: grid;
-			grid-template-columns: 20% 20% 20%;
+			grid-template-columns: repeat(auto-fit, 20rem);
 			justify-content: center;
 			grid-gap: 5vw;
 			margin-top: 4rem;
