@@ -3,8 +3,9 @@ import { redirect } from '@sveltejs/kit';
 
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
 
-export async function load({ parent, url }) {
+export async function load({ parent, url, cookies }) {
     const response = await fetch('http://localhost:4000/users');
+    const token = cookies.get('token');
     const users = await response.json();
     const { username } = await parent();
     const headers = {
@@ -17,7 +18,7 @@ export async function load({ parent, url }) {
         throw redirect(303 /*temporal redirect */, `/login?redirectTo=${url.pathname}`);
     }
 
-    const user = users.find(user => user.id === "1");
+    const user = users.find(user => user.username === token);
 
     let gamesToSearch = ''
     for (const game of user.games) {

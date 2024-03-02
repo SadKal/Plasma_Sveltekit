@@ -15,7 +15,7 @@
 	.company {
 		margin-right: 1rem;
 		display: flex;
-
+		flex-wrap: wrap;
 		&__logo {
 			margin-right: 1rem;
 			height: 2rem;

@@ -46,8 +46,8 @@
 			</div>
 
 			{#if game.platforms.length > 0}
+				<GameShopTextField title="Plataformas:" />
 				<div class="shopGame__platforms">
-					<GameShopTextField title="Plataformas:" />
 					{#each game.platforms as platform (platform.id)}
 						<Platform {platform} />
 					{/each}
