@@ -13,7 +13,7 @@ export async function load({ params, parent }) {
     }
 
     if (!username) {
-        throw redirect(303 /*temporal redirect */, `/login?redirectTo=${url.pathname}`);
+        throw redirect(303 /*temporal redirect */, `/`);
     }
 
     const gameResponse = await fetch(
@@ -35,7 +35,7 @@ export async function load({ params, parent }) {
     game.hoursplayed = gameData.hoursplayed;
     game.buydate = gameData.buydate;
 
-    let auxArray = [gameData.dlcs];
+    let auxArray = gameData.dlcs;
     let dlcs = [];
     let dlcID = [];
     if (auxArray[0] != undefined) {
@@ -55,7 +55,5 @@ export async function load({ params, parent }) {
             });
         dlcs = await dlcsResponse.json();
     }
-       
-
     return { game, dlcs };
 }  

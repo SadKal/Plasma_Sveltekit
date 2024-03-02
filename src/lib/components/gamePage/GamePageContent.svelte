@@ -1,8 +1,7 @@
 <script>
 	import { Modal } from 'flowbite-svelte';
-	import { goto } from '$app/navigation';
-	import DLCS from '$lib/components/gameShop/DLCS.svelte';
-	import GameShopTextField from '$lib/components/gameShop/GameShopTextField.svelte';
+	import DLCS from '$lib/components/gameShop/content/main/DLCS/DLCS.svelte';
+	import GameShopTextField from '$lib/utils/GameShopTextField.svelte';
 
 	export let game;
 	export let dlcs;
@@ -54,7 +53,7 @@
 	{#if dlcs.length === 0}
 		<div class="gamePage__extraContent-noDLCS">
 			<p>No tienes ningún contenido descargable para este juego. 
-				<a href="/shop/{game.id}">Ir a la tienda?</a>
+				<a href="/game/{game.id}">Ir a la tienda?</a>
 			</p>
 		</div>
 	{:else}
