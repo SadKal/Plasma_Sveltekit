@@ -549,12 +549,12 @@
         {
           "id": 191411,
           "hoursplayed": 40,
-          "buydate": 1684079773621
+          "buydate": 1684079773
         },
         {
           "id": 11416,
           "hoursplayed": 67,
-          "buydate": 1789242198
+          "buydate": 1689242198
         },
         {
           "id": 386,
@@ -564,7 +564,7 @@
         {
           "id": 76882,
           "hoursplayed": 41,
-          "buydate": 1270363433
+          "buydate": 1670363433
         },
         {
           "id": 11182,
@@ -574,22 +574,22 @@
         {
           "id": 103244,
           "hoursplayed": 12,
-          "buydate": 1040875214
+          "buydate": 1690875214
         },
         {
           "id": 11737,
           "hoursplayed": 53,
-          "buydate": 1325657589
+          "buydate": 1674687589
         },
         {
           "id": 15698,
           "hoursplayed": 78,
-          "buydate": 1561508259
+          "buydate": 1671508259
         },
         {
           "id": 26766,
           "hoursplayed": 19,
-          "buydate": 1215688756
+          "buydate": 1645688756
         },
         {
           "id": 2155,
@@ -597,46 +597,34 @@
           "buydate": 1691153668
         },
         {
-          "id": 279657,
-          "hoursplayed": 0,
-          "buydate": 1705912031177
-        },
-        {
           "id": 55090,
           "hoursplayed": 0,
-          "buydate": 1706262300313
+          "buydate": 1706262300
         },
         {
           "id": 217623,
           "hoursplayed": 0,
-          "buydate": 1706272775334
+          "buydate": 1706272775
         },
         {
           "id": 7498,
           "hoursplayed": 0,
-          "buydate": 1709024780,
-          "dlcs": [
-            {
-              "id": 173151,
-              "hoursplayed": 0,
-              "buydate": 1709318796
-            },
-            {
-              "id": 119122,
-              "hoursplayed": 0,
-              "buydate": 1709319066
-            }
-          ]
+          "buydate": 1709024780
         },
         {
-          "id": 133236,
+          "id": 181162,
           "hoursplayed": 0,
-          "buydate": 1709317444
+          "buydate": 1709026317
         },
         {
-          "id": 279612,
+          "id": 72,
           "hoursplayed": 0,
-          "buydate": 1709317444
+          "buydate": 1709296573,
+          "dlcs": {
+            "id": 99969,
+            "hoursplayed": 0,
+            "buydate": 1709312070
+          }
         }
       ]
     }

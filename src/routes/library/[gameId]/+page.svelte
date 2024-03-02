@@ -4,13 +4,13 @@
 	import GamePagePlayInfo from '../../../lib/components/gamePage/GamePagePlayInfo.svelte';
 	export let data;
 
-	let { game } = data;
+	let { game, dlcs } = data;
 </script>
 <GamePageHeader {game}/>
 
 <GamePagePlayInfo {game} />
 
-<GamePageContent {game} />
+<GamePageContent {game} {dlcs} />
 
 <style lang="scss">
 	* {

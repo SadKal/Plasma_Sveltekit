@@ -3,7 +3,7 @@ import { redirect } from '@sveltejs/kit';
 
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
 
-export async function load({ cookies, parent, url }) {
+export async function load({ parent, url }) {
     const response = await fetch('http://localhost:4000/users');
     const users = await response.json();
     const { username } = await parent();

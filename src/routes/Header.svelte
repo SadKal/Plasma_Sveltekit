@@ -20,7 +20,7 @@
 	{#if login?.userFound === false}
 		<div class="topbar__element--container">
 			<a href="/login?redirectTo={$page.url.pathname}">
-				<img src={iconLogin} alt="logo" class="topbar__logo" />
+				<img src={iconLogin} alt="login logo" class="topbar__logo" />
 			</a>
 		</div>
 	{:else}
@@ -28,7 +28,7 @@
 		<div class="topbar__element--container">
 			<form method="POST" action="/login?/logout&redirectTo={$page.url.pathname}">
 				<button type="submit" class="custom">
-					<img src={iconLogout} alt="" class="topbar__logo" />
+					<img src={iconLogout} alt="logout logo" class="topbar__logo" />
 				</button>
 			</form>
 		</div>
@@ -55,13 +55,8 @@
 		&__logo {
 			width: 45px;
 			height: auto;
-			margin-left: 3.3rem;
+			margin: 0 1rem;
 
-			@media (max-width: 650px) {
-				top: 40%;
-				position: relative;
-				left: 35%;
-			}
 		}
 	}
 	button {

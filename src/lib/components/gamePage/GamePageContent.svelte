@@ -1,8 +1,12 @@
 <script>
 	import { Modal } from 'flowbite-svelte';
 	import { goto } from '$app/navigation';
-	import Cover from '../../utils/Cover.svelte';
+	import DLCS from '$lib/components/gameShop/DLCS.svelte';
+	import GameShopTextField from '$lib/components/gameShop/GameShopTextField.svelte';
+
 	export let game;
+	export let dlcs;
+
 	let imgID = null;
 	let showModal = false;
 	let cover = '/loading.gif';
@@ -12,7 +16,6 @@
 		showModal = true;
 		return id;
 	}
-
 </script>
 
 {#if game.platforms.includes(3) | game.platforms.includes(6) && game.platforms.includes(34) | game.platforms.includes(39)}
@@ -44,27 +47,24 @@
 	</div>
 </div>
 <!-- svelte-ignore empty-block -->
-{#if game.extracontent.length === 0}{:else}
-	<div class="gamePage__extraContent">
-		<div class="gamePage__extraContent-title">
-			<span>DLCs disponibles:</span>
-		</div>
-		<div class="gamePage__extraContent-gallery">
-			{#each game.extracontent as extra (extra.id)}
-				<span>
-					{(cover = `https://images.igdb.com/igdb/image/upload/t_cover_big/${extra.cover.image_id}.png`)}
-				</span>
-				<div class="gamePage__extraContent-cover" on:click={() => goto(`/game/${extra.id}`)}>
-					<Cover {cover} />
-					<div class="gamePage__extraContent-name">{extra.name}</div>
-				</div>
-			{/each}
-		</div>
+<div class="gamePage__extraContent">
+	<div class="gamePage__extraContent-title">
+		<GameShopTextField title="DLCs:" />
 	</div>
-{/if}
+	{#if dlcs.length === 0}
+		<div class="gamePage__extraContent-noDLCS">
+			<p>No tienes ningún contenido descargable para este juego. 
+				<a href="/shop/{game.id}">Ir a la tienda?</a>
+			</p>
+		</div>
+	{:else}
+		<DLCS {dlcs} />
+	{/if}
+</div>
 
 <style lang="scss">
 	.gamePage__screenshots {
+		color: white;
 		background-color: var(--text-color);
 		padding-bottom: 10px;
 		&-title {
@@ -94,60 +94,25 @@
 	}
 	.gamePage__extraContent {
 		padding-bottom: 10px;
+		color: white;
 		&-title {
 			font-size: 3rem;
 			font-weight: 700;
 			padding: 30px;
 		}
-		&-gallery {
-			border: 20px solid var(--game-title-color-center);
-			background-color: var(--game-title-color-center);
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-			gap: 50px;
-			justify-content: space-around;
-			justify-items: center;
-			margin: 0px 30px 30px 30px;
-			max-height: 50vh;
-			overflow: scroll;
-			span {
-				display: none;
+		&-noDLCS{
+			width: 95%;
+			margin: 0 auto;
+			background-color: var(--topbar-background-color);
+
+			& p {
+				padding: 30px;
+				font-size: 2rem;
+				color: var(--selected-text-color);
+				& a {
+					color: white;
+				}
 			}
 		}
-		&-cover {
-				cursor: pointer;
-				margin-top: 0rem;
-				width: 300px;
-				transition: all 0.25s ease-in-out;
-				&::first-line{
-					margin-top: 0;
-				}
-				&:hover {
-					transform: scale(1.05);
-					transition: all 0.25s ease-in-out;
-
-					& .gamePage__extraContent-name {
-						opacity: 100%;
-						transition: all 0.6s;	
-					}
-				}
-			}
-		&-name {
-			display: flex;
-			height: fit-content;
-			align-self: center;
-			margin-top: -6rem;
-			padding: 5% 10%;
-			position: relative;
-			text-align: center;
-			font-size: 1.2rem;
-			opacity: 0;
-			clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
-			background-color: var(--topbar-background-color);
-			color: var(--selected-text-color);
-			font-weight: 900;
-			transition: all 0.25s;
-			transition-duration: 0.25s;	
-		}	
 	}
 </style>

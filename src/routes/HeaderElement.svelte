@@ -15,8 +15,7 @@
 
 <style lang="scss">
     .topbar__element--container{
-        & a{
-            
+        & a{     
             padding: 1rem 2rem; 
             font-size: 3rem;
             color: var(--text-color);
@@ -24,20 +23,12 @@
             transition: all .3s;
             
 
-            @media (max-width: 750px) {
+            @media (max-width: 800px) {
                 font-size: 2rem;
             }
 
             &:hover{
                 color: white;
-            }
-            
-            &.active{ 
-                color: var(--selected-text-color);
-                text-shadow: 
-                        0 0 1rem var(--selected-text-color)
-                    ,
-                        0 0 .5rem black;
             }
         }
     }
