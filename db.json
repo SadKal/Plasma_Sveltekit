@@ -609,7 +609,19 @@
         {
           "id": 7498,
           "hoursplayed": 0,
-          "buydate": 1709024780
+          "buydate": 1709024780,
+          "dlcs": [
+            {
+              "id": 173151,
+              "hoursplayed": 0,
+              "buydate": 1709376437
+            },
+            {
+              "id": 119123,
+              "hoursplayed": 0,
+              "buydate": 1709376449
+            }
+          ]
         },
         {
           "id": 181162,

@@ -47,8 +47,8 @@
 		gameOwned = true;
 	} else if ($userStore?.games?.some((libraryGame) => libraryGame.id === parent?.id)) {
 		const thisParent = $userStore?.games?.find((libraryGame) => libraryGame.id === parent.id);
-
-		if (thisParent.dlcs.some((dlc) => dlc.id === game.id)) {
+		console.log(thisParent);
+		if (thisParent?.dlcs?.some((dlc) => dlc.id === game.id)) {
 			gameOwned = true;
 		}
 	}

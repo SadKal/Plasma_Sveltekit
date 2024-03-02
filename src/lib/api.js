@@ -28,7 +28,7 @@ export async function addGameToUser(userToUpdate, game) {
                 console.log('ES DLC')
                 let newGames = user.games.map(userGame => {
                     if (userGame.id === game.parent_game.id) {
-                        return { ...userGame, dlcs: [...userGame.dlcs, newGame] }
+                        return { ...userGame, dlcs: [...(userGame.dlcs || []), newGame] }
                     }
                     else {
                         return userGame;
