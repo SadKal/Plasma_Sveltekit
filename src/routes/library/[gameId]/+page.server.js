@@ -38,7 +38,8 @@ export async function load({ params, parent }) {
     let auxArray = gameData.dlcs;
     let dlcs = [];
     let dlcID = [];
-    if (auxArray[0] != undefined) {
+ 
+    if (auxArray != undefined && auxArray[0] != undefined) {
         auxArray.forEach(dlc => { dlcID.push(dlc.id); });
     }
 
