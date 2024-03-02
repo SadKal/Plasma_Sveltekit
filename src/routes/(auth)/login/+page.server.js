@@ -1,5 +1,6 @@
 //Aqui lo que hago es que le digp que hacer con los action de los formuklarios, en el caso en el que sea login que haga una cosa y si es logout otra.
 import { fail, redirect } from '@sveltejs/kit';
+import { signToken } from '$lib/utils/jwt';
 
 export const actions = {
 	async login({ request, cookies, url }) {
@@ -19,8 +20,10 @@ export const actions = {
 		const userFound = users.find(user => user.username === username && user.password === password);
 
 		if (userFound) {
-			cookies.set('token', username, { path: '/' });
+			const token = signToken({username});
+			cookies.set('token', token, { path: '/' });
 			throw redirect(303, url.searchParams.get('redirectTo') || '/');
+			
 		}
 
 		return fail(400, { userNotFound: true });

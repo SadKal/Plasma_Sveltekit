@@ -17,7 +17,13 @@
 	<HeaderElement name="Biblioteca" subdirectory="/library" />
 	<HeaderElement name="Perfil" subdirectory="/profile" />
 
-	{#if login.username}
+	{#if !login || login.username === null}
+		<div class="topbar__element--container">
+			<a href="/login?redirectTo={$page.url.pathname}">
+				<img src={iconLogin} alt="login logo" class="topbar__logo" />
+			</a>
+		</div>
+	{:else}
 		<!--Al no estar en la ruta de login el action tiene que indicar la ruta y la acción-->
 		<div class="topbar__element--container">
 			<form method="POST" action="/login?/logout&redirectTo={$page.url.pathname}">
@@ -25,12 +31,6 @@
 					<img src={iconLogout} alt="logout logo" class="topbar__logo" />
 				</button>
 			</form>
-		</div>
-	{:else}
-		<div class="topbar__element--container">
-			<a href="/login?redirectTo={$page.url.pathname}">
-				<img src={iconLogin} alt="login logo" class="topbar__logo" />
-			</a>
 		</div>
 	{/if}
 
@@ -57,14 +57,14 @@
 			height: auto;
 			margin: 0 1rem;
 		}
-		@media (max-width: 900px){
+		@media (max-width: 900px) {
 			height: 9rem;
 			justify-content: center;
 		}
-	button {
-		background: transparent;
-		border: none;
-		margin: 0;
+		button {
+			background: transparent;
+			border: none;
+			margin: 0;
+		}
 	}
-}
 </style>

@@ -18,7 +18,7 @@ export async function load({ parent, url, cookies }) {
         throw redirect(303 /*temporal redirect */, `/login?redirectTo=${url.pathname}`);
     }
 
-    const user = users.find(user => user.username === token);
+    const user = users.find(user => user.username === username);
 
     let gamesToSearch = ''
     for (const game of user.games) {
