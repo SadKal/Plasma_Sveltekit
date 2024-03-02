@@ -13,7 +13,7 @@ export async function load({ params, parent }) {
     }
 
     if (!username) {
-        throw redirect(303 /*temporal redirect */, `/login?redirectTo=${url.pathname}`);
+        throw redirect(303 /*temporal redirect */, `/`);
     }
 
     const gameResponse = await fetch(
@@ -55,7 +55,5 @@ export async function load({ params, parent }) {
             });
         dlcs = await dlcsResponse.json();
     }
-       
-
     return { game, dlcs };
 }  
