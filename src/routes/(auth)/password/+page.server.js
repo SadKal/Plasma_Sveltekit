@@ -28,7 +28,8 @@ export const actions = {
 			});
 
 			if (updateResponse.ok) {
-				cookies.set('token', formUser, { path: '/' });
+				const token = signToken({formUser});
+				cookies.set('token', token, { path: '/' });
 				throw redirect(302, '/');
 			}
 		}

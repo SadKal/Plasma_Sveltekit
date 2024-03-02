@@ -1,5 +1,7 @@
 
 import { redirect } from "@sveltejs/kit";
+import { signToken} from '../../../lib/utils/jwt';
+
 
 export const actions = {
     default: async ({ request, cookies }) => {
@@ -40,15 +42,11 @@ export const actions = {
             });
 
             if (Insert.ok) { //Si la insrccion a ido bien
-                cookies.set('token', formUser, { path: '/' });
+                const token = signToken({username: formUser});
+			    cookies.set('token', token, { path: '/' });
                 throw redirect(302, '/');
             }
-        } else {
-            mensajeError = "El usuario ya existe"
-            if (emailFound) {
-                mensajeError = "El email ya está en uso"
-            }
-        }
+        } 
         return {
             error: true,
             message: mensajeError,

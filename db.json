@@ -622,6 +622,41 @@
           "buydate": 1709026317
         }
       ]
+    },
+    {
+      "id": 2,
+      "username": "mango",
+      "password": "12",
+      "email": "agosto@gmail.com",
+      "games": []
+    },
+    {
+      "id": 3,
+      "username": "mama",
+      "password": "123",
+      "email": "mamaa",
+      "games": []
+    },
+    {
+      "id": 4,
+      "username": "mgo",
+      "password": "aaa",
+      "email": "aaaa",
+      "games": []
+    },
+    {
+      "id": 5,
+      "username": "mario",
+      "password": "21",
+      "email": "mario",
+      "games": []
+    },
+    {
+      "id": 6,
+      "username": "maeb",
+      "password": "aba",
+      "email": "aba",
+      "games": []
     }
   ]
 }

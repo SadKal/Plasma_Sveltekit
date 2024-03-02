@@ -3,6 +3,7 @@
 	import Cart from '$lib/components/cart/Cart.svelte';
 	import { page } from '$app/stores'; //Lo cojo para coger la ruta en la que estoy y los datos asociados a esta ruta.
 	export let login = false;
+	console.log("Login:"+login);
 
 	let iconSrc = '/plasma_icon_notext.png';
 	let iconLogin = '/login/login.png';
@@ -17,22 +18,23 @@
 	<HeaderElement name="Biblioteca" subdirectory="/library" />
 	<HeaderElement name="Perfil" subdirectory="/profile" />
 
-	{#if login?.userFound === false}
-		<div class="topbar__element--container">
-			<a href="/login?redirectTo={$page.url.pathname}">
-				<img src={iconLogin} alt="logo" class="topbar__logo" />
-			</a>
-		</div>
-	{:else}
-		<!--Al no estar en la ruta de login el action tiene que indicar la ruta y la acción-->
-		<div class="topbar__element--container">
-			<form method="POST" action="/login?/logout&redirectTo={$page.url.pathname}">
-				<button type="submit" class="custom">
-					<img src={iconLogout} alt="" class="topbar__logo" />
-				</button>
-			</form>
-		</div>
-	{/if}
+	{#if !login || login.username === null}
+	<div class="topbar__element--container">
+		<a href="/login?redirectTo={$page.url.pathname}">
+			<img src={iconLogin} alt="logo" class="topbar__logo" />
+		</a>
+	</div>
+{:else}
+	<!-- Al no estar en la ruta de login, el action tiene que indicar la ruta y la acción -->
+	<div class="topbar__element--container">
+		<form method="POST" action="/login?/logout&redirectTo={$page.url.pathname}">
+			<button type="submit" class="custom">
+				<img src={iconLogout} alt="" class="topbar__logo" />
+			</button>
+		</form>
+	</div>
+{/if}
+
 
 	<Cart />
 </div>

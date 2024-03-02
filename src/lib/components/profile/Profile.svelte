@@ -5,7 +5,12 @@
 	import Privacy from './Privacy.svelte';
 	import Idiom from './Idiom.svelte';
 
-	let imgDefault = 'default.jpg';
+	
+	/* let imgDefault = 'default.jpg'; */
+	export let username;
+	export let email;
+	console.log('Usuario prof:' + username)
+
 
 	//Funcion con la cual la imagen que me pasa la pongo como la Default para enseñarla
 	function ChangeImage(newImg) {
@@ -40,90 +45,40 @@
 		document.getElementById('img-uploader').click();
 	}
 
-	let componenteMostrado = null;
-	function mostrarComponente(componente) {
-		componenteMostrado = componente;
-	}
+	
 </script>
 
 <main>
 	<div class="profile">
 		<div class="profile__photo">
-			<img src={imgDefault} alt="" class="image-rounded" on:click={handleClickOnImage} />
-			<input type="file" id="img-uploader" on:change={HandleImg} />
-
-			Maripins Miembr@ desde: Nov 30, 2023
+<!-- 			<img src={imgDefault} alt="" class="image-rounded" on:click={handleClickOnImage} />
+ -->			<input type="file" id="img-uploader" on:change={HandleImg} />
 		</div>
 
-		<div class="profile__info">
-			<div class="profile__info__settings">
-				<a on:click={() => mostrarComponente('Profile')}
-					>Personaliza tu perfil
-					<div class="profile__link-content">
-						<div class="profile__lines">
-							<span>Avatar, gamertag y enlaces a redes sociales</span>
-							<div class="profile__arrow"></div>
-						</div>
-					</div>
-				</a>
+			<div class="profile__info">
+				<div class="profile__info__nameuser">
+					<form action="" method="post">
+                    	<h1>Nombre de usuario:</h1>
+						<input type="text" name="nameuser" placeholder={username}>
+						<button type="submit">Guardar</button>
+					</form>
+                </div>
 
-				<a on:click={() => mostrarComponente('Communications')}>
-					<div class="profile__link-content">
-						Comunicaciones
-						<div class="profile__lines">
-							<span>Administrar correos electrónicos o notificaciones</span>
-							<div class="profile__arrow"></div>
-						</div>
-					</div>
-				</a>
+				<div class="profile__info__email">
+					<form action="" method="post">
+						<h1>Email de la cuenta:</h1>
+						<input type="email" name="" id="" placeholder={email}>
+						<button type="submit">Guardar</button>
+					</form>
+				</div>
 
-				<a on:click={() => mostrarComponente('Privacity')}>
-					<div class="profile__link-content">
-						Privacidad
-						<div class="profile__lines">
-							<span>Administra tu información pública o privada</span>
-							<div class="profile__arrow"></div>
-						</div>
-					</div>
-				</a>
-
-				<a on:click={() => mostrarComponente('Idiom')}
-					>Idioma y moneda
-					<div class="profile__link-content">
-						<div class="profile__lines">
-							<span>Cambia el idioma o moneda que deseas utilizar</span>
-							<div class="profile__arrow"></div>
-						</div>
-					</div>
-				</a>
-
-				<a on:click={() => mostrarComponente('Email')}
-					>Email y contraseña
-					<div class="profile__link-content">
-						<div class="profile__lines">
-							<span>Gestiona tu correo electrónico y contraseña</span>
-							<div class="profile__arrow"></div>
-						</div>
-					</div>
-				</a>
+				<div class="profile__info__changepass">
+					<form action="" method="post">
+						<h1>Cambiar la contraseña:</h1>
+						<a href="/password">Cmabia</a>
+					</form>
+				</div>
 			</div>
-
-			<div class="profile__info__content">
-				{#if componenteMostrado === 'Profile'}
-					<Custom />
-				{:else if componenteMostrado === 'Communications'}
-					<Communications />
-				{:else if componenteMostrado === 'Privacity'}
-					<Privacy />
-				{:else if componenteMostrado === 'Idiom'}
-					<Idiom />
-				{:else if componenteMostrado === 'Email'}
-					<Email />
-				{:else}
-					<Custom />
-				{/if}
-			</div>
-		</div>
 	</div>
 </main>
 
@@ -135,11 +90,14 @@
 		grid-template-rows: 25% 75%;
 		margin-bottom: 20px;
 
+		
+
 		&__photo {
 			width: 100%;
 			display: grid;
 			grid-template-rows: 1fr;
 			place-items: center;
+			color: var(--text-color);
 
 			.image-rounded {
 				border-radius: 50%;
@@ -153,35 +111,38 @@
 		&__info {
 			width: 100%;
 			height: 100%;
+			color: var(--text-color);
 			display: grid;
-			grid-template-columns: 30% 70%;
-
-			&__settings {
-				font-size: 23px;
-				margin-left: 30px;
-				display: grid;
-				grid-template-rows: repeat(5, 1fr);
-				grid-gap: 20px;
-
-				a {
-					text-decoration: none;
-					color: aliceblue;
-					cursor: pointer;
-					display: block; /* Hace que el enlace ocupe todo el ancho del contenedor */
-					padding: 10px; /* Ajusta según sea necesario */
-					background-color: rgba(0, 0, 0, 0.2);
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+			padding: 20px;
+			font-size: 25px;
+			&__nameuser,&__email{
+				
+				input {
+					width: 70%;
+					padding: 15px;
+					margin: 5px 0;
+					background: transparent;
+					border: 2px solid var(--text-color);
 					border-radius: 5px;
-					transition: all ease 0.4s;
+					font-size: 16px;
+					box-sizing: border-box;
+					color: beige;
 				}
 
-				a:hover {
-					border: 1.5px solid var(--text-color);
+				button[type='submit'] {
+					width: 28%;
+					padding: 15px;
+					margin-top: 5px;
+					text-align: center;
+					background-color: var(--text-color);
+					border: none;
+					border-radius: 5px;
+					color: beige;
+					font-size: 16px;
+					font-weight: bold;
 				}
-			}
-
-			&__content {
-				margin-left: 4vw;
-				padding-left: 20px;
 			}
 		}
 
@@ -197,15 +158,6 @@
 			display: none;
 		}
 
-		&__lines {
-			width: 100%;
-			span {
-				display: inline-block;
-				width: 90%;
-				vertical-align: middle;
-				line-height: 25px;
-				color: var(--text-color);
-			}
-		}
+		
 	}
 </style>
