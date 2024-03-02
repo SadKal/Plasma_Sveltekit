@@ -1,6 +1,5 @@
 <script>
 	let today = new Date();
-	let currentDay = today.getDay(); //del?
 	let fourteenDaysAgo = new Date();
 
 	//Calculo el lunes. Resto al numero de dia del mes el numero de dias que llevamos de semana menos uno, asi siempre llego al dia del mes que corresponde al lunes

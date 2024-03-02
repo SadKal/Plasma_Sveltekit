@@ -13,20 +13,20 @@
 		padding: 0.75rem 4rem;
 		width: fit-content;
 		text-align: center;
-		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+		clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
 		font-size: 3rem;
 		align-self: start;
 		justify-self: center;
 
-		@media (max-width: 900px) and (orientation: portrait) {
-			max-width: 25%;
-			top: 15%;
+		@media (max-width: 1000px) {
+			font-size: 2rem;
+			padding: 0.4rem 2rem;
 		}
-		@media (max-width: 650px) and (orientation: portrait) {
-			font-size: 1.25rem;
-			max-width: 30%;
-			padding: 3% 7%;
+
+		@media (max-width: 700px) {
+			font-size: 1.5rem;
 		}
+
 		@media (max-width: 450px) and (orientation: portrait) {
 			font-size: 1rem;
 		}

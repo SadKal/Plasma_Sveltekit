@@ -3,9 +3,6 @@
 	import { enhance } from '$app/forms'; //Y esto es para manejar los formularios
 	export let form; //Se crea una variable que se puede pasar desde su padre
 
-	$: console.log('form', form); //Muestro la info de lo que tiene form
-	$: console.log('redirectTo', redirectTo);
-
 	const redirectTo = $page.url.searchParams.get('redirectTo') || '/'; //Aqui lo que hago es coger la URL actual y sus parametros y lo almaceno en la variable, sino lo encuentra me coge /
 </script>
 

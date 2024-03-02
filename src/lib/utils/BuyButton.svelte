@@ -11,16 +11,27 @@
 	const userStore = useUser();
 	const cartStore = useCart();
 
+	console.log($userStore.games);
+
 	let parentOwned = true;
-	if (parent) {
+	const isDlc = game.category == 2 || game.category == 1;
+	if (parent && isDlc) {
 		parentOwned = $userStore?.games?.some((libraryGame) => libraryGame.id === parent.id)
 			? true
 			: false;
 	}
-
 	function setGameInCart() {
 		if (!gameOwned && parentOwned) {
-			cartStore.addGameToCart(game);
+			//Game tiene TODA la informacion(consolas, sinopsis, etc...), solo necesitamos ID, titulo, ID de la cover y su categoria
+			const gameInfoNeeded = {
+				id: game.id,
+				cover: game.cover,
+				name: game.name,
+				category: game.category,
+				parent_game: game.parent_game
+			};
+
+			cartStore.addGameToCart(gameInfoNeeded);
 			gameInCart = true;
 			setTimeout(() => {
 				$cartStore.cartActive = true;
@@ -31,9 +42,17 @@
 		}
 	}
 
-	$: gameOwned = $userStore?.games?.some((libraryGame) => libraryGame.id === game.id)
-		? true
-		: false;
+	let gameOwned = false;
+	$: if ($userStore?.games?.some((libraryGame) => libraryGame.id === game.id)) {
+		gameOwned = true;
+	} else if ($userStore?.games?.some((libraryGame) => libraryGame.id === parent?.id)) {
+		const thisParent = $userStore?.games?.find((libraryGame) => libraryGame.id === parent.id);
+
+		if (thisParent.dlcs.some((dlc) => dlc.id === game.id)) {
+			gameOwned = true;
+		}
+	}
+
 	$: gameInCart = $cartStore.gamesInCart.some((cartGame) => cartGame.id === game.id) ? true : false;
 </script>
 
@@ -42,7 +61,7 @@
 		Ya tienes este juego.
 	{:else if gameInCart}
 		Juego ya en el carrito.
-	{:else if (!parentOwned && game.category === 1) || game.category === 2}
+	{:else if !parentOwned && (game.category === 1 || game.category === 2)}
 		No tienes el juego padre
 	{:else}
 		Añadir al carrito: {getGamePrice(game.id)}€
@@ -57,33 +76,14 @@
 		font-size: 1.75rem;
 		text-align: center;
 		margin: 0 0 2rem 0;
-		max-width: 75%;
+		max-width: 100%;
 		padding: 0.5rem 2em;
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 		cursor: pointer;
 		user-select: none;
 
-		@media (max-width: 900px) and (orientation: portrait) {
-			top: 45%;
-			width: 25%;
-		}
-		@media (max-width: 650px) and (orientation: portrait) {
-			top: 35%;
-		}
-		@media (max-width: 450px) and (orientation: portrait) {
-			font-size: 0.75rem;
-			max-width: 30%;
-			padding: 2% 4%;
-		}
-		@media (max-height: 900px) and (orientation: landscape) {
-			top: 45%;
-		}
-		@media (max-height: 600px) and (orientation: landscape) {
-			top: 50%;
-			width: 15%;
-			font-size: 1rem;
-		}
 		transition: all 0.2s;
+
 		&:hover {
 			scale: 1.1;
 		}

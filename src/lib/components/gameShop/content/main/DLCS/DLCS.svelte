@@ -1,15 +1,19 @@
 <script>
 	import DLC from './DLC.svelte';
+	import GameShopTextField from '$lib/utils/GameShopTextField.svelte';
 	export let dlcs;
 </script>
 
-<div class="dlcs">
-	{#each dlcs as dlc}
-		<div>
-			<DLC {dlc} />
-		</div>
-	{/each}
-</div>
+{#if dlcs.length > 0}
+	<GameShopTextField title="DLCs:" />
+	<div class="dlcs">
+		{#each dlcs as dlc}
+			<div>
+				<DLC {dlc} />
+			</div>
+		{/each}
+	</div>
+{/if}
 
 <style lang="scss">
 	.dlcs {

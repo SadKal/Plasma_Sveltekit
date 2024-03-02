@@ -1,5 +1,5 @@
 <script>
-	import GameShopTextField from './GameShopTextField.svelte';
+	import GameShopTextField from '../../../../utils/GameShopTextField.svelte';
 	export let platform;
 
 	const logo = platform?.platform_logo?.image_id

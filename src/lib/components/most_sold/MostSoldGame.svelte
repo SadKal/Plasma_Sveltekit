@@ -1,6 +1,5 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
 
 	export let game;
 	export let index;

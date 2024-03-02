@@ -1,9 +1,10 @@
 import { writable } from "svelte/store";
 import { useSharedStore } from "./use-shared-store";
+import { getGamePrice } from '$lib/utils/functions.js';
 
 const gamesInCart = [];
 const cartActive = false;
-let cartTotalCalc = 0;
+let cartTotalCalc = 0.0;
 
 const _cartStore = writable({ gamesInCart, cartActive, cartTotal: 0 });
 
@@ -11,7 +12,8 @@ function addGameToCart(game) {
     _cartStore.update((cart) => {
         if (!cart.gamesInCart.some(cartGame => cartGame.id === game.id)) {
             cart.gamesInCart.unshift(game);
-            cartTotalCalc += parseInt(game.price);
+            //Cambio el localstorage con el carrito actualizado 
+            window.localStorage.setItem('cart', JSON.stringify(cart.gamesInCart));
         }
         return { ...cart, cartTotal: cartTotalCalc };
     });
@@ -21,18 +23,29 @@ function removeGameFromCart(game) {
     _cartStore.update((cart) => {
         if (cart.gamesInCart.some(cartGame => cartGame.id === game.id)) {
             cart.gamesInCart = cart.gamesInCart.filter((cartGame) => cartGame != game);
-            cartTotalCalc -= parseInt(game.price);
+            //Como ya hemos eliminado en el store, solo hay que hacer set again para que se registre en localstorage el cambio
+            window.localStorage.setItem('cart', JSON.stringify(cart.gamesInCart));
         }
         return { ...cart, cartTotal: cartTotalCalc };
     });
 };
+
+function getTotalPrice(cart) {
+    let total = 0;
+    cart.forEach(game => {
+        total += getGamePrice(game.id);
+    });
+
+    return total;
+}
 
 const cartStore = {
     subscribe: _cartStore.subscribe,
     set: _cartStore.set,
     update: _cartStore.update,
     addGameToCart,
-    removeGameFromCart
+    removeGameFromCart,
+    getTotalPrice
 }
 
 export const useCart = () =>

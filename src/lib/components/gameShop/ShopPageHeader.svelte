@@ -16,6 +16,7 @@
 		const artworks = game?.artworks;
 		const screenshots = game?.screenshots;
 
+		// Depndiendo de si hay o no artworks o screenshots se rellena el array con ambos o con alguno o con ninguno
 		const allImages = artworks ? [...artworks, ...(screenshots || [])] : screenshots || [];
 
 		if (allImages.length > 0) {
@@ -65,17 +66,11 @@
 		background-repeat: space;
 		background-size: cover;
 		filter: blur(0.5rem);
-		position: relative;
-		z-index: 0;
-		@media (max-width: 650px) and (orientation: portrait) {
-			height: 40vh;
-		}
 	}
 	.shopGame__info {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
 		align-items: flex-start;
-		width: 50%;
 	}
 </style>

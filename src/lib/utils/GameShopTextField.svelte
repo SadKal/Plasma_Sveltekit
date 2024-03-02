@@ -1,7 +1,8 @@
 <script>
 	export let title = '';
 	export let content = '';
-	export let font_size = '1rem';
+	export let font_size = '1.1rem';
+	export let darkBG = false;
 </script>
 
 <div class="shopPageTextField" style="font-size: {font_size};">
@@ -9,10 +10,10 @@
 
 	{#if Array.isArray(content)}
 		{#each content as element}
-			<p>{element}</p>
+			<p class="textField__p" class:darkBG>{element}</p>
 		{/each}
 	{:else}
-		<p>{content}</p>
+		<p class="textField__p" class:darkBG>{content}</p>
 	{/if}
 </div>
 
@@ -22,11 +23,18 @@
 			color: var(--subtitle-text-color);
 			font-size: 2rem;
 		}
-		& p {
+		& .textField__p {
 			color: var(--text-color);
-			font-weight: 600;
-			line-height: 140%;
+			font-weight: 500;
+			line-height: 180%;
 			margin: 3px 0;
+
+			&.darkBG {
+				color: #fff;
+				font-weight: 500;
+				line-height: 180%;
+				margin: 3px 0;
+			}
 		}
 	}
 </style>

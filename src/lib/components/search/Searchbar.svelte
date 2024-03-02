@@ -36,7 +36,7 @@
 		} else {
 			searchResult = [];
 		}
-	}, 1000);
+	}, 500);
 
 	$: searchGames(searchValue);
 
@@ -69,6 +69,7 @@
 <div class="search__link" on:click={scrollToSearch} on:click={focusSearch}>
 	<object data="/svgs/magnifier.svg" type="image/svg+xml" width="70%" height="auto" />
 </div>
+
 <div class="search__container" use:clickOutside on:click_outside={clearFocus}>
 	<div class="search">
 		<input

@@ -12,19 +12,22 @@
 
 	async function buyGames() {
 		if ($userStore?.games) {
-			for (const game of $cartStore.gamesInCart) {
+			for (let i = $cartStore.gamesInCart.length - 1; i >= 0; i--) {
+				const game = $cartStore.gamesInCart[i];
 				try {
 					const updatedUser = await addGameToUser($userStore, game);
+					cartStore.removeGameFromCart(game);
 					$userStore = updatedUser;
 				} catch (error) {
 					console.error('Error updating data:', error.message);
 				}
 			}
-			$cartStore.gamesInCart = [];
+			window.localStorage.removeItem('cart');
 		} else {
-			goto(`/login?redirectTo=/${$page.url.pathname}`);
+			goto(`/login?redirectTo=${$page.url.pathname}`);
 		}
 	}
+	$: totalPrice = cartStore.getTotalPrice($cartStore.gamesInCart);
 </script>
 
 <div
@@ -34,7 +37,7 @@
 	on:click_outside={() => ($cartStore.cartActive = false)}
 >
 	<div class="cart-info__games">
-		{#each $cartStore.gamesInCart as game}
+		{#each $cartStore.gamesInCart as game (game.id)}
 			<CartGame {game} />
 		{/each}
 		{#if $cartStore.gamesInCart.length == 0}
@@ -48,7 +51,7 @@
 				<div class="cart-info__totalinfo">
 					<div class="cart-info__text">Total:</div>
 					<div class="cart-info__price">
-						{$cartStore.cartTotal / 100}€
+						{totalPrice}€
 					</div>
 				</div>
 			</div>
@@ -61,8 +64,6 @@
 		box-sizing: border-box;
 		position: absolute;
 		cursor: default;
-		display: flex;
-		flex-direction: column;
 
 		opacity: 0;
 		right: 5%;
@@ -81,13 +82,11 @@
 
 			background-color: var(--cart-bg-color);
 			width: 40rem;
-			height: 28rem;
-			border: 3px ridge var(--text-color);
-			padding: 1rem 1rem 0 1rem;
-			box-shadow: 5px 5px 5px 0.5px black;
+			height: 30rem;
+			border: 3px solid var(--text-color);
+			padding: 0.5rem 0.5rem 0 0.5rem;
 			overflow: auto;
-			@media (max-width: 650px) {
-				top: 200%;
+			@media (max-width: 700px) {
 				width: 30rem;
 			}
 			@media (max-width: 550px) {
@@ -96,10 +95,6 @@
 			@media (max-width: 420px) {
 				width: 20rem;
 			}
-		}
-		&__games {
-			max-height: 90%;
-			position: relative;
 		}
 
 		&__empty {
@@ -114,12 +109,9 @@
 			box-sizing: border-box;
 			position: sticky;
 			bottom: 0;
-			width: 100%;
 			color: var(--text-color);
 			padding: 1rem;
 			background-color: var(--cart-total-bg-color);
-			font-weight: 600;
-			letter-spacing: 0.1rem;
 			@media (max-width: 720px) {
 				font-size: 1.5rem;
 			}
@@ -130,15 +122,14 @@
 			font-size: 2rem;
 			padding: 1rem;
 			background-color: var(--cart-buy-bg-color);
-			clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
 			cursor: pointer;
 			transition: all 0.3s;
-			user-select: none;
 			@media (max-width: 700px) {
 				font-size: 1.75rem;
 			}
 
 			&:hover {
+				color: #fff;
 				scale: 1.1;
 			}
 		}
@@ -146,6 +137,7 @@
 			display: flex;
 			padding: 1rem;
 			font-size: 2rem;
+			gap: 0.5rem;
 			@media (max-width: 700px) {
 				font-size: 1.5rem;
 			}

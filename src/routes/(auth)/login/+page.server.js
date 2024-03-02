@@ -27,6 +27,6 @@ export const actions = {
 	},
 	logout: ({ cookies, url }) => {
 		cookies.delete('token', { path: '/' });
-		throw redirect(303, url.searchParams.get('redirectTo') || '/');
+		throw redirect(303, `/login?redirectTo=${url.searchParams.get('redirectTo')}`);
 	}
 };

@@ -1,5 +1,5 @@
 <script>
-	import Cover from '../../utils/Cover.svelte';
+	import Cover from '$lib/utils/Cover.svelte';
 
 	export let dlc;
 	let cover;

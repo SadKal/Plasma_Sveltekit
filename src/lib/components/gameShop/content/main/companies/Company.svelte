@@ -1,5 +1,5 @@
 <script>
-	import GameShopTextField from './GameShopTextField.svelte';
+	import GameShopTextField from '$lib/utils/GameShopTextField.svelte';
 	export let company;
 	const logo = company?.logo?.image_id
 		? `https://images.igdb.com/igdb/image/upload/t_logo_med/${company.logo.image_id}.png`
@@ -8,13 +8,14 @@
 
 <div class="company">
 	<img class="company__logo" src={logo} alt="logo" />
-	<GameShopTextField content={company.name} />
+	<GameShopTextField content={company.name} font_size="1.5rem" darkBG={true} />
 </div>
 
 <style lang="scss">
 	.company {
 		margin-right: 1rem;
 		display: flex;
+
 		&__logo {
 			margin-right: 1rem;
 			height: 2rem;

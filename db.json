@@ -614,12 +614,29 @@
         {
           "id": 7498,
           "hoursplayed": 0,
-          "buydate": 1709024780
+          "buydate": 1709024780,
+          "dlcs": [
+            {
+              "id": 173151,
+              "hoursplayed": 0,
+              "buydate": 1709318796
+            },
+            {
+              "id": 119122,
+              "hoursplayed": 0,
+              "buydate": 1709319066
+            }
+          ]
         },
         {
-          "id": 181162,
+          "id": 133236,
           "hoursplayed": 0,
-          "buydate": 1709026317
+          "buydate": 1709317444
+        },
+        {
+          "id": 279612,
+          "hoursplayed": 0,
+          "buydate": 1709317444
         }
       ]
     }

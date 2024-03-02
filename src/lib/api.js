@@ -12,7 +12,6 @@ export const getGames = async () => {
 
 export async function addGameToUser(userToUpdate, game) {
     try {
-        console.log(userToUpdate);
         const responseUser = await fetch(`http://localhost:4000/users/${userToUpdate.id}`);
         const user = await responseUser.json();
         try {
@@ -23,10 +22,12 @@ export async function addGameToUser(userToUpdate, game) {
                 buydate: Math.floor(currentDate)
             };
             let games;
+            console.log(game)
             if (game.category == 1 || game.category == 2) {
+                console.log('ES DLC')
                 let newGames = user.games.map(userGame => {
                     if (userGame.id === game.parent_game.id) {
-                        return { ...userGame, dlcs: newGame }
+                        return { ...userGame, dlcs: [...userGame.dlcs, newGame] }
                     }
                     else {
                         return userGame;
