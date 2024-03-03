@@ -1,9 +1,9 @@
 <script>
 import Profile from "$lib/components/profile/Profile.svelte"; 
 export let data;
-export let { username, email } = data;
+export let { username } = data;
 
 </script>
 
-<Profile {username} {email}/>
+<Profile {username}/>
 

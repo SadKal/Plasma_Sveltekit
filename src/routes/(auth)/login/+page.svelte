@@ -39,9 +39,8 @@
 				{/if}
 			</form>
 
-			<div class="login__forgot">
+			<div class="register">
 				<a href="/register">¿Registrarse?</a>
-				<a href="/password">¿Has olvidado la contraseña?</a>
 			</div>
 		</div>
 	</div>
@@ -105,7 +104,8 @@
 				}
 			}
 		}
-		&__forgot {
+	}
+	.register {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -116,5 +116,4 @@
 				color: var(--text-color);
 			}
 		}
-	}
 </style>

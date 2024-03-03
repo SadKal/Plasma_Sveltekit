@@ -2,14 +2,14 @@
 	export let form; //Se crea una variable que se puede pasar desde su padre
 </script>
 
-<div class="password">
-	<div class="password__form">
+<div class="changeEmail">
+	<div class="changeEmail__form">
 		<form method="POST">
-			<span>Cambiar la contraseña</span>
+			<span>Cambiar el correo electrónico</span>
 			<input
 				type="text"
 				name="username"
-				id="user"
+				id="username"
 				placeholder="Nombre de usuario"
 				value={form?.user || ''}
 			/>
@@ -18,30 +18,28 @@
 				<p style="color: red;">Debes de rellenar este campo</p>
 			{/if}
 
-			<input type="text" name="oldpassword" id="oldpassword" placeholder="Contraseña antigua" />
+			<input type="text" name="oldemail" id="oldemail" placeholder="Dirección de email antigua" required/>
+			<input type="text" name="newemail" id="newemail" placeholder="Dirección de email nueva" required/>
+
+			<input type="text" name="password" id="password" placeholder="Contraseña" />
 
 			{#if form?.passwordMissing}<!-- Pongo ? para que en el caso de que sea nulo me lo ponga undefined y si passwwordMissing tiene valor me lo devuelve -->
 				<p style="color: red;">Debes de rellenar este campo</p>
 			{/if}
 
-			<input type="text" name="newpassword" id="newpassword" placeholder="Contraseña nueva" />
-
-			{#if form?.passwordMissing}<!-- Pongo ? para que en el caso de que sea nulo me lo ponga undefined y si passwwordMissing tiene valor me lo devuelve -->
-				<p style="color: red;">Debes de rellenar este campo</p>
-			{/if}
-
-			<button type="submit">Cambiar contraseña</button>
+			<button type="submit">Cambiar dirección de correo electrónico</button>
 		</form>
 	</div>
 </div>
 
 <style lang="scss">
-	.password {
+    .changeEmail {
 		height: 80vh;
 		width: 100%;
 		display: grid;
 		&__form {
 			display: grid;
+
 			form {
 				place-self: center;
 				display: grid;
@@ -76,4 +74,6 @@
 			}
 		}
 	}
+
+	
 </style>

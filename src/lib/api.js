@@ -63,7 +63,6 @@ export async function addGameToUser(userToUpdate, game) {
 
 export async function deleteGameFromUser(userToUpdate, game) {
     try {
-        //console.log(userToUpdate);
         const responseUser = await fetch(`http://localhost:4000/users/${userToUpdate.id}`);
         const user = await responseUser.json();
         try {

@@ -24,7 +24,7 @@
 		justify-content: space-between;
 		background-color: var(--game-title-background-color);
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-		padding: 0.25rem 3rem;
+		padding: 0.25rem 5rem;
 		align-self: end;
 		
 		& span {

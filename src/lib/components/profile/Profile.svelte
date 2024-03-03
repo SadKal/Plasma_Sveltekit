@@ -1,12 +1,7 @@
 <script>
-
-	import Email from './Email.svelte';
-
-
 	let imgDefault = 'default.jpg';
 
 	export let username;
-	export let email;
 	//Funcion con la cual la imagen que me pasa la pongo como la Default para enseñarla
 	function ChangeImage(newImg) {
 		imgDefault = newImg;
@@ -42,33 +37,27 @@
 </script>
 
 <main>
-	
 	<div class="profile">
 		<div class="profile__photo">
 			<img src={imgDefault} alt="" class="image-rounded" on:click={handleClickOnImage} />
 			<input type="file" id="img-uploader" on:change={HandleImg} />
-			<p class="profile__username">{username}</p>
+			<p class="profile__username">Bienvenido, {username}</p>
 		</div>
 
 		<div class="profile__info">
-			<div class="profile__info__nameuser">
-				<form action="" method="post">
-					<h1>Nombre de usuario:</h1>
-					<input type="text" name="nameuser" placeholder={username} />
-					<button type="submit">Guardar</button>
+			<div class="profile__info__username">
+				<form action="/profile/changeUsername" method="post">
+					<button type="submit">Cambiar nombre de usuario</button>
 				</form>
 			</div>
 			<div class="profile__info__email">
-				<form action="" method="post">
-					<h1>Email de la cuenta:</h1>
-					<input type="email" name="" id="" placeholder={email} />
-					<button type="submit">Guardar</button>
+				<form action="/profile/changeEmail" method="post">
+					<button type="submit">Cambiar email</button>
 				</form>
 			</div>
 			<div class="profile__info__changepass">
-				<form action="" method="post">
-					<h1>Cambiar la contraseña:</h1>
-					<a href="/password">Cmabia</a>
+				<form action="/password" method="post">
+					<button type="submit">Cambiar contraseña</button>
 				</form>
 			</div>
 		</div>
@@ -80,8 +69,14 @@
 		width: 100%;
 		height: 70vh;
 		display: grid;
-		grid-template-rows: 25% 75%;
+		grid-template-rows: 30% 70%;
 		margin-bottom: 20px;
+
+		&__username {
+			font-size: 1.5rem;
+			font-weight: 600;
+			color: var(--text-color);
+		}
 
 		&__photo {
 			width: 100%;
@@ -95,36 +90,23 @@
 				border-radius: 50%;
 				width: 125px;
 				height: 125px;
-				transition: all 0.5s; /* Le doy una transicion para la imagen */	
+				transition: all 0.5s; /* Le doy una transicion para la imagen */
 			}
 		}
 
 		&__info {
 			width: 80%;
 			height: 100%;
-			display: grid;
+			display: flex;
 			margin: 30px auto;
-			grid-template-columns: 1fr 1fr;
 			gap: 20px;
 			padding: 20px;
 			font-size: 25px;
-			&__nameuser,
-			&__email {
-				input {
-					width: 70%;
-					padding: 15px;
-					margin: 5px 0;
-					background: transparent;
-					border: 2px solid var(--text-color);
-					border-radius: 5px;
-					transition: all ease 0.4s;
-					font-size: 16px;
-					box-sizing: border-box;
-					color: beige;
-				}
-
+			justify-content: space-evenly;
+			&__username,
+			&__email,
+			&__changepass {
 				button[type='submit'] {
-					width: 28%;
 					padding: 15px;
 					margin-top: 5px;
 					text-align: center;
