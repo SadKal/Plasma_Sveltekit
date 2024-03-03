@@ -4,7 +4,6 @@ export const load = async ({ cookies }) => {
 	const token = cookies.get('token');
 	if (token) {
 		const decodeToken = verifyToken(token);
-
 		if (decodeToken) {
 			const user = decodeToken;
 			return user;
