@@ -23,10 +23,6 @@
 			padding: 0.4rem 2rem;
 		}
 
-		@media (max-width: 700px) {
-			font-size: 1.5rem;
-		}
-
 		@media (max-width: 450px) and (orientation: portrait) {
 			font-size: 1rem;
 		}

@@ -1,7 +1,8 @@
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
+import { verifyToken } from "$lib/utils/jwt";
 
-
-export async function load({ params }) {
+export async function load({ params, cookies }) {
+    const token = cookies.get('token');
     const { gameId } = params;
 
     const headers = {
@@ -9,7 +10,6 @@ export async function load({ params }) {
         'Client-ID': `${SECRET_TWITCH_API_KEY}`,
         'Authorization': `Bearer ${SECRET_TWITCH_API_BEARER}`
     }
-
 
     const gameResponse = await fetch(
         "https://api.igdb.com/v4/games",
@@ -52,12 +52,57 @@ export async function load({ params }) {
                 headers: headers,
                 body: `fields cover.image_id,name, category; 
                     where id=(${dlcID.toString()});
-                    limit ${dlcID.length};
+                    limit ${dlcID.length}; 
                     sort first_release_date asc;`
             });
         dlcs = await dlcsResponse.json();
     }
 
+    const reviewsResponse = await fetch(`http://localhost:4000/reviews/${gameId}`)
+    const reviews = await reviewsResponse.json();
+    let user;
+    if (token) {
+        const decodeToken = verifyToken(token);
 
-    return { game, dlcs, gamesFromSeries };
+        if (decodeToken) {
+            user = decodeToken;
+        }
+    }
+    const userResponse = await fetch(`http://localhost:4000/users/${user.id}`);
+    user = await userResponse.json();
+
+    console.log(user);
+
+    return { game, dlcs, gamesFromSeries, reviews, user };
 }
+
+export const actions = {
+    default: async ({ cookies, request, params }) => {
+        const { gameId } = params;
+        const token = cookies.get('token');
+        const data = await request.formData();
+        let user;
+        if (token) {
+            const decodeToken = verifyToken(token);
+
+            if (decodeToken) {
+                user = decodeToken;
+            }
+        }
+
+        console.log(user);
+        console.log(data);
+
+        try {
+            const reviewsResponse = await fetch(`http://localhost:4000/reviews/${gameId}`)
+            const reviews = await reviewsResponse.json();
+
+            const newReview = {
+                "id": reviews.reviews[reviews.reviews.length - 1]
+            }
+        }
+        catch (err) {
+            console.error('Error updating reviews:', err);
+        }
+    }
+};

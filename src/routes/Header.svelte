@@ -17,12 +17,8 @@
 	<HeaderElement name="Biblioteca" subdirectory="/library" />
 	<HeaderElement name="Perfil" subdirectory="/profile" />
 
-	{#if !login || login.username === null}
-		<div class="topbar__element--container">
-			<a href="/login?redirectTo={$page.url.pathname}">
-				<img src={iconLogin} alt="login logo" class="topbar__logo" />
-			</a>
-		</div>
+	{#if !login.username}
+		<HeaderElement name="Login" subdirectory="/login?redirectTo={$page.url.pathname}" />
 	{:else}
 		<!--Al no estar en la ruta de login el action tiene que indicar la ruta y la acción-->
 		<div class="topbar__element--container">

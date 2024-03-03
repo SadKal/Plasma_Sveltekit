@@ -32,7 +32,7 @@
 		background-color: var(--cart-buy-bg-color);
 		padding: 0.4rem 0 0 0;
 		&__title {
-			margin-left: 1rem;
+			margin-left: 2rem;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;

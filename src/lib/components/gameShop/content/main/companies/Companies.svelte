@@ -24,6 +24,7 @@
 	.companies {
 		display: flex;
 		flex-wrap: wrap;
+		gap: 2rem;
 		align-items: center;
 	}
 </style>

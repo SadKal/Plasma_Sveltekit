@@ -2,11 +2,12 @@
 	export let title = '';
 	export let content = '';
 	export let font_size = '1.1rem';
+	export let header_font_size = '2rem';
 	export let darkBG = false;
 </script>
 
 <div class="shopPageTextField" style="font-size: {font_size};">
-	<h1>{title}</h1>
+	<h1 style="font-size: {header_font_size};">{title}</h1>
 
 	{#if Array.isArray(content)}
 		{#each content as element}
@@ -21,7 +22,6 @@
 	.shopPageTextField {
 		& h1 {
 			color: var(--subtitle-text-color);
-			font-size: 2rem;
 		}
 		& .textField__p {
 			color: var(--text-color);

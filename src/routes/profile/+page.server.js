@@ -5,7 +5,6 @@ import { verifyToken, signToken } from '../../lib/utils/jwt';
 const mensajeError = 'No ha salido bien';
 export const actions = {
 	updateUsername: async ({ request, params, cookies }) => {
-		console.log('Usuario nuevo mandado');
 
 		let username;
 
@@ -18,14 +17,12 @@ export const actions = {
 		}
 		const data = await request.formData(); //Cojo los datos del form
 		const formUser = data.get('username'); //Cojo el nombre de usuaurio nuevo.
-		console.log('FormUser:' + formUser);
 
-		console.log('dentro de updateUsername');
 		const response = await fetch('http://localhost:4000/users'); //Entro en el json donde tengo los usuarios
 		const users = await response.json(); //Y le digo que me lo meta en una constante y que es json
 
 		const userFound = users.find((user) => user.username === username); //Miro que el nombre de usuario nuevo no este en la base de datos. Si lo esta guardo sus datos en userFound
-		console.log('Ha encontrado el usuario antiguo');
+
 
 		if (userFound) {
 			const updateUser = {
@@ -42,7 +39,6 @@ export const actions = {
 			});
 
 			if (updateResponse.ok) {
-				console.log('Se ha actualixado la base de datos');
 				let username = formUser;
 				const newToken = signToken({ username });
 				cookies.set('token', newToken, { path: '/' });

@@ -235,6 +235,16 @@
               "buydate": 1709396698
             }
           ]
+        },
+        {
+          "id": 251833,
+          "hoursplayed": 0,
+          "buydate": 1709486309
+        },
+        {
+          "id": 133236,
+          "hoursplayed": 0,
+          "buydate": 1709487294
         }
       ]
     },
@@ -244,6 +254,55 @@
       "password": "changepasswd",
       "email": "plswork@gmail.com",
       "games": []
+    },
+    {
+      "id": 4,
+      "username": "testuser2",
+      "password": "1234",
+      "email": "1234@1234.com",
+      "games": []
+    },
+    {
+      "id": 5,
+      "username": "testuser3",
+      "password": "1234",
+      "email": "1234@gmail.com",
+      "games": []
+    }
+  ],
+  "reviews": [
+    {
+      "id": 133236,
+      "reviews": [
+        {
+          "id": 1,
+          "title": "Obra maestra",
+          "content": "Lo jugaba en casa de mi primo Manolo.",
+          "value": true,
+          "user": "Alex"
+        },
+        {
+          "id": 2,
+          "title": "Decepcionante.",
+          "content": "Un juego demasiado largo para lo que era el original. Cada vez me fío menos de Square Enix. Me plantearé seriamente no comprar el siguiente de la saga.",
+          "value": false,
+          "user": "JohnVideogame"
+        },
+        {
+          "id": 3,
+          "title": "Decente",
+          "content": "El juego esta bien, pero ni de lejos tan bueno como Outer Wilds, si estas leyendo esto juega Outer Wilds.",
+          "value": true,
+          "user": "testuser"
+        },
+        {
+          "id": 4,
+          "title": "No me ha gustado",
+          "content": "Esperaba otra cosa...",
+          "value": false,
+          "user": "testuser2"
+        }
+      ]
     }
   ]
 }

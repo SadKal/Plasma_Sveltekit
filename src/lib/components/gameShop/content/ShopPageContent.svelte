@@ -6,10 +6,12 @@
 	import GameSeries from './secondary/GameSeries.svelte';
 	import GameRating from './secondary/GameRating.svelte';
 	import GameDescription from './main/GameDescription.svelte';
+	import Reviews from './reviews/Reviews.svelte';
 
 	export let game;
 	export let dlcs;
 	export let gamesFromSeries;
+	export let reviews;
 
 	let genres = [];
 
@@ -57,6 +59,7 @@
 			<GameSeries {game} {gamesFromSeries} />
 		</div>
 	</div>
+	<Reviews title={game.name} {reviews} />
 </div>
 
 <style lang="scss">
@@ -74,7 +77,6 @@
 		z-index: 10;
 		position: relative;
 		margin-top: -1rem;
-		margin-bottom: 10rem;
 	}
 	.shopGame__gameInfo {
 		width: 90%;
