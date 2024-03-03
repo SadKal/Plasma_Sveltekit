@@ -4,7 +4,7 @@ import { verifyToken, signToken } from '../../lib/utils/jwt';
 //Esto sirve para actualizar el nombre de usuario y el email.
 const mensajeError = 'No ha salido bien';
 export const actions = {
-	updateUsername: async ({ request, params, cookies }) => {
+	updateUsername: async ({ request, cookies }) => {
 		console.log('Usuario nuevo mandado');
 
 		let username;
@@ -57,7 +57,7 @@ export const actions = {
 		};
 	},
 
-	updateEmail: async ({ request, params, cookies }) => {
+	updateEmail: async ({ request, cookies }) => {
 		const data = await request.formData();
 		const formEmail = data.get('email');
 
@@ -99,34 +99,3 @@ export const actions = {
 	}
 };
 
-updateEmail: async ({ request, params, cookies }) => {
-	const data = await request.formData();
-	const formEmail = data.get('email');
-
-	let username;
-
-	const token = cookies.get('token');
-	if (token) {
-		const decodeToken = verifyToken(token);
-		if (decodeToken) {
-			username = decodeToken.username;
-		}
-	}
-
-	const response = await fetch('http://localhost:4000/users');
-	const users = await response.json();
-
-	const userFound = users.find((user) => user.username === username);
-
-	if (userFound) {
-		// Actualiza el valor de la cookie con el nuevo email
-		cookies.set('token', formEmail, { path: '/' });
-		throw redirect(302, '/');
-	}
-
-	return {
-		error: true,
-		message: mensajeError,
-		formEmail
-	};
-};

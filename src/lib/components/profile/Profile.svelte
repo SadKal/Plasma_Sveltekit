@@ -42,10 +42,12 @@
 </script>
 
 <main>
+	
 	<div class="profile">
 		<div class="profile__photo">
 			<img src={imgDefault} alt="" class="image-rounded" on:click={handleClickOnImage} />
 			<input type="file" id="img-uploader" on:change={HandleImg} />
+			<p class="profile__username">{username}</p>
 		</div>
 
 		<div class="profile__info">
@@ -75,32 +77,33 @@
 
 <style lang="scss">
 	.profile {
-		width: 100vw;
-		height: 110vh;
+		width: 100%;
+		height: 70vh;
 		display: grid;
 		grid-template-rows: 25% 75%;
 		margin-bottom: 20px;
 
 		&__photo {
 			width: 100%;
-			display: grid;
-			grid-template-rows: 1fr;
-			place-items: center;
-			color: var(--text-color);
+			display: flex;
+			padding: 20px;
+			justify-content: center;
+			align-items: center;
+			gap: 40px;
 
 			.image-rounded {
 				border-radius: 50%;
-				width: 150px;
-				height: 150px;
-				transition: all 0.5s; /* Le doy una transicion para la imagen */
-				margin-top: 30px;
+				width: 125px;
+				height: 125px;
+				transition: all 0.5s; /* Le doy una transicion para la imagen */	
 			}
 		}
 
 		&__info {
-			width: 100%;
+			width: 80%;
 			height: 100%;
 			display: grid;
+			margin: 30px auto;
 			grid-template-columns: 1fr 1fr;
 			gap: 20px;
 			padding: 20px;
