@@ -170,7 +170,7 @@
       "id": 2,
       "username": "Alex",
       "password": "1234",
-      "email": "gigidi@gmail.com",
+      "email": "test@gmail.com",
       "games": [
         {
           "id": 217590,
@@ -245,6 +245,11 @@
           "id": 133236,
           "hoursplayed": 0,
           "buydate": 1709487294
+        },
+        {
+          "id": 274086,
+          "hoursplayed": 0,
+          "buydate": 1709488550
         }
       ]
     },
@@ -267,7 +272,13 @@
       "username": "testuser3",
       "password": "1234",
       "email": "1234@gmail.com",
-      "games": []
+      "games": [
+        {
+          "id": 133236,
+          "hoursplayed": 0,
+          "buydate": 1709488416
+        }
+      ]
     }
   ],
   "reviews": [

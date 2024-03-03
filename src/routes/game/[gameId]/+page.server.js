@@ -58,7 +58,7 @@ export async function load({ params, cookies }) {
         dlcs = await dlcsResponse.json();
     }
 
-    const reviewsResponse = await fetch(`http://localhost:4000/reviews/${gameId}`)
+    const reviewsResponse = await fetch(`http://localhost:4000/reviews/${gameId}`);
     const reviews = await reviewsResponse.json();
     let user;
     if (token) {
@@ -66,12 +66,14 @@ export async function load({ params, cookies }) {
 
         if (decodeToken) {
             user = decodeToken;
+            const userResponse = await fetch(`http://localhost:4000/users/${user.id}`);
+            user = await userResponse.json();
         }
     }
-    const userResponse = await fetch(`http://localhost:4000/users/${user.id}`);
-    user = await userResponse.json();
+    console.log("USUARIO: ", user);
 
-    console.log(user);
+
+
 
     return { game, dlcs, gamesFromSeries, reviews, user };
 }

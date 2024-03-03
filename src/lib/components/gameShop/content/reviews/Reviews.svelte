@@ -11,8 +11,8 @@
 
 	let gameReviews = reviews?.reviews;
 
-	const yourReview = gameReviews?.find((review) => review.user == $userStore.username);
-	gameReviews = gameReviews?.filter((review) => review.user != $userStore.username);
+	const yourReview = gameReviews?.find((review) => review.user == $userStore?.username);
+	gameReviews = gameReviews?.filter((review) => review.user != $userStore?.username);
 </script>
 
 <div class="reviews">
@@ -28,7 +28,7 @@
 				user={yourReview.user}
 			/>
 		</div>
-	{:else if $userStore.username}
+	{:else if $userStore?.username}
 		<ReviewForm />
 	{:else}
 		<div class="reviews__empty">

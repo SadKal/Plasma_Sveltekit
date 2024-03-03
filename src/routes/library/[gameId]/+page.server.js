@@ -1,7 +1,6 @@
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
 import { verifyToken } from '$lib/utils/jwt';
 import { redirect } from '@sveltejs/kit';
-import { verifyToken } from "$lib/utils/jwt";
 
 export async function load({ params, parent, cookies }) {
     const token = cookies.get('token');
@@ -17,11 +16,6 @@ export async function load({ params, parent, cookies }) {
         throw redirect(303 /*temporal redirect */, `/`);
     }
 
-    const headers = {
-        Accept: 'application/json',
-        'Client-ID': `${SECRET_TWITCH_API_KEY}`,
-        Authorization: `Bearer ${SECRET_TWITCH_API_BEARER}`
-    };
 
     const gameResponse = await fetch('https://api.igdb.com/v4/games', {
         method: 'POST',
@@ -73,4 +67,4 @@ export async function load({ params, parent, cookies }) {
     }
     return { game, dlcs };
 }
-}
+
