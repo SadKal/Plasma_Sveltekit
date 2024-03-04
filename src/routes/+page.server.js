@@ -29,7 +29,7 @@ export async function load() {
             headers: headers,
             body: `fields cover.image_id, name, genres.name, category;
                 where total_rating > 90 & total_rating_count > 90 & artworks != null & cover != null & name != null & genres != null & category = (0, 3, 10);
-                limit 12; 
+                limit 4; 
                 sort total_rating_count desc;`
         })]);
 

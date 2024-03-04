@@ -43,7 +43,6 @@ export const actions = {
 			});
 
 			if (updateResponse.ok) {
-				let username = formUsername;
 				const newToken = signToken(updateUser);
 				cookies.set('token', newToken, { path: '/' });
 				throw redirect(302, '/');

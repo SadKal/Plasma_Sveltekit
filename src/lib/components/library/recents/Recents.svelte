@@ -3,8 +3,6 @@
 	import { useUser } from '$lib/stores/user';
 
 	const userStore = useUser();
-
-	console.log($userStore);
 	function sortRecent(a, b) {
 		//Los mas recientes seran los que tengan el unix time mas alto
 		return a.buydate < b.buydate ? 1 : -1;

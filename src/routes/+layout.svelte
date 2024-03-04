@@ -1,16 +1,14 @@
 <script>
 	import { navigating, page } from '$app/stores';
-	import { RingLoader } from 'svelte-loading-spinners';
 	import '../app.pcss';
 	import './styles.css';
 	import Header from './Header.svelte';
 	import Footer from './Footer.svelte';
-	import GameShopTextField from '$lib/utils/GameShopTextField.svelte';
 	import { useUser } from '$lib/stores/user';
 	import { useCart } from '$lib/stores/cart';
 	import { onMount } from 'svelte';
 	import { Alert } from 'flowbite-svelte';
-
+	import Loading from '$lib/utils/Loading.svelte';
 	export let data;
 
 	const userStore = useUser();
@@ -43,15 +41,7 @@
 </svelte:head>
 
 {#if $navigating}
-	<div class="loading">
-		<div>
-			<GameShopTextField title="Cargando" content="Esperese una poquita de tiempo" />
-		</div>
-
-		<div>
-			<RingLoader size="150" color="#d13364" unit="px" duration="2s" />
-		</div>
-	</div>
+	<Loading />
 {:else}
 	<div class="app">
 		<Header login={data}></Header>
@@ -69,12 +59,3 @@
 		<Footer></Footer>
 	</div>
 {/if}
-
-<style lang="scss">
-	.loading {
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-</style>

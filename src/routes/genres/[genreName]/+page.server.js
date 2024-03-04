@@ -1,9 +1,14 @@
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
+import { redirect } from '@sveltejs/kit';
 
-export async function load({ params }) {
+export async function load({ params, url }) {
 	const { genreName } = params;
 	const currentGenre = genreName.split("-");
-
+	let pagination = url.searchParams.get('page') || 0;
+	if (pagination < 0) {
+		throw redirect(303, `/genres/${currentGenre[0] + '-' + currentGenre[1]}?page=0`);
+	}
+	console.log(url)
 	const headers = {
 		'Accept': 'application/json',
 		'Client-ID': `${SECRET_TWITCH_API_KEY}`,
@@ -50,9 +55,11 @@ export async function load({ params }) {
             screenshots.image_id; 
             where ${currentGenre[0].toLowerCase()}=(${currentGenre[1]}) & total_rating > 70 & category != (1, 2, 5, 12, 14);
 			sort first_release_date desc;
-			limit 100;`
+			limit 20;
+			offset ${20 * pagination};
+			`
 		});
 	let games = await gamesResponse.json();
 
-	return { genres, games, currentGenre };
+	return { genres, games, currentGenre, pagination };
 }

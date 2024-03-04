@@ -19,13 +19,14 @@
 
 	const searchGames = debounce(async (textToSearch) => {
 		if (textToSearch.trim() !== '') {
-			const test = await fetch(`/api?q=${textToSearch}`, {
+			const response = await fetch(`/api?type=search&q=${textToSearch}`, {
 				method: 'GET',
 				headers: {
 					'content-type': 'application/json'
 				}
 			});
-			const result = await test.json();
+			const result = await response.json();
+
 			searchResult = result;
 		} else {
 			searchResult = [];
@@ -75,13 +76,9 @@
 			bind:value={searchValue}
 		/>
 		<div class="search__results">
-			{#await searchResult}
-				Cargando...
-			{:then}
-				{#each searchResult as game (game.id)}
-					<SearchResult {game} />
-				{/each}
-			{/await}
+			{#each searchResult as game (game.id)}
+				<SearchResult {game} />
+			{/each}
 		</div>
 	</div>
 </div>

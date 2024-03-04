@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { useUser } from '$lib/stores/user';
 	import { Button, Modal } from 'flowbite-svelte';
-	import { deleteGameFromUser } from '$lib/api';
+	import { deleteGameFromUser } from '$lib/utils/functions';
 	import Cover from '../../utils/Cover.svelte';
 	import GameTitle from '../../utils/GameTitle.svelte';
 	import UserPlayInfo from '../../utils/UserPlayInfo.svelte';
@@ -50,7 +50,7 @@
 				console.error('Error updating data:', error.message);
 			}
 		} else {
-			goto(`/login?redirectTo=/${$page.url.pathname}`);
+			goto(`/login?redirectTo=/${$page.url.pathname + $page.url.search}`);
 		}
 	}
 

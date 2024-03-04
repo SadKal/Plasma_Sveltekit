@@ -1,7 +1,29 @@
 <script>
+	import Loading from '$lib/utils/Loading.svelte';
 	import MostSoldGame from './MostSoldGame.svelte';
 
 	export let mostSold;
+
+	let offset = mostSold.length;
+
+	let loading;
+	async function fetchMoreMostSold() {
+		try {
+			loading = true;
+			const response = await fetch(`/api?type=mostSold&q=${offset}`, {
+				method: 'GET',
+				headers: {
+					'content-type': 'application/json'
+				}
+			});
+			const newMostSold = await response.json();
+			mostSold = [...mostSold, ...newMostSold];
+			offset = mostSold.length;
+			loading = false;
+		} catch (error) {
+			console.error('Error updating data:', error.message);
+		}
+	}
 </script>
 
 <div class="most-sold">
@@ -11,6 +33,13 @@
 		{#each mostSold as game, index}
 			<MostSoldGame {game} {index} />
 		{/each}
+	</div>
+	<div class="most-sold__load" on:click={fetchMoreMostSold}>
+		{#if loading}
+			<Loading />
+		{:else}
+			<p>Cargar más</p>
+		{/if}
 	</div>
 </div>
 
@@ -44,6 +73,27 @@
 			justify-content: center;
 			grid-gap: 5vw;
 			margin-top: 4rem;
+		}
+
+		&__load {
+			display: flex;
+			justify-content: center;
+
+			& p {
+				padding: 1rem;
+				margin-top: 2rem;
+				color: var(--text-color);
+				font-size: 2rem;
+				font-weight: 600;
+				background-color: var(--topbar-background-color);
+				cursor: pointer;
+
+				transition: all 0.3s;
+				&:hover {
+					background-color: var(--cart-total-bg-color);
+					transform: scale(1.1);
+				}
+			}
 		}
 	}
 </style>

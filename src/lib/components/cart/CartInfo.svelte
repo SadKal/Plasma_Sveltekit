@@ -3,9 +3,9 @@
 	import CartGame from './CartGame.svelte';
 	import { useCart } from '$lib/stores/cart';
 	import { useUser } from '$lib/stores/user';
-	import { addGameToUser } from '$lib/api';
+	import { addGameToUser } from '$lib/utils/functions';
 	import { page } from '$app/stores';
-	import { goto, invalidateAll } from '$app/navigation';
+	import { goto } from '$app/navigation';
 
 	const cartStore = useCart();
 	const userStore = useUser();
@@ -23,7 +23,7 @@
 			}
 			window.localStorage.removeItem('cart');
 		} else {
-			goto(`/login?redirectTo=${$page.url.pathname}`);
+			goto(`/login?redirectTo=${$page.url.pathname + $page.url.search}`);
 		}
 	}
 	$: totalPrice = cartStore.getTotalPrice($cartStore.gamesInCart);

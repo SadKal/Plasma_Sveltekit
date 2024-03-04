@@ -18,11 +18,17 @@
 	<HeaderElement name="Perfil" subdirectory="/profile" />
 
 	{#if !login.username}
-		<HeaderElement name="Login" subdirectory="/login?redirectTo={$page.url.pathname}" />
+		<HeaderElement
+			name="Login"
+			subdirectory="/login?redirectTo={$page.url.pathname + $page.url.search}"
+		/>
 	{:else}
 		<!--Al no estar en la ruta de login el action tiene que indicar la ruta y la acción-->
 		<div class="topbar__element--container">
-			<form method="POST" action="/login?/logout&redirectTo={$page.url.pathname}">
+			<form
+				method="POST"
+				action="/login?/logout&redirectTo={$page.url.pathname + $page.url.search}"
+			>
 				<button type="submit" class="custom">
 					<img src={iconLogout} alt="logout logo" class="topbar__logo" />
 				</button>

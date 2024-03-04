@@ -85,6 +85,7 @@
 	textarea {
 		color: white;
 		resize: none;
+		line-height: 2rem;
 	}
 
 	.review-form__main {

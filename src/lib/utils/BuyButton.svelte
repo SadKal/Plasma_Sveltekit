@@ -13,7 +13,7 @@
 
 	let parentOwned = true;
 	const isDlc = game.category == 2 || game.category == 1;
-	if (parent && isDlc) {
+	$: if (parent && isDlc) {
 		parentOwned = $userStore?.games?.some((libraryGame) => libraryGame.id === parent.id)
 			? true
 			: false;

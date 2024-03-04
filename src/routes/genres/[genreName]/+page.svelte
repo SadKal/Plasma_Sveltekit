@@ -1,10 +1,10 @@
 <script>
 	import GenreGame from '$lib/components/genres/GenreGame.svelte';
-	import { goto } from '$app/navigation';
+	import { goto, preloadData } from '$app/navigation';
 
 	export let data;
 
-	const { genres, games, currentGenre } = data;
+	const { genres, games, currentGenre, pagination } = data;
 
 	//Por como esta construido, el genero actual siempre estará arriba
 	let genreList = [];
@@ -17,7 +17,17 @@
 
 	function changeSelection(event) {
 		selectedOption = event.target.value;
-		goto(`/genres/${selectedOption}`);
+		goto(`/genres/${selectedOption}?page=0`);
+	}
+
+	function changePage(direction) {
+		if (pagination != 0 || direction == 1 || games.length < 20) {
+			const href = `/genres/${currentGenre[0] + '-' + currentGenre[1]}?page=${
+				parseInt(pagination) + direction
+			}`;
+			preloadData(href);
+			goto(href);
+		}
 	}
 </script>
 
@@ -39,6 +49,25 @@
 				<GenreGame {game} />
 			{/each}
 		</div>
+		<div class="genres__pagination">
+			Página {pagination}
+			<div class="genres__pagination__buttons">
+				<div
+					class="genres__pagination__previous"
+					class:pageZero={pagination == 0}
+					on:click={() => changePage(-1)}
+				>
+					&lt;
+				</div>
+				<div
+					class="genres__pagination__next"
+					class:pageMax={games.length < 20}
+					on:click={() => changePage(1)}
+				>
+					&gt;
+				</div>
+			</div>
+		</div>
 	</div>
 {/key}
 
@@ -46,6 +75,37 @@
 	option {
 		background-color: var(--text-color);
 		font-size: 1rem;
+	}
+	.genres__pagination {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 2rem;
+		color: var(--text-color);
+		font-size: 2rem;
+		font-weight: 600;
+	}
+	.genres__pagination__buttons {
+		display: flex;
+
+		background-color: var(--topbar-background-color);
+	}
+	.genres__pagination__next,
+	.genres__pagination__previous {
+		cursor: pointer;
+		transition: all 0.3s;
+		padding: 0.3rem 0.7rem;
+		&:hover {
+			background-color: var(--cart-total-bg-color);
+		}
+	}
+	.genres__pagination__previous.pageZero,
+	.genres__pagination__next.pageMax {
+		color: darkgray;
+		&:hover {
+			cursor: default;
+			background-color: var(--topbar-background-color);
+		}
 	}
 
 	.genres {
@@ -93,7 +153,7 @@
 
 		&__game-list {
 			margin-top: 6rem;
-			padding-bottom: 5rem;
+			padding-bottom: 2rem;
 		}
 	}
 </style>
