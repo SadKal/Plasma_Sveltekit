@@ -24,8 +24,6 @@ export async function addGameToUser(userToUpdate, game) {
                 buydate: Math.floor(currentDate)
             };
 
-            console.log(newGame);
-            console.log(userToUpdate);
             let games;
             if (game.category == 1 || game.category == 2) {
                 let newGames = user.games.map(userGame => {
@@ -40,8 +38,6 @@ export async function addGameToUser(userToUpdate, game) {
             } else {
                 games = [...user.games, newGame];
             }
-
-            console.log(games);
             const response = await fetch(`${baseURL}/users/${userToUpdate.id}`, {
                 method: 'PATCH',
                 headers: {

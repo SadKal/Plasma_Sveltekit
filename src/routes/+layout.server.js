@@ -5,8 +5,10 @@ export const load = async ({ cookies }) => {
 	if (token) {
 		const decodeToken = verifyToken(token);
 		if (decodeToken) {
-			const user = decodeToken;
-			console.log("USUARIO LAYOUT", user);
+			const userToken = decodeToken;
+			const responseUser = await fetch(`http://localhost:4000/users/${userToken.id}`);
+			const user = await responseUser.json();
+
 			return user;
 		}
 	}

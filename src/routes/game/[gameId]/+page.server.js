@@ -1,18 +1,8 @@
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
 import { verifyToken, signToken } from '$lib/utils/jwt';
 
-export async function load({ params, parent, cookies }) {
+export async function load({ params }) {
     const { gameId } = params;
-
-    const currentUser = await parent();
-    const userResponse = await fetch(`http://localhost:4000/users/${currentUser.id}`);
-    const user = await userResponse.json();
-    console.log("USUARIO CHECK", user);
-    if (userResponse.ok) {
-        const newToken = signToken(user);
-        cookies.set('token', newToken, { path: '/' });
-    }
-    console.log("TOKEN>>>", verifyToken(cookies.get('token')));
 
     const headers = {
         'Accept': 'application/json',
@@ -83,7 +73,9 @@ export const actions = {
             const decodeToken = verifyToken(token);
 
             if (decodeToken) {
-                user = decodeToken;
+                const userToken = decodeToken;
+                const responseUser = await fetch(`http://localhost:4000/users/${userToken.id}`);
+                user = await responseUser.json();
             }
         }
 

@@ -20,7 +20,7 @@ export const actions = {
 		const userFound = users.find(user => user.username === username && user.password === password);
 
 		if (userFound) {
-			const token = signToken(userFound);
+			const token = signToken({ id: userFound.id, username: userFound.username });
 			cookies.set('token', token, { path: '/' });
 			throw redirect(303, url.searchParams.get('redirectTo') || '/');
 		}
