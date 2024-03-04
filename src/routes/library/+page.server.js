@@ -1,5 +1,6 @@
 import { redirect } from '@sveltejs/kit';
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
+import { verifyToken } from "$lib/utils/jwt";
 
 export async function load({ parent, url, cookies }) {
     const response = await fetch('http://localhost:4000/users');
@@ -11,14 +12,20 @@ export async function load({ parent, url, cookies }) {
         'Client-ID': `${SECRET_TWITCH_API_KEY}`,
         'Authorization': `Bearer ${SECRET_TWITCH_API_BEARER}`
     }
-
-    console.log(currentUser);
     if (!currentUser.username) {
         throw redirect(303 /*temporal redirect */, `/login?redirectTo=${url.pathname}`);
     }
 
-    const user = users.find(userSearching => userSearching.id === currentUser.id);
+    if (token) {
+        const decodeToken = verifyToken(token);
+        if (decodeToken) {
+            const user = decodeToken;
+            console.log("RELOAD>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            console.log("USUARIO", user);
+        }
+    }
 
+    const user = users.find(userSearching => userSearching.id === currentUser.id);
     let gamesToSearch = ''
     for (const game of user.games) {
         gamesToSearch += game.id + ','

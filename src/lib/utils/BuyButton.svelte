@@ -11,7 +11,6 @@
 	const userStore = useUser();
 	const cartStore = useCart();
 
-
 	let parentOwned = true;
 	const isDlc = game.category == 2 || game.category == 1;
 	if (parent && isDlc) {

@@ -13,7 +13,7 @@
 
 			<textarea
 				name="content"
-				placeholder="Cuéntanos que opinas del juego"
+				placeholder="Cuéntanos tus pensamientos sobre el juego"
 				cols="40"
 				rows="5"
 				required
@@ -74,6 +74,7 @@
 		&:focus,
 		&:hover {
 			background-color: var(--gamepage-playinfo-bg-color-low-opacity);
+			border: 1px solid var(--subtitle-text-color);
 		}
 
 		&[type='radio'] {
@@ -117,12 +118,14 @@
 		background-image: url('/svgs/rating_good_unchecked.svg');
 		&:hover {
 			background-image: url('/svgs/rating_good.svg');
+			cursor: pointer;
 		}
 	}
 	.negativeLabel {
 		background-image: url('/svgs/rating_bad_unchecked.svg');
 		&:hover {
 			background-image: url('/svgs/rating_bad.svg');
+			cursor: pointer;
 		}
 	}
 	input[type='radio']:checked + .positiveLabel {

@@ -39,8 +39,7 @@ export const actions = {
 			});
 
 			if (updateResponse.ok) {
-				let username = formUser;
-				const newToken = signToken({ username });
+				const newToken = signToken(updateUser);
 				cookies.set('token', newToken, { path: '/' });
 				throw redirect(302, '/');
 			}
@@ -95,34 +94,3 @@ export const actions = {
 	}
 };
 
-updateEmail: async ({ request, params, cookies }) => {
-	const data = await request.formData();
-	const formEmail = data.get('email');
-
-	let username;
-
-	const token = cookies.get('token');
-	if (token) {
-		const decodeToken = verifyToken(token);
-		if (decodeToken) {
-			username = decodeToken.username;
-		}
-	}
-
-	const response = await fetch('http://localhost:4000/users');
-	const users = await response.json();
-
-	const userFound = users.find((user) => user.username === username);
-
-	if (userFound) {
-		// Actualiza el valor de la cookie con el nuevo email
-		cookies.set('token', formEmail, { path: '/' });
-		throw redirect(302, '/');
-	}
-
-	return {
-		error: true,
-		message: mensajeError,
-		formEmail
-	};
-};

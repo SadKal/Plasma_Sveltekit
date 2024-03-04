@@ -40,7 +40,10 @@ export async function load({ params, parent, cookies }) {
     const game = games[0];
 
     const gameData = user.games.find((toFind) => toFind.id === game.id)
-    console.log(gameData);
+    if (!gameData) {
+        throw redirect(303, '/library');
+    }
+
     game.hoursplayed = gameData?.hoursplayed;
     game.buydate = gameData?.buydate;
 

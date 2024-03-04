@@ -1,9 +1,18 @@
 import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
-import { verifyToken } from "$lib/utils/jwt";
+import { verifyToken, signToken } from '$lib/utils/jwt';
 
-export async function load({ params, cookies }) {
-    const token = cookies.get('token');
+export async function load({ params, parent, cookies }) {
     const { gameId } = params;
+
+    const currentUser = await parent();
+    const userResponse = await fetch(`http://localhost:4000/users/${currentUser.id}`);
+    const user = await userResponse.json();
+    console.log("USUARIO CHECK", user);
+    if (userResponse.ok) {
+        const newToken = signToken(user);
+        cookies.set('token', newToken, { path: '/' });
+    }
+    console.log("TOKEN>>>", verifyToken(cookies.get('token')));
 
     const headers = {
         'Accept': 'application/json',
@@ -60,22 +69,8 @@ export async function load({ params, cookies }) {
 
     const reviewsResponse = await fetch(`http://localhost:4000/reviews/${gameId}`);
     const reviews = await reviewsResponse.json();
-    let user;
-    if (token) {
-        const decodeToken = verifyToken(token);
 
-        if (decodeToken) {
-            user = decodeToken;
-            const userResponse = await fetch(`http://localhost:4000/users/${user.id}`);
-            user = await userResponse.json();
-        }
-    }
-    console.log("USUARIO: ", user);
-
-
-
-
-    return { game, dlcs, gamesFromSeries, reviews, user };
+    return { game, dlcs, gamesFromSeries, reviews };
 }
 
 export const actions = {
@@ -99,9 +94,12 @@ export const actions = {
             const reviewsResponse = await fetch(`http://localhost:4000/reviews/${gameId}`)
             const reviews = await reviewsResponse.json();
 
-            const newReview = {
-                "id": reviews.reviews[reviews.reviews.length - 1]
+            if (reviews.reviews) {
+                const newReview = {
+                    "id": reviews.reviews[reviews.reviews.length - 1]
+                }
             }
+
         }
         catch (err) {
             console.error('Error updating reviews:', err);

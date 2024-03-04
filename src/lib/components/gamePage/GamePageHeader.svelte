@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte'
+	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { useUser } from '$lib/stores/user';
@@ -12,7 +12,7 @@
 	export let game;
 	const userStore = useUser();
 
-	let showModal = false
+	let showModal = false;
 	let background = '/loading.gif';
 	let cover = '/loading.gif';
 	const buydate = new Date(game.buydate * 1000).toISOString().slice(0, 10);
@@ -64,10 +64,9 @@
 <Modal bind:open={showModal} size="sm" color="primary">
 	<div class="text-center">
 		<h3 class="gamePage__deleteGame-modalText">¿Estás seguro de que quieres borrar este juego?</h3>
-		<br>
+		<br />
 		<Button size="md" on:click={deleteGame}>Si, borrarlo</Button>
 		<Button color="alternative" size="md" on:click={deleteModalActivation}>No, mantenlo</Button>
-
 	</div>
 </Modal>
 
@@ -110,7 +109,6 @@
 		filter: blur(0.5rem);
 		position: relative;
 		margin: 0px 0px 0px -25px;
-		
 	}
 	.gamePage__mainInfo {
 		position: absolute;

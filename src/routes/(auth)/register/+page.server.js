@@ -48,7 +48,7 @@ export const actions = {
 
 			if (Insert.ok) {
 				//Si la insrccion a ido bien
-				const token = signToken({ username: formUser });
+				const token = signToken(Insert);
 				cookies.set('token', token, { path: '/' });
 				throw redirect(302, '/');
 			}

@@ -1,21 +1,20 @@
 <script>
-	import Thumbnails from "./Thumbnails.svelte";
-	import { useUser } from "$lib/stores/user"
+	import Thumbnails from './Thumbnails.svelte';
+	import { useUser } from '$lib/stores/user';
 
 	const userStore = useUser();
 
-	function sortRecent(a,b){
+	function sortRecent(a, b) {
 		//Los mas recientes seran los que tengan el unix time mas alto
 		return a.buydate < b.buydate ? 1 : -1;
 		return 0;
 	}
-
-	let thumbnails = $userStore.games.slice().sort(sortRecent).slice(0,5);
+	let thumbnails = $userStore.games.slice().sort(sortRecent).slice(0, 5);
 </script>
 
-<div class="library--recents__title">Biblioteca de {$userStore.username}</div> 
+<div class="library--recents__title">Biblioteca de {$userStore.username}</div>
 <div class="library--recents">
-	<Thumbnails {thumbnails}/>
+	<Thumbnails {thumbnails} />
 </div>
 
 <style lang="scss">
@@ -29,7 +28,7 @@
 		padding-bottom: 75px;
 		display: flex;
 		&__title {
-			margin: 75px 0px; 
+			margin: 75px 0px;
 			text-align: center;
 			font-size: 5rem;
 			font-weight: 600;

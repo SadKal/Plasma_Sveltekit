@@ -30,7 +30,7 @@ export const actions = {
 			});
 
 			if (updateResponse.ok) {
-				const token = signToken({ username });
+				const token = signToken(updatedUser);
 				cookies.set('token', token, { path: '/' });
 				throw redirect(302, '/');
 			}

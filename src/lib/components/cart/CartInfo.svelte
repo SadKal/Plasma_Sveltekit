@@ -5,11 +5,11 @@
 	import { useUser } from '$lib/stores/user';
 	import { addGameToUser } from '$lib/api';
 	import { page } from '$app/stores';
-	import { goto } from '$app/navigation';
+	import { goto, invalidateAll } from '$app/navigation';
 
 	const cartStore = useCart();
 	const userStore = useUser();
-
+	console.log($userStore);
 	async function buyGames() {
 		if ($userStore?.games) {
 			for (let i = $cartStore.gamesInCart.length - 1; i >= 0; i--) {
@@ -23,6 +23,7 @@
 				}
 			}
 			window.localStorage.removeItem('cart');
+			invalidateAll();
 		} else {
 			goto(`/login?redirectTo=${$page.url.pathname}`);
 		}

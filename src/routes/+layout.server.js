@@ -6,7 +6,7 @@ export const load = async ({ cookies }) => {
 		const decodeToken = verifyToken(token);
 		if (decodeToken) {
 			const user = decodeToken;
-			console.log("USUARIO", user);
+			console.log("USUARIO LAYOUT", user);
 			return user;
 		}
 	}
