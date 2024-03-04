@@ -128,6 +128,11 @@
           "buydate": 1706262300000
         },
         {
+          "id": 217623,
+          "hoursplayed": 0,
+          "buydate": 1706272775000
+        },
+        {
           "id": 7498,
           "hoursplayed": 0,
           "buydate": 1709024780000,
@@ -208,30 +213,6 @@
           "id": 164867,
           "hoursplayed": 0,
           "buydate": 1709568835006
-        },
-        {
-          "id": 472,
-          "hoursplayed": 0,
-          "buydate": 1709569512149,
-          "dlcs": [
-            {
-              "id": 6069,
-              "hoursplayed": 0,
-              "buydate": 1709569528590
-            }
-          ]
-        },
-        {
-          "id": 7498,
-          "hoursplayed": 0,
-          "buydate": 1709575260300,
-          "dlcs": [
-            {
-              "id": 119123,
-              "hoursplayed": 0,
-              "buydate": 1709575263806
-            }
-          ]
         }
       ]
     },
@@ -240,7 +221,35 @@
       "username": "Pablo",
       "password": "RobotsAreCool",
       "email": "myemail@gmail.com",
-      "games": []
+      "games": [
+        {
+          "id": 252647,
+          "hoursplayed": 0,
+          "buydate": 1709568985635
+        },
+        {
+          "id": 1009,
+          "hoursplayed": 0,
+          "buydate": 1709569217027
+        },
+        {
+          "id": 472,
+          "hoursplayed": 0,
+          "buydate": 1709569318598,
+          "dlcs": [
+            {
+              "id": 6068,
+              "hoursplayed": 0,
+              "buydate": 1709569473900
+            }
+          ]
+        },
+        {
+          "id": 133236,
+          "hoursplayed": 0,
+          "buydate": 1709569696787
+        }
+      ]
     },
     {
       "id": 4,
@@ -323,6 +332,18 @@
           "content": "Este DLC es tan bueno que al morir mi abuela volvió para seguir jugando.",
           "value": true,
           "user": "Alex"
+        }
+      ]
+    },
+    {
+      "id": "252647",
+      "reviews": [
+        {
+          "id": 1,
+          "title": "10/10",
+          "content": "Un JRPG que cambió la escena, mejorado",
+          "value": true,
+          "user": "Pablo"
         }
       ]
     }
