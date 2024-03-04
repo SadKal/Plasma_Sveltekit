@@ -109,6 +109,12 @@
 		filter: blur(0.5rem);
 		position: relative;
 		margin: 0px 0px 0px -25px;
+		transition: all 0.25s ease-in-out;
+
+		@media (max-width: 800px) {
+			height: 90vh;
+			transition: all 0.25s ease-in-out;
+		}
 	}
 	.gamePage__mainInfo {
 		position: absolute;
@@ -117,11 +123,18 @@
 		justify-content: space-around;
 		transform: translate(0%, 50%);
 		top: 0%;
+		transition: all 0.25s ease-in-out;
+		@media (max-width: 800px) {
+			flex-direction: column;
+			align-items: center;
+			height: 800px;
+			transform: translate(0, 20%);
+			justify-content: space-evenly;
+			transition: all 0.25s ease-in-out;
+		}
 	}
 	.gamePage__libInfo {
-		//breaks on 1400px
 		display: grid;
 		grid-template-rows: 1fr 1fr;
-		width: 30%;
 	}
 </style>

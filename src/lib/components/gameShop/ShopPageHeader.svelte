@@ -60,17 +60,37 @@
 		display: flex;
 		justify-content: space-around;
 		transform: translate(0%, 40%);
+		@media (max-width: 800px) {
+			flex-direction: column-reverse;
+			align-items: center;
+			height: 800px;
+			transform: translate(0, 20%);
+			justify-content: space-evenly;
+			transition: all 0.25s ease-in-out;
+		}
 	}
 	.shopGame__gameBG {
 		height: 60vh;
 		background-repeat: space;
 		background-size: cover;
 		filter: blur(0.5rem);
+		transition: all 0.25s ease-in-out;
+
+		@media (max-width: 800px) {
+			height: 90vh;
+			transition: all 0.25s ease-in-out;
+		}
 	}
 	.shopGame__info {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
 		align-items: flex-start;
+		
+		@media (max-width: 800px) {
+			height: 200px;
+			gap: 20px;
+			align-items: center;
+		}
 	}
 </style>
