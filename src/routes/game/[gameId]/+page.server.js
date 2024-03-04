@@ -113,7 +113,7 @@ export const actions = {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ id: gameId, reviews: [newReview] })
+                    body: JSON.stringify({ id: parseInt(gameId), reviews: [newReview] })
                 }
                 );
             }

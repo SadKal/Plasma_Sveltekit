@@ -46,7 +46,7 @@ export const actions = {
 			});
 			if (updateResponse.ok) {
 				for (const reviewGame of reviews) {
-					//console.log('reviewGame', reviewGame);
+					console.log('reviewGame', reviewGame);
 					for (const specificReview of reviewGame.reviews) {
 						//console.log('>>>>>', specificReview.user);
 						if (specificReview.user === formOldUser) {
@@ -57,13 +57,17 @@ export const actions = {
 				}
 				console.log('>>>>>>>><', reviews);
 				console.log('>>>>>>>><', reviews[1]);
-				const updateReviewsResponse = await fetch(`http://localhost:4000/reviews`, {
-					method: 'PUT',
-					body: JSON.stringify(reviews),
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				});
+				let updateReviewsResponse;
+				for (const review of reviews) {
+					console.log('>>>>>', review)
+					updateReviewsResponse = await fetch(`http://localhost:4000/reviews/${review.id}`, {
+						method: 'PATCH',
+						body: JSON.stringify({ reviews: review.reviews }),
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					});
+				}
 
 				if (updateReviewsResponse.ok) {
 					let username = formNewUser;
