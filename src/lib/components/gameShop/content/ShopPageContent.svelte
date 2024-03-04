@@ -59,7 +59,7 @@
 			<GameSeries {game} {gamesFromSeries} />
 		</div>
 	</div>
-	<Reviews title={game.name} {reviews} />
+	<Reviews {reviews} {game} />
 </div>
 
 <style lang="scss">

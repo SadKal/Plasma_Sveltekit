@@ -68,6 +68,7 @@ export const actions = {
         const { gameId } = params;
         const token = cookies.get('token');
         const data = await request.formData();
+
         let user;
         if (token) {
             const decodeToken = verifyToken(token);
@@ -79,19 +80,43 @@ export const actions = {
             }
         }
 
-        console.log(user);
-        console.log(data);
+        const id = parseInt(data.get('id'));
+        const title = data.get('title');
+        const content = data.get('content');
+        const value = data.get('review-value') == "positive" ? true : false;
+        const username = user.username;
 
         try {
             const reviewsResponse = await fetch(`http://localhost:4000/reviews/${gameId}`)
             const reviews = await reviewsResponse.json();
 
-            if (reviews.reviews) {
-                const newReview = {
-                    "id": reviews.reviews[reviews.reviews.length - 1]
-                }
+            const newReview = {
+                "id": id,
+                "title": title,
+                "content": content,
+                "value": value,
+                "user": username
             }
-
+            if (reviews.reviews) {
+                const newReviews = [...reviews.reviews, newReview];
+                const response = await fetch(`http://localhost:4000/reviews/${gameId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ reviews: newReviews })
+                }
+                );
+            } else {
+                const response = await fetch(`http://localhost:4000/reviews/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id: gameId, reviews: [newReview] })
+                }
+                );
+            }
         }
         catch (err) {
             console.error('Error updating reviews:', err);

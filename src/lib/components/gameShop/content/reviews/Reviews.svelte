@@ -4,12 +4,30 @@
 	import Review from './Review.svelte';
 	import ReviewForm from './ReviewForm.svelte';
 	import { page } from '$app/stores';
+
 	export let reviews;
-	export let title;
+	export let game;
 
 	const userStore = useUser();
 
 	let gameReviews = reviews?.reviews;
+
+	const parent = game?.parent_game;
+	let gameOwned = false;
+	$: if ($userStore?.games?.some((libraryGame) => libraryGame.id === game.id)) {
+		gameOwned = true;
+	} else if ($userStore?.games?.some((libraryGame) => libraryGame.id === parent?.id)) {
+		const thisParent = $userStore?.games?.find((libraryGame) => libraryGame.id === parent.id);
+		if (thisParent?.dlcs?.some((dlc) => dlc.id === game.id)) {
+			gameOwned = true;
+		}
+	}
+	let newReviewID;
+	if (gameReviews) {
+		newReviewID = gameReviews[gameReviews?.length - 1].id + 1 || 1;
+	} else {
+		newReviewID = 1;
+	}
 
 	const yourReview = gameReviews?.find((review) => review.user == $userStore?.username);
 	gameReviews = gameReviews?.filter((review) => review.user != $userStore?.username);
@@ -17,7 +35,7 @@
 
 <div class="reviews">
 	<div class="reviews__title">
-		<GameShopTextField title="Reseñas para {title}: " header_font_size="3rem" />
+		<GameShopTextField title="Reseñas para {game.name}: " header_font_size="3rem" />
 	</div>
 	{#if yourReview}
 		<div class="your-review">
@@ -28,8 +46,12 @@
 				user={yourReview.user}
 			/>
 		</div>
+	{:else if !gameOwned && $userStore?.username}
+		<div class="reviews__empty">
+			Para poder dejar una reseña primero debes tener el juego adquirido.
+		</div>
 	{:else if $userStore?.username}
-		<ReviewForm />
+		<ReviewForm {newReviewID} />
 	{:else}
 		<div class="reviews__empty">
 			<a href="/login?redirectTo={$page.url.pathname}"> Inicia sesión para dejar una reseña </a>
@@ -82,11 +104,11 @@
 	.reviews__empty {
 		display: flex;
 		justify-content: center;
-
+		font-size: 3rem;
+		color: var(--text-color);
 		& a {
-			font-size: 3rem;
 			text-decoration: underline;
-			color: var(--text-color);
+
 			transition: all 0.3s;
 
 			&:hover {

@@ -1,14 +1,15 @@
 <script>
 	import GameShopTextField from '$lib/utils/GameShopTextField.svelte';
 	import { useUser } from '$lib/stores/user';
-	const userStore = useUser();
+
+	export let newReviewID;
 </script>
 
 <div class="review-form-container">
 	<form method="POST" class="review-form" id="review-form">
 		<div class="review-form__main">
 			<GameShopTextField title="Reseña este juego:" />
-
+			<input type="hidden" name="id" value={newReviewID} />
 			<input type="text" name="title" placeholder="Título de la review" required />
 
 			<textarea
