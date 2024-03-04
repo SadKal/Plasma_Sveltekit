@@ -1,32 +1,32 @@
 <script>
-    export let game;
-    export let buydate;
-    import { goto } from '$app/navigation';
+	export let game;
+	export let buydate;
+	import { goto } from '$app/navigation';
 </script>
 
 <div class="gamePage__moreInfo">
-    <div class="gamePage__moreInfo-hrsPlayed">
-        <h4>Horas jugadas:</h4>
-        <span>{game.hoursplayed}</span>
-    </div>
-    <div class="gamePage__moreInfo-buyDate">
-        <h4>Comprado el:</h4>
-        <span>{buydate}</span>
-    </div>
+	<div class="gamePage__moreInfo-hrsPlayed">
+		<h4>Horas jugadas:</h4>
+		<span>{game.hoursplayed}</span>
+	</div>
+	<div class="gamePage__moreInfo-buyDate">
+		<h4>Comprado el:</h4>
+		<span>{buydate}</span>
+	</div>
 </div>
 <div class="gamePage__moreInfo-toShopPage" on:click={() => goto(`/game/${game.id}`)}>
-    <p>Ir a la tienda</p>
+	<p>Ir a la tienda</p>
 </div>
 
 <style lang="scss">
-.gamePage__moreInfo {
+	.gamePage__moreInfo {
 		display: flex;
 		justify-content: space-between;
 		background-color: var(--game-title-background-color);
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 		padding: 0.25rem 5rem;
 		align-self: end;
-		
+
 		& span {
 			font-size: 2rem;
 			font-weight: 600;
@@ -35,7 +35,7 @@
 		}
 		& h4 {
 			font-size: 1.25rem;
-			margin: 0.5rem 0.25rem
+			margin: 0.5rem 0.25rem;
 		}
 		&:hover ~ .gamePage__moreInfo-toShopPage {
 			max-height: 100px; //needed to make the transition, doesnt work with height

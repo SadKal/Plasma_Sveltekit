@@ -17,11 +17,11 @@ export async function addGameToUser(userToUpdate, game) {
         const user = await responseUser.json();
         try {
 
-            const currentDate = new Date().getTime() / 1000;
+            const currentDate = new Date().getTime();
             const newGame = {
                 id: game.id,
                 hoursplayed: 0,
-                buydate: Math.floor(currentDate)
+                buydate: currentDate
             };
 
             let games;

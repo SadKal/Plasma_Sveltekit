@@ -15,7 +15,7 @@
 	let showModal = false;
 	let background = '/loading.gif';
 	let cover = '/loading.gif';
-	const buydate = new Date(game.buydate * 1000).toISOString().slice(0, 10);
+	const buydate = new Date(game.buydate).toISOString().slice(0, 10);
 
 	onMount(() => {
 		const artworks = game?.artworks;
