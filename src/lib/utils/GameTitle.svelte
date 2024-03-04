@@ -21,6 +21,7 @@
 		@media (max-width: 1000px) {
 			font-size: 2rem;
 			padding: 0.4rem 2rem;
+			margin: 0 auto;
 		}
 
 		@media (max-width: 450px) and (orientation: portrait) {

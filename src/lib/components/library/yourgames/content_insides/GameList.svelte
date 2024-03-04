@@ -107,6 +107,11 @@
 			transition: all 0.25s;
 			transition-duration: 0.25s;
 			margin: 100% 0 0 -1px; //needed to make the title stay flush to the side, is there really no better way?
+
+			@media (max-width: 600px) {
+			font-size: .9rem;
+			
+		}
 		}
 		@media (max-width: 1750px) and (orientation: landscape) {
 			height: 28vw;
@@ -130,5 +135,6 @@
 		@media (max-width: 1080px) and (orientation: portrait) {
 			font-size: 2rem;
 		}
+
 	}
 </style>
