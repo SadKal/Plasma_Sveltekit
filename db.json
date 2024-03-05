@@ -221,21 +221,98 @@
           "buydate": 1709569217027
         },
         {
-          "id": 472,
+          "id": 72,
           "hoursplayed": 0,
-          "buydate": 1709569318598,
+          "buydate": 1709651487234,
           "dlcs": [
             {
-              "id": 6068,
+              "id": 99969,
               "hoursplayed": 0,
-              "buydate": 1709569473900
+              "buydate": 1709651528357
+            },
+            {
+              "id": 114140,
+              "hoursplayed": 0,
+              "buydate": 1709655599353
             }
           ]
         },
         {
-          "id": 133236,
+          "id": 12517,
           "hoursplayed": 0,
-          "buydate": 1709569696787
+          "buydate": 1709657262132
+        },
+        {
+          "id": 26673,
+          "hoursplayed": 0,
+          "buydate": 1709657273126
+        },
+        {
+          "id": 114283,
+          "hoursplayed": 0,
+          "buydate": 1709657286772
+        },
+        {
+          "id": 124948,
+          "hoursplayed": 0,
+          "buydate": 1709657326573
+        },
+        {
+          "id": 75081,
+          "hoursplayed": 0,
+          "buydate": 1709657326594
+        },
+        {
+          "id": 217590,
+          "hoursplayed": 0,
+          "buydate": 1709657436005
+        },
+        {
+          "id": 252184,
+          "hoursplayed": 0,
+          "buydate": 1709657436032
+        },
+        {
+          "id": 15465,
+          "hoursplayed": 0,
+          "buydate": 1709657436054
+        },
+        {
+          "id": 14593,
+          "hoursplayed": 0,
+          "buydate": 1709657436076,
+          "dlcs": [
+            {
+              "id": 106818,
+              "hoursplayed": 0,
+              "buydate": 1709657476291
+            },
+            {
+              "id": 106817,
+              "hoursplayed": 0,
+              "buydate": 1709657476317
+            },
+            {
+              "id": 105420,
+              "hoursplayed": 0,
+              "buydate": 1709657476336
+            },
+            {
+              "id": 136396,
+              "hoursplayed": 0,
+              "buydate": 1709657476357
+            }
+          ]
+        },
+        {
+          "id": 40477,
+          "hoursplayed": 0,
+          "buydate": 1709657520160
+        },
+        {
+          "id": 5597,
+          "hoursplayed": 0,
+          "buydate": 1709657520182
         }
       ]
     },
@@ -275,6 +352,13 @@
           "buydate": 1709565462000
         }
       ]
+    },
+    {
+      "id": 6,
+      "username": "finaltest",
+      "password": "finaltest",
+      "email": "finaltest",
+      "games": []
     }
   ],
   "reviews": [
@@ -322,6 +406,54 @@
     },
     {
       "id": 262973,
+      "reviews": [
+        {
+          "id": 1,
+          "title": "Buen juego",
+          "content": "Suficientemente decente para la saga",
+          "value": true,
+          "user": "Alex"
+        }
+      ]
+    },
+    {
+      "id": 1009,
+      "reviews": [
+        {
+          "id": 1,
+          "title": "Excelente final",
+          "content": "No hay The Last of Us 2 en Ba Sing Se.",
+          "value": true,
+          "user": "Pablo"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "reviews": [
+        {
+          "id": 1,
+          "title": "funny potato",
+          "content": "funny potato",
+          "value": true,
+          "user": "Pablo"
+        }
+      ]
+    },
+    {
+      "id": 99969,
+      "reviews": [
+        {
+          "id": 1,
+          "title": "dlc for funny potato game",
+          "content": "dlc for funny potato game",
+          "value": true,
+          "user": "Pablo"
+        }
+      ]
+    },
+    {
+      "id": 253409,
       "reviews": []
     }
   ]

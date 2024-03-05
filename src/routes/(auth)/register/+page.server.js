@@ -32,7 +32,7 @@ export const actions = {
 			const highestId = Math.max(...users.map((user) => user.id), 0); // (map)Convierto la lista de usuarios en un array que solo tenga id, luego con Math.max cojo el valor de los id mas alto
 			newId = highestId + 1; //Y luego le sumo uno.
 
-			const Insert = await fetch('http://localhost:4000/users', {
+			const insert = await fetch('http://localhost:4000/users', {
 				method: 'POST',
 				body: JSON.stringify({
 					id: newId,
@@ -46,9 +46,10 @@ export const actions = {
 				}
 			});
 
-			if (Insert.ok) {
+			const newUser = await insert.json();
+			if (insert.ok) {
 				//Si la insrccion a ido bien
-				const token = signToken(Insert);
+				const token = signToken(newUser);
 				cookies.set('token', token, { path: '/' });
 				throw redirect(302, '/');
 			}

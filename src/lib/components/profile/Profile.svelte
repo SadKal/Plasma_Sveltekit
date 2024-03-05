@@ -1,5 +1,5 @@
 <script>
-	let imgDefault = 'default.jpg';
+	let imgDefault = '/default.jpg';
 
 	export let username;
 	//Funcion con la cual la imagen que me pasa la pongo como la Default para enseñarla
@@ -60,6 +60,11 @@
 					<button type="submit">Cambiar contraseña</button>
 				</form>
 			</div>
+			<div class="profile__info__deleteuser">
+				<form action="/profile/deleteUser" method="post">
+					<button type="submit">Borrar Usuario</button>
+				</form>
+			</div>
 		</div>
 	</div>
 </main>
@@ -98,15 +103,17 @@
 			width: 80%;
 			height: 100%;
 			display: flex;
-			margin: 30px auto;
-			gap: 20px;
+			flex-direction: column;
+			margin: 0 auto;
+			gap: 30px;
 			padding: 20px;
 			font-size: 25px;
-			justify-content: space-evenly;
+			align-items: center;
 			&__username,
 			&__email,
 			&__changepass {
 				button[type='submit'] {
+					width: 200px;
 					padding: 15px;
 					margin-top: 5px;
 					text-align: center;
@@ -116,6 +123,19 @@
 					color: beige;
 					font-size: 16px;
 					font-weight: bold;
+				}
+			}
+			&__deleteuser {
+				button[type='submit'] {
+					width: 350px;
+					padding: 15px 25px;
+					text-align: center;
+					background-color: red;
+					color: white;
+					border: none;
+					clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+					font-size: 18px;
+					font-weight: 600;
 				}
 			}
 		}

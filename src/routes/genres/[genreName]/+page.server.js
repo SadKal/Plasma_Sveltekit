@@ -9,8 +9,6 @@ export async function load({ params, url }) {
 	if (pagination < 0) {
 		throw redirect(303, `/genres/${currentGenre[0] + '-' + currentGenre[1]}?page=0`);
 	}
-
-
 	const headers = {
 		'Accept': 'application/json',
 		'Client-ID': `${SECRET_TWITCH_API_KEY}`,

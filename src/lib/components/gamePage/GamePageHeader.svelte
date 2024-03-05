@@ -10,6 +10,7 @@
 	import UserPlayInfo from '../../utils/UserPlayInfo.svelte';
 
 	export let game;
+	export let dlcs;
 	const userStore = useUser();
 
 	let showModal = false;
@@ -39,11 +40,11 @@
 			cover = '/images_not_available/no_cover_available.jpg';
 		}
 	});
-
+	
 	async function deleteGame() {
 		if ($userStore?.games) {
 			try {
-				const updatedUser = await deleteGameAndReviewsFromUser($userStore, game);
+				const updatedUser = await deleteGameAndReviewsFromUser($userStore, game, dlcs);
 				$userStore = updatedUser;
 				goto(`/library`);
 			} catch (error) {
