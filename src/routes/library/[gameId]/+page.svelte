@@ -6,7 +6,7 @@
 
 	let { game, dlcs } = data;
 </script>
-<GamePageHeader {game}/>
+<GamePageHeader {game} {dlcs}/>
 
 <GamePagePlayInfo {game} />
 
