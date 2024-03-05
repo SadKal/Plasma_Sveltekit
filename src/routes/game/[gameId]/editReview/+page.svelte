@@ -1,22 +1,30 @@
 <script>
 	import GameShopTextField from '$lib/utils/GameShopTextField.svelte';
-	import { useUser } from '$lib/stores/user';
 
-	export let newReviewID;
+	export let data;
+	let currentReview = data;
+	let rating = currentReview.value ? 'positive' : 'negative';
 </script>
 
 <div class="review-form-container">
-	<form method="POST" class="review-form" id="review-form" action="?/postReview">
+	<form method="POST" class="review-form" id="review-form" action="">
 		<div class="review-form__main">
-			<GameShopTextField title="Reseña este juego:" />
-			<input type="hidden" name="id" value={newReviewID} />
-			<input type="text" name="title" placeholder="Título de la review" required />
+			<GameShopTextField title="Edita esta reseña:" />
+			<input type="hidden" name="id" value={currentReview.id} />
+			<input
+				type="text"
+				name="title"
+				placeholder="Título de la review"
+				value={currentReview.title}
+				required
+			/>
 
 			<textarea
 				name="content"
 				placeholder="Cuéntanos tus pensamientos sobre el juego"
 				cols="40"
 				rows="5"
+				value={currentReview.content}
 				required
 			/>
 		</div>
@@ -24,25 +32,37 @@
 			<GameShopTextField title="¿Que opinas del juego?" />
 
 			<div class="review-form__opinions">
-				<input type="radio" id="positiveRadio" name="review-value" value="positive" checked />
+				<input
+					type="radio"
+					id="positiveRadio"
+					name="review-value"
+					value="positive"
+					bind:group={rating}
+				/>
 				<label for="positiveRadio" class="positiveLabel"></label>
 
-				<input type="radio" id="negativeRadio" name="review-value" value="negative" />
+				<input
+					type="radio"
+					id="negativeRadio"
+					name="review-value"
+					value="negative"
+					bind:group={rating}
+				/>
 				<label for="negativeRadio" class="negativeLabel"></label>
 			</div>
 		</div>
 	</form>
 
 	<div class="review-form__submit__container">
-		<button type="submit" form="review-form" class="review-form__submit">Publicar</button>
+		<button type="submit" form="review-form" class="review-form__submit">Actualizar reseña</button>
 	</div>
 </div>
 
 <style lang="scss">
 	.review-form-container {
+		margin: 5rem auto;
 		padding: 3rem;
 		width: 70%;
-		margin: auto;
 		background-color: var(--game-title-color-center);
 		display: flex;
 		flex-direction: column;

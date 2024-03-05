@@ -142,10 +142,6 @@ export const actions = {
             const reviewsResponse = await fetch(`http://localhost:4000/reviews/${gameId}`)
             const reviews = await reviewsResponse.json();
 
-            for (const review of reviews.reviews) {
-                console.log(review)
-            }
-
             const newReviews = reviews.reviews.filter((review) => review.user != user.username);
             const response = await fetch(`http://localhost:4000/reviews/${gameId}`, {
                 method: 'PATCH',

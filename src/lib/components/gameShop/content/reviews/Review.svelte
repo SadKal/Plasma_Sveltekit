@@ -1,6 +1,7 @@
 <script>
 	import GameShopTextField from '$lib/utils/GameShopTextField.svelte';
 	import { Modal, Button } from 'flowbite-svelte';
+	import { goto } from '$app/navigation';
 
 	export let user;
 	export let value;
@@ -12,6 +13,10 @@
 	let checkDeleting = false;
 	function changeDeleting() {
 		checkDeleting = !checkDeleting;
+	}
+	let checkEditing = false;
+	function changeEditing() {
+		checkEditing = !checkEditing;
 	}
 </script>
 
@@ -52,6 +57,16 @@
 					height="100%"
 				/>
 			</div>
+			<div class="review__edit" on:click={() => goto(`/game/${game.id}/editReview`)}>
+				<object
+					class="edit-svg"
+					title="edit"
+					data="/svgs/edit.svg"
+					type="image/svg+xml"
+					width="100%"
+					height="100%"
+				/>
+			</div>
 		{/if}
 	</div>
 	<div class="review__content">
@@ -65,8 +80,8 @@
 		<br />
 		<form method="POST" action="?/deleteReview">
 			<Button type="submit" size="md">Si</Button>
+			<Button color="alternative" size="md" on:click={changeDeleting}>No</Button>
 		</form>
-		<Button color="alternative" size="md" on:click={changeDeleting}>No</Button>
 	</div>
 </Modal>
 
@@ -85,7 +100,8 @@
 		background-color: var(--gamepage-playinfo-bg-color);
 	}
 	.review__value,
-	.review__delete {
+	.review__delete,
+	.review__edit {
 		max-width: 20%;
 		padding: 0.5rem;
 		height: 100%;
@@ -93,14 +109,21 @@
 		justify-content: flex-end;
 		transition: all 0.3s;
 	}
-	.review__delete:hover {
+	.review__delete:hover,
+	.review__edit:hover {
 		pointer-events: all;
 		z-index: 3;
 		cursor: pointer;
 		transform: scale(1.1);
+	}
+	.review__delete:hover {
 		filter: drop-shadow(0 0 1rem #ff0000);
 	}
-	.delete-svg {
+	.review__edit:hover {
+		filter: drop-shadow(0 0 1rem #2caaa0);
+	}
+	.delete-svg,
+	.edit-svg {
 		pointer-events: none;
 	}
 
