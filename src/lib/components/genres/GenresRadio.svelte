@@ -5,7 +5,7 @@
 
 	function changeSort(event) {
 		const sort = event.target.value;
-		goto(`/genres/${currentGenre[0] + '-' + currentGenre[1]}?page=0&sort=${sort}`);
+		goto(`/genres/${currentGenre[0] + '-' + currentGenre[1]}?page=1&sort=${sort}`);
 	}
 </script>
 

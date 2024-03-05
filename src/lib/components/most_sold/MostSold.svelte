@@ -9,8 +9,8 @@
 	let loading;
 	let noMore = false;
 	async function fetchMoreMostSold() {
+		loading = true;
 		try {
-			loading = true;
 			const response = await fetch(`/api?type=mostSold&q=${offset}`, {
 				method: 'GET',
 				headers: {
@@ -41,11 +41,13 @@
 		{/each}
 	</div>
 	{#if !noMore}
-		<div class="most-sold__load" on:click={fetchMoreMostSold}>
+		<div class="most-sold__load">
 			{#if loading}
 				<Pulse color="#d13364" duration=".5s" size="100" />
 			{:else}
-				<p>Cargar más</p>
+				<div on:click={fetchMoreMostSold}>
+					<p>Cargar más</p>
+				</div>
 			{/if}
 		</div>
 	{/if}
@@ -87,7 +89,7 @@
 			display: flex;
 			justify-content: center;
 			margin-top: 2rem;
-			height: 3rem;
+			height: 5rem;
 
 			& p {
 				padding: 1rem;

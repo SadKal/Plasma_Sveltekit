@@ -73,11 +73,6 @@
       "email": "hola@gmail.com",
       "games": [
         {
-          "id": 191411,
-          "hoursplayed": 40,
-          "buydate": 1684079773000
-        },
-        {
           "id": 11416,
           "hoursplayed": 67,
           "buydate": 1689242198000
@@ -188,18 +183,6 @@
           "buydate": 1709568386273
         },
         {
-          "id": 191411,
-          "hoursplayed": 0,
-          "buydate": 1709568834880,
-          "dlcs": [
-            {
-              "id": 236669,
-              "hoursplayed": 0,
-              "buydate": 1709569141408
-            }
-          ]
-        },
-        {
           "id": 25076,
           "hoursplayed": 0,
           "buydate": 1709568834916
@@ -299,20 +282,6 @@
       "id": 133236,
       "reviews": [
         {
-          "id": 1,
-          "title": "Obra maestra",
-          "content": "Lo jugaba en casa de mi primo Manolo.",
-          "value": true,
-          "user": "Alex"
-        },
-        {
-          "id": 2,
-          "title": "Decepcionante.",
-          "content": "Un juego demasiado largo para lo que era el original. Cada vez me fío menos de Square Enix. Me plantearé seriamente no comprar el siguiente de la saga.",
-          "value": false,
-          "user": "JohnVideogame"
-        },
-        {
           "id": 3,
           "title": "Decente",
           "content": "El juego esta bien, pero ni de lejos tan bueno como Outer Wilds, si estas leyendo esto juega Outer Wilds.",
@@ -330,15 +299,7 @@
     },
     {
       "id": 236669,
-      "reviews": [
-        {
-          "id": 1,
-          "title": "Revivió a mi abuela",
-          "content": "Este DLC es tan bueno que al morir mi abuela volvió para seguir jugando.",
-          "value": true,
-          "user": "Alex"
-        }
-      ]
+      "reviews": []
     },
     {
       "id": 252647,
@@ -354,15 +315,7 @@
     },
     {
       "id": 262973,
-      "reviews": [
-        {
-          "id": 1,
-          "title": "Buen juego",
-          "content": "Suficientemente decente para la saga",
-          "value": true,
-          "user": "Alex"
-        }
-      ]
+      "reviews": []
     }
   ]
 }

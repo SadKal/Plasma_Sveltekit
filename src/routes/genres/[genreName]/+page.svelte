@@ -18,14 +18,14 @@
 
 	function changeSelection(event) {
 		selectedOption = event.target.value;
-		goto(`/genres/${selectedOption}?page=0`);
+		goto(`/genres/${selectedOption}?page=1`);
 	}
 
 	function changePage(direction) {
 		if (pagination != 1 || direction == 1 || games.length < 20) {
 			const href = `/genres/${currentGenre[0] + '-' + currentGenre[1]}?page=${
 				parseInt(pagination) + direction
-			}`;
+			}&sort=${currentSort}`;
 			preloadData(href);
 			goto(href);
 		}
