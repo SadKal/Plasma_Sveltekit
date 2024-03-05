@@ -1,11 +1,13 @@
 <script>
 	import SearchResult from './SearchResult.svelte';
 	import { clickOutside } from '$lib/utils/outsideCart';
+	import { Stretch } from 'svelte-loading-spinners';
 
 	let searchValue = '';
 	let searchbar;
 	let scrollY;
 	let searchResult = [];
+	let loading = false;
 
 	function debounce(callback, wait) {
 		let timerId;
@@ -19,6 +21,7 @@
 
 	const searchGames = debounce(async (textToSearch) => {
 		if (textToSearch.trim() !== '') {
+			loading = true;
 			const response = await fetch(`/api?type=search&q=${textToSearch}`, {
 				method: 'GET',
 				headers: {
@@ -28,6 +31,7 @@
 			const result = await response.json();
 
 			searchResult = result;
+			loading = false;
 		} else {
 			searchResult = [];
 		}
@@ -76,9 +80,15 @@
 			bind:value={searchValue}
 		/>
 		<div class="search__results">
-			{#each searchResult as game (game.id)}
-				<SearchResult {game} />
-			{/each}
+			{#if !loading}
+				{#each searchResult as game (game.id)}
+					<SearchResult {game} />
+				{/each}
+			{:else}
+				<div style="display: flex; justify-content: center;">
+					<Stretch color="#d13364" duration=".5s" size="100" />
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>

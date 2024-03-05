@@ -1,5 +1,4 @@
 <script>
-	import Loading from '$lib/utils/Loading.svelte';
 	import MostSoldGame from './MostSoldGame.svelte';
 	import { Pulse } from 'svelte-loading-spinners';
 
@@ -87,10 +86,12 @@
 		&__load {
 			display: flex;
 			justify-content: center;
+			margin-top: 2rem;
+			height: 3rem;
 
 			& p {
 				padding: 1rem;
-				margin-top: 2rem;
+
 				color: var(--text-color);
 				font-size: 2rem;
 				font-weight: 600;

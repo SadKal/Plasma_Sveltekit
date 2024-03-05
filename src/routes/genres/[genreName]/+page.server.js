@@ -4,11 +4,13 @@ import { redirect } from '@sveltejs/kit';
 export async function load({ params, url }) {
 	const { genreName } = params;
 	const currentGenre = genreName.split("-");
-	let pagination = url.searchParams.get('page') || 0;
+	let pagination = url.searchParams.get('page') || 1;
+	let currentSort = url.searchParams.get('sort') || 'first_release_date';
 	if (pagination < 0) {
 		throw redirect(303, `/genres/${currentGenre[0] + '-' + currentGenre[1]}?page=0`);
 	}
-	console.log(url)
+
+
 	const headers = {
 		'Accept': 'application/json',
 		'Client-ID': `${SECRET_TWITCH_API_KEY}`,
@@ -53,13 +55,15 @@ export async function load({ params, url }) {
 			headers: headers,
 			body: `fields artworks.image_id,name,genres.name, themes.name, 
             screenshots.image_id; 
-            where ${currentGenre[0].toLowerCase()}=(${currentGenre[1]}) & total_rating > 70 & category != (1, 2, 5, 12, 14);
-			sort first_release_date desc;
+            where ${currentGenre[0].toLowerCase()}=(${currentGenre[1]}) & total_rating > 70 & 
+			category != (1, 2, 3, 5, 11, 12, 14) & first_release_date < ${Math.floor(Date.now() / 1000)};
+			sort ${currentSort} ${currentSort == 'name' ? 'asc' : 'desc'};
 			limit 20;
-			offset ${20 * pagination};
+			offset ${20 * (pagination - 1)};
 			`
 		});
 	let games = await gamesResponse.json();
 
-	return { genres, games, currentGenre, pagination };
+
+	return { genres, games, currentGenre, pagination, currentSort };
 }

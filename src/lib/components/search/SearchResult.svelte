@@ -24,7 +24,7 @@
 		display: flex;
 		align-items: center;
 		box-sizing: border-box;
-		height: 8rem;
+		height: 8rem; 
 		background-color: var(--search-result-color);
 		padding: 0.3rem;
 		transition: all 0.3s;

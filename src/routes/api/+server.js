@@ -4,7 +4,7 @@ export async function GET({ url }) {
     let toSearch = url.searchParams.get('q');
     let type = url.searchParams.get('type');
 
-    console.log(type)
+
     const headers = {
         'Accept': 'application/json',
         'Client-ID': `${SECRET_TWITCH_API_KEY}`,

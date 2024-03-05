@@ -23,7 +23,7 @@
 		}
 	}
 	let newReviewID;
-	if (gameReviews) {
+	if (gameReviews?.length > 0) {
 		newReviewID = gameReviews[gameReviews?.length - 1].id + 1 || 1;
 	} else {
 		newReviewID = 1;

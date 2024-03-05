@@ -1,10 +1,11 @@
 <script>
 	import GenreGame from '$lib/components/genres/GenreGame.svelte';
 	import { goto, preloadData } from '$app/navigation';
+	import GenresRadio from '$lib/components/genres/GenresRadio.svelte';
 
 	export let data;
 
-	const { genres, games, currentGenre, pagination } = data;
+	const { genres, games, currentGenre, pagination, currentSort } = data;
 
 	//Por como esta construido, el genero actual siempre estará arriba
 	let genreList = [];
@@ -21,7 +22,7 @@
 	}
 
 	function changePage(direction) {
-		if (pagination != 0 || direction == 1 || games.length < 20) {
+		if (pagination != 1 || direction == 1 || games.length < 20) {
 			const href = `/genres/${currentGenre[0] + '-' + currentGenre[1]}?page=${
 				parseInt(pagination) + direction
 			}`;
@@ -43,18 +44,19 @@
 				{/each}
 			</select>
 		</div>
-
+		<GenresRadio {currentSort} {currentGenre} />
 		<div class="genres__game-list">
 			{#each games as game}
 				<GenreGame {game} />
 			{/each}
 		</div>
+
 		<div class="genres__pagination">
 			Página {pagination}
 			<div class="genres__pagination__buttons">
 				<div
 					class="genres__pagination__previous"
-					class:pageZero={pagination == 0}
+					class:pageOne={pagination == 1}
 					on:click={() => changePage(-1)}
 				>
 					&lt;
@@ -99,7 +101,7 @@
 			background-color: var(--cart-total-bg-color);
 		}
 	}
-	.genres__pagination__previous.pageZero,
+	.genres__pagination__previous.pageOne,
 	.genres__pagination__next.pageMax {
 		color: darkgray;
 		&:hover {
@@ -152,7 +154,7 @@
 		}
 
 		&__game-list {
-			margin-top: 6rem;
+			margin-top: 2rem;
 			padding-bottom: 2rem;
 		}
 	}
