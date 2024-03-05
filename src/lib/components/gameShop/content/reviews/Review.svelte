@@ -1,9 +1,18 @@
 <script>
 	import GameShopTextField from '$lib/utils/GameShopTextField.svelte';
+	import { Modal, Button } from 'flowbite-svelte';
+
 	export let user;
 	export let value;
 	export let title;
 	export let content;
+	export let userReview = false;
+	export let game = '';
+
+	let checkDeleting = false;
+	function changeDeleting() {
+		checkDeleting = !checkDeleting;
+	}
 </script>
 
 <div class="review">
@@ -32,11 +41,34 @@
 				/>
 			{/if}
 		</div>
+		{#if userReview}
+			<div class="review__delete" on:click={changeDeleting}>
+				<object
+					class="delete-svg"
+					title="delete"
+					data="/svgs/delete_hover.svg"
+					type="image/svg+xml"
+					width="100%"
+					height="100%"
+				/>
+			</div>
+		{/if}
 	</div>
 	<div class="review__content">
 		<GameShopTextField {title} {content} darkBG={true} />
 	</div>
 </div>
+
+<Modal bind:open={checkDeleting} size="sm" color="primary">
+	<div class="text-center">
+		<h3 class="gamePage__deleteGame-modalText">¿Quieres borrar esta review?</h3>
+		<br />
+		<form method="POST" action="?/deleteReview">
+			<Button type="submit" size="md">Si</Button>
+		</form>
+		<Button color="alternative" size="md" on:click={changeDeleting}>No</Button>
+	</div>
+</Modal>
 
 <style lang="scss">
 	.review {
@@ -52,13 +84,26 @@
 		border: 1px solid var(--text-color);
 		background-color: var(--gamepage-playinfo-bg-color);
 	}
-	.review__value {
+	.review__value,
+	.review__delete {
 		max-width: 20%;
 		padding: 0.5rem;
 		height: 100%;
 		display: flex;
 		justify-content: flex-end;
+		transition: all 0.3s;
 	}
+	.review__delete:hover {
+		pointer-events: all;
+		z-index: 3;
+		cursor: pointer;
+		transform: scale(1.1);
+		filter: drop-shadow(0 0 1rem #ff0000);
+	}
+	.delete-svg {
+		pointer-events: none;
+	}
+
 	.review__content {
 		padding: 1rem;
 	}

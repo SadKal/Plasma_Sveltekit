@@ -44,6 +44,8 @@
 				content={yourReview.content}
 				value={yourReview.value}
 				user={yourReview.user}
+				userReview={true}
+				{game}
 			/>
 		</div>
 	{:else if !gameOwned && $userStore?.username}

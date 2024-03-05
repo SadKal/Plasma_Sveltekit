@@ -64,7 +64,7 @@ export async function load({ params }) {
 }
 
 export const actions = {
-    default: async ({ cookies, request, params }) => {
+    postReview: async ({ cookies, request, params }) => {
         const { gameId } = params;
         const token = cookies.get('token');
         const data = await request.formData();
@@ -121,5 +121,45 @@ export const actions = {
         catch (err) {
             console.error('Error updating reviews:', err);
         }
+    },
+    deleteReview: async ({ cookies, request, params }) => {
+        const data = await request.formData();
+        const game = data.get('game');
+        const token = cookies.get('token');
+        const { gameId } = params;
+
+        let user;
+        if (token) {
+            const decodeToken = verifyToken(token);
+
+            if (decodeToken) {
+                const userToken = decodeToken;
+                const responseUser = await fetch(`http://localhost:4000/users/${userToken.id}`);
+                user = await responseUser.json();
+            }
+        }
+        try {
+            const reviewsResponse = await fetch(`http://localhost:4000/reviews/${gameId}`)
+            const reviews = await reviewsResponse.json();
+
+            for (const review of reviews.reviews) {
+                console.log(review)
+            }
+
+            const newReviews = reviews.reviews.filter((review) => review.user != user.username);
+            const response = await fetch(`http://localhost:4000/reviews/${gameId}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ reviews: newReviews })
+            }
+            );
+
+        }
+        catch (err) {
+            console.error('Error updating reviews:', err);
+        }
+
     }
 };

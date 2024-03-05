@@ -6,7 +6,7 @@
 </script>
 
 <div class="review-form-container">
-	<form method="POST" class="review-form" id="review-form">
+	<form method="POST" class="review-form" id="review-form" action="?/postReview">
 		<div class="review-form__main">
 			<GameShopTextField title="Reseña este juego:" />
 			<input type="hidden" name="id" value={newReviewID} />
