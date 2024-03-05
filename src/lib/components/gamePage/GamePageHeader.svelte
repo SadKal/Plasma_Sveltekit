@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { useUser } from '$lib/stores/user';
 	import { Button, Modal } from 'flowbite-svelte';
-	import { deleteGameFromUser } from '$lib/utils/functions';
+	import { deleteGameAndReviewsFromUser } from '$lib/utils/functions';
 	import Cover from '../../utils/Cover.svelte';
 	import GameTitle from '../../utils/GameTitle.svelte';
 	import UserPlayInfo from '../../utils/UserPlayInfo.svelte';
@@ -43,7 +43,7 @@
 	async function deleteGame() {
 		if ($userStore?.games) {
 			try {
-				const updatedUser = await deleteGameFromUser($userStore, game);
+				const updatedUser = await deleteGameAndReviewsFromUser($userStore, game);
 				$userStore = updatedUser;
 				goto(`/library`);
 			} catch (error) {

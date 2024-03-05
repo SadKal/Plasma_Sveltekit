@@ -24,8 +24,6 @@ export const actions = {
 		const users = await userResponse.json(); //Y le digo que me lo meta en una constante y que es de tipo json
 		const reviews = await reviewResponse.json();
 
-		console.log('reviews?', reviews);
-
 		if (formOldUser === tokenUsername) {
 			userFound = users.find(
 				(user) => user.username === tokenUsername && user.password === formPassword
@@ -46,20 +44,15 @@ export const actions = {
 			});
 			if (updateResponse.ok) {
 				for (const reviewGame of reviews) {
-					console.log('reviewGame', reviewGame);
 					for (const specificReview of reviewGame.reviews) {
-						//console.log('>>>>>', specificReview.user);
 						if (specificReview.user === formOldUser) {
 							specificReview.user = formNewUser;
-							console.log(specificReview.user);
 						}
 					}
 				}
-				console.log('>>>>>>>><', reviews);
-				console.log('>>>>>>>><', reviews[1]);
+
 				let updateReviewsResponse;
 				for (const review of reviews) {
-					console.log('>>>>>', review)
 					updateReviewsResponse = await fetch(`http://localhost:4000/reviews/${review.id}`, {
 						method: 'PATCH',
 						body: JSON.stringify({ reviews: review.reviews }),
@@ -70,7 +63,6 @@ export const actions = {
 				}
 
 				if (updateReviewsResponse.ok) {
-					let username = formNewUser;
 					const newToken = signToken(updateUser);
 					cookies.set('token', newToken, { path: '/' });
 					throw redirect(302, '/');
