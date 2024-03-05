@@ -23,7 +23,7 @@
 		}
 	}
 	let newReviewID;
-	if (gameReviews) {
+	if (gameReviews?.length > 0) { //i THINK this is necessary in case we get a single review, user deletes, and we have an empty reviews array
 		newReviewID = gameReviews[gameReviews?.length - 1].id + 1 || 1;
 	} else {
 		newReviewID = 1;

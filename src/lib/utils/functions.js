@@ -68,19 +68,21 @@ export async function deleteGameAndReviewsFromUser(userToUpdate, game) {
 		try {
 			try {
 				let updateReviews;
-				for (let reviewGame of reviews) {
-					reviewGame = reviewGame.reviews.filter(
-						(delReviews) => delReviews.name !== userToUpdate.username
-					);
-                    console.log(">>>>>>>>", reviewGame.reviews);
-					updateReviews = await fetch(`http://localhost:4000/reviews/${reviewGame.id}`, {
-						method: 'PATCH',
-						body: JSON.stringify({ reviews: reviewGame.reviews }),
-						headers: {
-							'Content-Type': 'application/json'
-						}
-					});
-                    console.log("<<<<<<", updateReviews);
+				for (let review of reviews) {
+					review.reviews = review.reviews.filter(
+						(delReviews) => delReviews.user !== userToUpdate.username
+						);
+						console.log(">>>>>", review);
+				}
+				for (let review of reviews) {
+					console.log(review);
+					updateReviews = await fetch(`http://localhost:4000/reviews/${review.id}`, {
+							method: 'PATCH',
+							body: JSON.stringify({ reviews: review.reviews }),
+							headers: {
+								'Content-Type': 'application/json'
+							}
+						});
 				}
 			} catch (error) {
 				console.error('Error deleting reviews from user:', error);
