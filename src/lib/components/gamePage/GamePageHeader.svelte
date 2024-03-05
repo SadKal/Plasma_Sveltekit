@@ -98,6 +98,7 @@
 		padding: 10px;
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 		cursor: pointer;
+		z-index: 1;
 		&-modalText {
 			color: var(--text-color);
 			font-size: 1.5rem;
