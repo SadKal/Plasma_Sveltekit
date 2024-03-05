@@ -1,12 +1,14 @@
 <script>
 	import Loading from '$lib/utils/Loading.svelte';
 	import MostSoldGame from './MostSoldGame.svelte';
+	import { Pulse } from 'svelte-loading-spinners';
 
 	export let mostSold;
 
 	let offset = mostSold.length;
 
 	let loading;
+	let noMore = false;
 	async function fetchMoreMostSold() {
 		try {
 			loading = true;
@@ -18,8 +20,13 @@
 			});
 			const newMostSold = await response.json();
 			mostSold = [...mostSold, ...newMostSold];
+			noMore = newMostSold.length < 4 ? true : false;
 			offset = mostSold.length;
 			loading = false;
+			window.scrollTo({
+				top: window.scrollY + 600,
+				behavior: 'smooth'
+			});
 		} catch (error) {
 			console.error('Error updating data:', error.message);
 		}
@@ -34,13 +41,15 @@
 			<MostSoldGame {game} {index} />
 		{/each}
 	</div>
-	<div class="most-sold__load" on:click={fetchMoreMostSold}>
-		{#if loading}
-			<Loading />
-		{:else}
-			<p>Cargar más</p>
-		{/if}
-	</div>
+	{#if !noMore}
+		<div class="most-sold__load" on:click={fetchMoreMostSold}>
+			{#if loading}
+				<Pulse color="#d13364" duration=".5s" size="100" />
+			{:else}
+				<p>Cargar más</p>
+			{/if}
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
