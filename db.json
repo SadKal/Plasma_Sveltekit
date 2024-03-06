@@ -195,12 +195,39 @@
         {
           "id": 164867,
           "hoursplayed": 0,
-          "buydate": 1709568835006
+          "buydate": 1709568835006,
+          "dlcs": [
+            {
+              "id": 270502,
+              "hoursplayed": 0,
+              "buydate": 1709714623394
+            }
+          ]
         },
         {
-          "id": 262973,
+          "id": 11397,
           "hoursplayed": 0,
-          "buydate": 1709583358581
+          "buydate": 1709714363267
+        },
+        {
+          "id": 253409,
+          "hoursplayed": 0,
+          "buydate": 1709714663781
+        },
+        {
+          "id": 274086,
+          "hoursplayed": 0,
+          "buydate": 1709715002541
+        },
+        {
+          "id": 239942,
+          "hoursplayed": 0,
+          "buydate": 1709715002554
+        },
+        {
+          "id": 7346,
+          "hoursplayed": 0,
+          "buydate": 1709715178545
         }
       ]
     },
@@ -352,13 +379,6 @@
           "buydate": 1709565462000
         }
       ]
-    },
-    {
-      "id": 6,
-      "username": "finaltest",
-      "password": "finaltest",
-      "email": "finaltest",
-      "games": []
     }
   ],
   "reviews": [
@@ -406,15 +426,7 @@
     },
     {
       "id": 262973,
-      "reviews": [
-        {
-          "id": 1,
-          "title": "Buen juego",
-          "content": "Suficientemente decente para la saga",
-          "value": true,
-          "user": "Alex"
-        }
-      ]
+      "reviews": []
     },
     {
       "id": 1009,
@@ -454,6 +466,10 @@
     },
     {
       "id": 253409,
+      "reviews": []
+    },
+    {
+      "id": 11397,
       "reviews": []
     }
   ]
