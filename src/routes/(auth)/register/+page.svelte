@@ -37,11 +37,14 @@
 <style lang="scss">
 	.register {
 		height: 80vh;
-		width: 100%;
-		display: grid;
+		width: fit-content;
+		margin: 0 auto;
+		display: flex;
 
 		&__form {
-			display: grid;
+			display: flex;
+			position: relative;
+			top: -10%;
 
 			form {
 				place-self: center;
