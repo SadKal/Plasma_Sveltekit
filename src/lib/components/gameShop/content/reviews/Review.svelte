@@ -76,7 +76,7 @@
 
 <Modal bind:open={checkDeleting} size="sm" color="primary">
 	<div class="text-center">
-		<h3 class="gamePage__deleteGame-modalText">¿Quieres borrar esta review?</h3>
+		<h3 class="gamePage__deleteGame-modalText">¿Quieres borrar esta reseña?</h3>
 		<br />
 		<form method="POST" action="?/deleteReview">
 			<Button type="submit" size="md">Si</Button>

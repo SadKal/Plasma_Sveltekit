@@ -10,7 +10,7 @@
 		<div class="review-form__main">
 			<GameShopTextField title="Reseña este juego:" />
 			<input type="hidden" name="id" value={newReviewID} />
-			<input type="text" name="title" placeholder="Título de la review" required />
+			<input type="text" name="title" placeholder="Título de la reseña" required />
 
 			<textarea
 				name="content"
