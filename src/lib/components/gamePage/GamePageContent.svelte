@@ -1,7 +1,6 @@
 <script>
 	import { Modal } from 'flowbite-svelte';
 	import DLCS from '$lib/components/gameShop/content/main/DLCS/DLCS.svelte';
-	import GameShopTextField from '$lib/utils/GameShopTextField.svelte';
 
 	export let game;
 	export let dlcs;
@@ -19,15 +18,15 @@
 
 {#if game.platforms.includes(3) | game.platforms.includes(6) && game.platforms.includes(34) | game.platforms.includes(39)}
 	<Modal bind:open={showModal} size="xl" color="primary" outsideclose="true">
-		<img src="https://images.igdb.com/igdb/image/upload/t_original/{imgID}.jpg" />
+		<img src="https://images.igdb.com/igdb/image/upload/t_original/{imgID}.jpg" alt="Captura de pantalla de {game.name}"/>
 	</Modal>
 {:else if !(game.platforms.includes(3) | game.platforms.includes(6)) && game.platforms.includes(34) | game.platforms.includes(39)}
 	<Modal bind:open={showModal} size="sm" color="primary" outsideclose="true">
-		<img src="https://images.igdb.com/igdb/image/upload/t_original/{imgID}.jpg" />
+		<img src="https://images.igdb.com/igdb/image/upload/t_original/{imgID}.jpg" alt="Captura de pantalla de {game.name}"/>
 	</Modal>
 {:else}
 	<Modal bind:open={showModal} size="xl" color="primary" outsideclose="true">
-		<img src="https://images.igdb.com/igdb/image/upload/t_original/{imgID}.jpg" />
+		<img src="https://images.igdb.com/igdb/image/upload/t_original/{imgID}.jpg" alt="Captura de pantalla de {game.name}"/>
 	</Modal>
 {/if}
 
@@ -39,7 +38,8 @@
 		{#each game.screenshots as screenshot (screenshot.image_id)}
 			<img
 				id={screenshot.image_id}
-				src="https://images.igdb.com/igdb/image/upload/t_original/{screenshot.image_id}.jpg"
+				src="https://images.igdb.com/igdb/image/upload/t_screenshot_med/{screenshot.image_id}.jpg"
+				alt="Captura de pantalla de {game.name}"
 				on:click={() => modalActivation(screenshot.image_id)}
 			/>
 		{/each}
