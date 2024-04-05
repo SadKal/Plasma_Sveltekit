@@ -1,11 +1,9 @@
-import { SECRET_TWITCH_API_KEY, SECRET_TWITCH_API_BEARER } from '$env/static/private';
-import { verifyToken, signToken } from '$lib/utils/jwt';
+import { verifyToken } from '$lib/utils/jwt';
 import { redirect } from '@sveltejs/kit';
 
 export async function load({ params, cookies }) {
     const token = cookies.get('token');
     const { gameId } = params;
-    console.log(gameId);
 
     let user;
     if (token) {

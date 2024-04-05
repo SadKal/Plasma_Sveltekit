@@ -128,23 +128,6 @@
           "buydate": 1706272775000
         },
         {
-          "id": 7498,
-          "hoursplayed": 0,
-          "buydate": 1709024780000,
-          "dlcs": [
-            {
-              "id": 173151,
-              "hoursplayed": 0,
-              "buydate": 1709376437000
-            },
-            {
-              "id": 119123,
-              "hoursplayed": 0,
-              "buydate": 1709376449000
-            }
-          ]
-        },
-        {
           "id": 181162,
           "hoursplayed": 0,
           "buydate": 1709026317000
@@ -163,12 +146,24 @@
           "id": 133236,
           "hoursplayed": 0,
           "buydate": 1709491123000
+        },
+        {
+          "id": 7498,
+          "hoursplayed": 0,
+          "buydate": 1709726033538,
+          "dlcs": [
+            {
+              "id": 118958,
+              "hoursplayed": 0,
+              "buydate": 1709726039643
+            }
+          ]
         }
       ]
     },
     {
       "id": 2,
-      "username": "Alex",
+      "username": "Alex2",
       "password": "1234",
       "email": "gigidi@gmail.com",
       "games": [
@@ -228,6 +223,26 @@
           "id": 7346,
           "hoursplayed": 0,
           "buydate": 1709715178545
+        },
+        {
+          "id": 203449,
+          "hoursplayed": 0,
+          "buydate": 1709723577443
+        },
+        {
+          "id": 7498,
+          "hoursplayed": 0,
+          "buydate": 1709724034053
+        },
+        {
+          "id": 217592,
+          "hoursplayed": 0,
+          "buydate": 1709727126638
+        },
+        {
+          "id": 262534,
+          "hoursplayed": 0,
+          "buydate": 1709727300997
         }
       ]
     },
@@ -471,6 +486,30 @@
     {
       "id": 11397,
       "reviews": []
+    },
+    {
+      "id": 203449,
+      "reviews": [
+        {
+          "id": 1,
+          "title": "Increiblemente bueno",
+          "content": "fafafafafa",
+          "value": "positive",
+          "user": "Alex2"
+        }
+      ]
+    },
+    {
+      "id": 217592,
+      "reviews": [
+        {
+          "id": 1,
+          "title": "AY",
+          "content": "LMAO\r\n",
+          "value": false,
+          "user": "Alex2"
+        }
+      ]
     }
   ]
 }

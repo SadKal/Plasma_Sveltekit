@@ -10,7 +10,7 @@
 		<GameShopTextField
 			title="Valoración:"
 			content={Math.round(game.total_rating)}
-			font_size="1.5rem"
+			font_size="2.5rem"
 		/>
 		<Progressbar progress={game.total_rating} color="primary" size="h-5" />
 	{:else}
